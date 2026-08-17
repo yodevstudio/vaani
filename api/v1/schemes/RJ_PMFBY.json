@@ -1,0 +1,88 @@
+{
+  "scheme_id": "RJ_PMFBY",
+  "name_hi": "प्रधानमंत्री फसल बीमा योजना",
+  "name_en": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+  "keywords_hi": [
+    "फसल बीमा",
+    "फसल खराब",
+    "बीमा योजना किसान",
+    "पीएमएफबीवाई"
+  ],
+  "department": "Union Ministry of Agriculture & Farmers Welfare (Central Sector Scheme), implemented in Rajasthan via Agriculture Department & empanelled insurance companies",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://pmfby.gov.in/compendium/General/1_2_3_merged.pdf",
+  "source_url_secondary": "https://rajkisan.rajasthan.gov.in/",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "occupation",
+        "op": "eq",
+        "value": "farmer"
+      }
+    ],
+    "any_of": [
+      {
+        "slot": "farmer_loan_status",
+        "op": "eq",
+        "value": "loanee"
+      },
+      {
+        "slot": "farmer_loan_status",
+        "op": "eq",
+        "value": "non_loanee"
+      }
+    ],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "insurance",
+    "amount_inr": null,
+    "amount_text_hi": "किसान का प्रीमियम अंश फसल के अनुसार तय है — खरीफ फसलों पर बीमित राशि का 2%, रबी फसलों पर 1.5%, वाणिज्यिक/बागवानी फसलों पर 5%; शेष प्रीमियम केंद्र व राज्य सरकार वहन करती है (सिंचित जिलों में 25% व असिंचित में 30% तक सरकार की सीमा)। दावा राशि फसल के नुकसान के आकलन पर निर्भर है, इसलिए एक स्थिर amount_inr नहीं दिया जा सकता",
+    "rate_policy": "PREMIUM_PERCENT_VARIES_BY_CROP_DO_NOT_COLLAPSE",
+    "note": "PMFBY 2.0 (खरीफ 2020 से) के तहत ऋणी (loanee) किसानों के लिए भी नामांकन अब स्वैच्छिक है, पहले अनिवार्य था। बीमित राशि व दावा फसल-वार व मौसम-वार तय होती है, इसलिए एक बंधी राशि देना भ्रामक होगा।"
+  },
+  "documents": [
+    {
+      "doc_id": "AADHAAR",
+      "label_hi": "आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+      "sample_image": "assets/docs/aadhaar.svg"
+    },
+    {
+      "doc_id": "LAND_RECORD",
+      "label_hi": "जमाबंदी / बुवाई प्रमाण पत्र",
+      "icon": "document",
+      "where_to_get_hi": "तहसील (राजस्व विभाग)",
+      "sample_image": "assets/docs/land_record.svg"
+    },
+    {
+      "doc_id": "BANK_PASSBOOK",
+      "label_hi": "बैंक खाते की पासबुक",
+      "icon": "bank",
+      "where_to_get_hi": "बैंक शाखा",
+      "sample_image": "assets/docs/bank_passbook.svg"
+    },
+    {
+      "doc_id": "SOWING_CERT",
+      "label_hi": "बुवाई प्रमाण पत्र (स्व-घोषणा)",
+      "icon": "certificate",
+      "where_to_get_hi": "पटवारी / ई-मित्र",
+      "sample_image": "assets/docs/sowing_cert.svg"
+    }
+  ],
+  "apply_via": [
+    "emitra",
+    "bank_branch"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र या बैंक शाखा पर जाकर पुष्टि करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+  }
+}

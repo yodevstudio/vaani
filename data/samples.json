@@ -1,0 +1,14 @@
+{
+  "version": "2026.08.15",
+  "note": "Fallback tappable sample queries shown when the mic is unavailable or permission is denied. Each phrase reuses vocabulary already verified in data/schemes.json (name_hi / keywords_hi) — no new scheme claims. P3: 'म्हने कांई-कांई मिल सकै?' is kept inside the first FALLBACK_SAMPLE_COUNT (4, js/app.js) so the discovery flow is reachable in one tap from a cold load, not just the mic.",
+  "samples": [
+    { "query_hi": "बुढ़ापा री पिंडोळी चाहिए" },
+    { "query_hi": "पालनहार योजना क्या है" },
+    { "query_hi": "विधवा पेंशन कैसे मिलेगी" },
+    { "query_hi": "म्हने कांई-कांई मिल सकै?" },
+    { "query_hi": "तारबंदी योजना चाहिए" },
+    { "query_hi": "बेरोजगारी भत्ता चाहिए" },
+    { "query_hi": "स्वास्थ्य बीमा के बारे में बताओ" },
+    { "query_hi": "विकलांग पेंशन चाहिए" }
+  ]
+}

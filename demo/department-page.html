@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>नमूना विभाग पोर्टल (काल्पनिक उदाहरण) — VAANI R4 डेमो</title>
+<style>
+  /* Deliberately NOT VAANI's design tokens — a different font, a
+     different colour scheme — so the embedded widget's shadow-DOM
+     styling visibly survives contact with a host page that looks
+     nothing like VAANI. That contrast is the point of this demo. */
+  body {
+    font-family: Georgia, 'Noto Sans Devanagari', serif;
+    background: #EDEDED;
+    color: #222;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .mock-banner {
+    background: #B03A2E;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    padding: 0.75rem 1rem;
+    font-family: sans-serif;
+  }
+  header {
+    background: #2E4A3D;
+    color: #fff;
+    padding: 1rem 1.5rem;
+  }
+  header h1 { margin: 0; font-size: 1.4rem; }
+  header p { margin: 0.25rem 0 0; opacity: 0.85; font-size: 0.9rem; }
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 1.25rem;
+  }
+  .card h2 { margin-top: 0; font-size: 1.15rem; }
+  .embed-slot {
+    background: #fff;
+    border: 1px dashed #999;
+    border-radius: 6px;
+    padding: 1.25rem;
+  }
+  .embed-slot__label {
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    color: #666;
+    margin: 0 0 0.75rem;
+  }
+  footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+    padding: 2rem 1rem;
+    font-family: sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<p class="mock-banner">⚠ यह एक काल्पनिक/नमूना पृष्ठ है — किसी वास्तविक सरकारी विभाग का प्रतिनिधित्व नहीं करता। VAANI की R4 (embed widget) क्षमता के प्रदर्शन हेतु बनाया गया।<br>
+<span style="font-weight:normal; font-size:0.85em;">MOCK PAGE — does not represent any real government department. Built solely to demonstrate VAANI's R4 embeddable widget.</span></p>
+
+<header>
+  <h1>नमूना सरकारी विभाग पोर्टल</h1>
+  <p>Sample Government Department Portal — जनकल्याण योजना अनुभाग (उदाहरण)</p>
+</header>
+
+<main>
+  <section class="card">
+    <h2>पालनहार योजना — संक्षिप्त जानकारी</h2>
+    <p>यह एक काल्पनिक विभागीय पृष्ठ है जो दिखाता है कि कोई भी विभाग अपनी वेबसाइट में एक ही लाइन जोड़कर VAANI की पात्रता जांच विजेट को एम्बेड कर सकता है — बिना VAANI ऐप खोले, बिना अपना खुद का पात्रता इंजन बनाए।</p>
+    <p>नीचे दिया गया बॉक्स इसी पृष्ठ के भीतर, इसी डोमेन से नहीं बल्कि सीधे VAANI की प्रकाशित रजिस्ट्री (<code>api/v1/</code>) से डेटा लाकर, एक स्वतंत्र <code>&lt;script&gt;</code> टैग द्वारा प्रस्तुत किया गया है।</p>
+  </section>
+
+  <section class="embed-slot">
+    <p class="embed-slot__label">↓ VAANI embed widget (shadow DOM — इस पृष्ठ की अपनी CSS इसे प्रभावित नहीं कर सकती):</p>
+
+    <!-- R4: the entire integration is this one line. -->
+    <script src="../embed/vaani-embed.js" data-scheme="RJ_PALANHAR"></script>
+
+  </section>
+
+  <section class="card">
+    <h2>यह कैसे काम करता है</h2>
+    <p>विजेट <code>/api/v1/schemes/RJ_PALANHAR.json</code> से योजना का डेटा लाता है, और वही पात्रता तर्क (<code>js/eligibility.js</code>) व वही उत्तर-वाक्य (<code>js/assemble.js</code>) उपयोग करता है जो मुख्य VAANI ऐप उपयोग करता है — इसलिए यह मुख्य ऐप से कभी असहमत नहीं हो सकता। अगर डेटा लोड न हो सके, तो यह टूटता नहीं — एक साधारण लिंक दिखा देता है।</p>
+  </section>
+</main>
+
+<footer>
+  VAANI — Rajasthan Innovation Challenge submission (YoDevStudio) · <a href="https://github.com/yodevstudio/vaani">source</a>
+</footer>
+
+</body>
+</html>

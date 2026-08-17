@@ -1,0 +1,81 @@
+{
+  "scheme_id": "RJ_DISABILITY_AIDS_ADIP",
+  "name_hi": "विशेष योग्यजन सहायक उपकरण योजना (ADIP)",
+  "name_en": "Assistance to Disabled Persons for Purchase/Fitting of Aids & Appliances (ADIP) + Rajasthan State Support",
+  "keywords_hi": [
+    "कृत्रिम अंग",
+    "व्हीलचेयर सहायता",
+    "बैसाखी",
+    "सहायक उपकरण दिव्यांग"
+  ],
+  "department": "Dept of Empowerment of Persons with Disabilities (Union Ministry of Social Justice & Empowerment) + Rajasthan Social Justice & Empowerment Dept (state top-up schemes)",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://depwd.gov.in/en/adip/",
+  "source_url_secondary": "https://sje.rajasthan.gov.in/schemes/Disabled%20Schemes.html",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "disability_pct",
+        "op": "gte",
+        "value": 40
+      },
+      {
+        "slot": "monthly_family_income",
+        "op": "lte",
+        "value": 20000
+      }
+    ],
+    "any_of": [],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "subsidy_tiered",
+    "amount_inr": null,
+    "amount_text_hi": "₹10,000 तक के मानक उपकरण: ₹15,000/माह तक आय पर पूर्ण लागत निःशुल्क, ₹15,001-₹20,000/माह आय पर 50% अनुदान; ₹10,000-₹20,000 के उपकरण पर सरकार अधिकतम ₹10,000 (विद्यार्थियों हेतु ₹12,000) वहन करती है; ₹20,000 से अधिक के उपकरण पर लागत का 50% (कॉक्लियर इम्प्लांट को छोड़कर); कॉक्लियर इम्प्लांट पर अधिकतम ₹6 लाख प्रति यूनिट। इसके अतिरिक्त राजस्थान सामाजिक न्याय अधिकारिता विभाग की संयुक्त सहायता अनुदान योजना में स्वरोजगार हेतु उपकरण/मशीनरी के लिए अधिकतम ₹5,000 अतिरिक्त सहायता (वार्षिक पारिवारिक आय ₹25,000 तक)",
+    "rate_policy": "TIERED_BY_INCOME_AND_DEVICE_COST_DO_NOT_COLLAPSE",
+    "note": "मोटराइज़्ड व्हीलचेयर/ट्राइसाइकिल व दृष्टिबाधितों हेतु मोबाइल फोन जैसे कुछ उपकरण केवल 18+ आयु में व एक निश्चित अवधि (5-10 वर्ष) में एक बार मिलते हैं। 12 वर्ष से कम आयु के बच्चों के लिए सहायता चक्र 1 वर्ष है (अन्यथा सामान्यतः 3 वर्ष)। यह केंद्रीय ADIP योजना व राजस्थान राज्य की पूरक योजनाओं का सम्मिश्रण है।"
+  },
+  "documents": [
+    {
+      "doc_id": "AADHAAR",
+      "label_hi": "आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+      "sample_image": "assets/docs/aadhaar.svg"
+    },
+    {
+      "doc_id": "DISABILITY_CERT",
+      "label_hi": "40% या अधिक निशक्तता प्रमाण पत्र (चिकित्सा बोर्ड)",
+      "icon": "certificate",
+      "where_to_get_hi": "राजकीय चिकित्सालय",
+      "sample_image": "assets/docs/disability_cert.svg"
+    },
+    {
+      "doc_id": "INCOME_CERT",
+      "label_hi": "आय प्रमाण पत्र (स्वयं/अभिभावक)",
+      "icon": "certificate",
+      "where_to_get_hi": "तहसील / ई-मित्र",
+      "sample_image": "assets/docs/income_cert.svg"
+    },
+    {
+      "doc_id": "PASSPORT_PHOTO",
+      "label_hi": "पासपोर्ट साइज़ फोटो",
+      "icon": "document",
+      "where_to_get_hi": "फोटो स्टूडियो",
+      "sample_image": "assets/docs/passport_photo.svg"
+    }
+  ],
+  "apply_via": [
+    "sso_portal"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। ARJUN पोर्टल (adip.depwd.gov.in) या जिला सामाजिक न्याय अधिकारिता कार्यालय पर आवेदन करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+  }
+}

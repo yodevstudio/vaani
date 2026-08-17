@@ -1,0 +1,106 @@
+{
+  "scheme_id": "RJ_PMAY_GRAMIN",
+  "name_hi": "प्रधानमंत्री आवास योजना - ग्रामीण",
+  "name_en": "Pradhan Mantri Awas Yojana - Gramin (PMAY-G)",
+  "keywords_hi": [
+    "पीएम आवास ग्रामीण",
+    "आवास योजना गांव",
+    "पक्का घर योजना"
+  ],
+  "department": "Union Ministry of Rural Development (Central Sector Scheme), implemented in Rajasthan via Rural Development Department",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2024/nov/doc20241119437801.pdf",
+  "source_url_secondary": "https://rural.nic.in/en/press-release/applications-under-new-phase-pradhan-mantri-awas-yojana-gramin",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "owns_pucca_house",
+        "op": "eq",
+        "value": false
+      }
+    ],
+    "any_of": [],
+    "none_of": [
+      {
+        "slot": "kcc_limit_inr",
+        "op": "gte",
+        "value": 50000
+      },
+      {
+        "slot": "employment_sector",
+        "op": "eq",
+        "value": "government"
+      },
+      {
+        "slot": "monthly_income",
+        "op": "gte",
+        "value": 15001
+      },
+      {
+        "slot": "is_income_tax_payer",
+        "op": "eq",
+        "value": true
+      },
+      {
+        "slot": "owns_non_agri_enterprise",
+        "op": "eq",
+        "value": true
+      },
+      {
+        "slot": "irrigated_land_acres",
+        "op": "gte",
+        "value": 3.5
+      }
+    ]
+  },
+  "benefit": {
+    "type": "one_time_cash",
+    "amount_inr": 120000,
+    "amount_text_hi": "मैदानी क्षेत्रों में ₹1.20 लाख; पूर्वोत्तर राज्यों व पहाड़ी/दुर्गम क्षेत्रों (हिमाचल, उत्तराखंड, जम्मू-कश्मीर, लद्दाख) में ₹1.30 लाख — इकाई सहायता (राजस्थान मैदानी राज्य होने से सामान्यतः ₹1.20 लाख लागू)। इसके अतिरिक्त शौचालय निर्माण हेतु ₹12,000 तक व मनरेगा के तहत 95 दिन अकुशल श्रम रोजगार (₹90.95/दिन मजदूरी दर) का प्रावधान",
+    "rate_policy": "VARIES_BY_TERRAIN_DO_NOT_COLLAPSE",
+    "note": "राजस्थान एक मैदानी राज्य है, इसलिए सामान्यतः ₹1.20 लाख की दर लागू होती है — पहाड़ी दर केवल उल्लेखित विशेष राज्यों के लिए है। पात्रता SECC 2011 डेटा के स्वतः-बहिष्करण मानदंडों (KCC सीमा, सरकारी नौकरी, आयकर, सिंचित भूमि आदि) पर आधारित है।"
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "AADHAAR",
+      "label_hi": "आधार कार्ड (सभी परिवार सदस्यों का)",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+      "sample_image": "assets/docs/aadhaar.svg"
+    },
+    {
+      "doc_id": "MGNREGA_JOB_CARD",
+      "label_hi": "मनरेगा जॉब कार्ड (यदि उपलब्ध हो)",
+      "icon": "id-card",
+      "where_to_get_hi": "ग्राम पंचायत",
+      "sample_image": "assets/docs/mgnrega_job_card.svg"
+    },
+    {
+      "doc_id": "BANK_PASSBOOK",
+      "label_hi": "बैंक खाते की पासबुक (आधार लिंक्ड)",
+      "icon": "bank",
+      "where_to_get_hi": "बैंक शाखा",
+      "sample_image": "assets/docs/bank_passbook.svg"
+    }
+  ],
+  "apply_via": [
+    "gram_panchayat"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग सकते हैं। {{benefit_text}}। सूची में नाम की पुष्टि ग्राम पंचायत या पटवारी से करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। ग्राम पंचायत से पूछें।"
+  }
+}

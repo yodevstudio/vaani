@@ -1,0 +1,93 @@
+{
+  "scheme_id": "RJ_KCC",
+  "name_hi": "किसान क्रेडिट कार्ड योजना",
+  "name_en": "Kisan Credit Card (KCC) Scheme",
+  "keywords_hi": [
+    "किसान क्रेडिट कार्ड",
+    "केसीसी",
+    "फसली ऋण",
+    "कृषि ऋण"
+  ],
+  "department": "Reserve Bank of India / NABARD (national credit scheme, delivered via nationalised banks, RRBs and cooperative banks in Rajasthan)",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://www.rbi.org.in/commonman/english/scripts/Notification.aspx?Id=2311",
+  "source_url_secondary": "https://www.newsonair.gov.in/10-lakh-crore-rupees-loan-given-under-kisan-credit-card-benefitting-7-72-crore-farmers",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [],
+    "any_of": [
+      {
+        "slot": "occupation",
+        "op": "eq",
+        "value": "farmer"
+      },
+      {
+        "slot": "occupation",
+        "op": "in",
+        "value": [
+          "tenant_farmer",
+          "oral_lessee",
+          "sharecropper"
+        ]
+      },
+      {
+        "slot": "group_type",
+        "op": "in",
+        "value": [
+          "shg",
+          "jlg"
+        ]
+      }
+    ],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "credit_line",
+    "amount_inr": null,
+    "amount_text_hi": "फसली ऋण सीमा भूमि के क्षेत्रफल व फसल की 'scale of finance' पर आधारित; सीमांत किसानों (1 हेक्टेयर से कम) के लिए फ्लेक्सी-केसीसी के तहत ₹10,000 से ₹50,000 तक। ₹3 लाख तक के अल्पकालिक फसली ऋण पर सरकार की ब्याज सहायता (1.5% सबवेंशन) से प्रभावी दर 7% वार्षिक, समय पर भुगतान करने पर अतिरिक्त 3% प्रोत्साहन छूट से प्रभावी दर घटकर 4% वार्षिक",
+    "rate_policy": "LOAN_LIMIT_VARIES_BY_LAND_AND_CROP_DO_NOT_COLLAPSE",
+    "note": "यह एक ऋण/क्रेडिट योजना है, नकद अनुदान नहीं — सीमा भूमि जोत व फसल पर निर्भर होने से एक स्थिर amount_inr देना भ्रामक होगा। बैंक KCC की वैधता अवधि व नवीनीकरण स्वयं तय करते हैं।"
+  },
+  "documents": [
+    {
+      "doc_id": "AADHAAR",
+      "label_hi": "आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+      "sample_image": "assets/docs/aadhaar.svg"
+    },
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "LAND_RECORD",
+      "label_hi": "जमाबंदी की नकल / भूमि स्वामित्व प्रमाण",
+      "icon": "document",
+      "where_to_get_hi": "तहसील (राजस्व विभाग)",
+      "sample_image": "assets/docs/land_record.svg"
+    },
+    {
+      "doc_id": "PASSPORT_PHOTO",
+      "label_hi": "पासपोर्ट साइज़ फोटो",
+      "icon": "document",
+      "where_to_get_hi": "फोटो स्टूडियो",
+      "sample_image": "assets/docs/passport_photo.svg"
+    }
+  ],
+  "apply_via": [
+    "bank_branch"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी बैंक शाखा (राष्ट्रीयकृत/सहकारी/ग्रामीण बैंक) पर जाकर आवेदन करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी बैंक शाखा से पूछें।"
+  }
+}

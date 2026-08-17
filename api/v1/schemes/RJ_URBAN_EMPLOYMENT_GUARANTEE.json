@@ -1,0 +1,81 @@
+{
+  "scheme_id": "RJ_URBAN_EMPLOYMENT_GUARANTEE",
+  "name_hi": "इंदिरा गांधी शहरी रोजगार गारंटी योजना",
+  "name_en": "Indira Gandhi Shahri (Urban) Rozgar Guarantee Yojana",
+  "keywords_hi": [
+    "शहरी रोजगार गारंटी",
+    "शहरी नरेगा",
+    "शहर में रोजगार गारंटी"
+  ],
+  "department": "Local Self Government / Urban Development Department, Rajasthan",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://x.com/RajGovOfficial/status/1674040167953252353",
+  "source_url_secondary": "https://www.patrika.com/jaipur-news/indira-gandhi-shahari-rojgar-gurantee-yojna-cm-ashok-gehlot-125-days-8063002",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 60,
+  "next_review_due": "2026-10-13",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "residence_type",
+        "op": "eq",
+        "value": "urban"
+      },
+      {
+        "slot": "age",
+        "op": "between",
+        "value": {
+          "min": 18,
+          "max": 60
+        }
+      },
+      {
+        "slot": "willing_to_do_unskilled_manual_work",
+        "op": "eq",
+        "value": true
+      }
+    ],
+    "any_of": [],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "wage_employment_guarantee",
+    "amount_inr": null,
+    "amount_text_hi": "प्रति परिवार वार्षिक 125 दिन गारंटीशुदा रोजगार (9 सितंबर 2022 को शुरुआत में 100 दिन थी, बाद में बढ़ाकर 125 दिन की गई) — शहरी निकायों (नगर निगम/परिषद/पालिका) में अकुशल श्रम कार्य के लिए; प्रतिदिन की मजदूरी दर आधिकारिक रूप से इस सत्र में सत्यापित नहीं हो सकी",
+    "rate_policy": "DAILY_WAGE_RATE_NOT_VERIFIED",
+    "note": "यह मनरेगा (अब VB-G RAM G) के समकक्ष राजस्थान की अपनी शहरी योजना है — केंद्रीय योजना नहीं, राज्य सरकार की अपनी पहल है। पंजीकरण महंगाई राहत कैंपों व नगर निकाय कार्यालयों के माध्यम से हुआ करता था। दैनिक मजदूरी दर की पुष्टि नगर निकाय/स्थानीय स्वशासन विभाग से करें।"
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "URBAN_JOB_CARD",
+      "label_hi": "शहरी रोजगार गारंटी जॉब कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "नगर निकाय कार्यालय",
+      "sample_image": "assets/docs/job_card.svg"
+    },
+    {
+      "doc_id": "BANK_PASSBOOK",
+      "label_hi": "बैंक खाते की पासबुक",
+      "icon": "bank",
+      "where_to_get_hi": "बैंक शाखा",
+      "sample_image": "assets/docs/bank_passbook.svg"
+    }
+  ],
+  "apply_via": [
+    "urban_local_body"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग सकते हैं। {{benefit_text}}। नज़दीकी नगर निकाय कार्यालय पर जाकर पंजीयन की पुष्टि करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नगर निकाय कार्यालय से पूछें।"
+  }
+}

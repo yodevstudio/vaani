@@ -1,0 +1,2766 @@
+[
+  {
+    "scheme_id": "RJ_PALANHAR",
+    "name_hi": "पालनहार योजना",
+    "name_en": "Palanhar Yojana",
+    "keywords_hi": ["अनाथ", "पालनहार", "विधवा के बच्चे", "स्कूल का खर्च"],
+    "department": "Social Justice & Empowerment",
+    "dataset_version": "2026.08.14-1",
+    "source_url": "https://sje.rajasthan.gov.in/Default.aspx?PageID=89",
+    "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+
+    "eligibility": {
+      "all_of": [
+        { "slot": "child_age", "op": "lte", "value": 18 },
+        { "slot": "annual_income", "op": "lte", "value": 120000 },
+        { "slot": "residency_years", "op": "gte", "value": 3 },
+        { "slot": "child_status", "op": "in", "value": ["orphan", "single_parent_child", "special_needs_or_ill_parent_child"] }
+      ],
+      "any_of": [],
+      "none_of": []
+    },
+
+    "benefit": {
+      "type": "monthly_cash",
+      "amount_inr": null,
+      "amount_text_hi": "मासिक सहायता — राशि बच्चे की आयु वर्ग (0-6 वर्ष या 6-18 वर्ष) के अनुसार तय होती है और राज्य सरकार द्वारा समय-समय पर संशोधित की जाती है, नवीनतम दर की पुष्टि नज़दीकी ई-मित्र या sje.rajasthan.gov.in पर करें",
+      "rate_policy": "REVISED_PERIODICALLY_DO_NOT_STATE",
+      "note": "राशि आयु वर्ग व समय के साथ बदलती रहती है — स्थिर आँकड़ा देने से पुरानी/गलत जानकारी का जोखिम है, इसलिए संरचना व स्रोत ही बताया गया है।"
+    },
+
+    "documents": [
+      { "doc_id": "JAN_AADHAAR", "label_hi": "पालनहार का भामाशाह/जन आधार कार्ड", "icon": "id-card", "where_to_get_hi": "ई-मित्र", "sample_image": "assets/docs/jan_aadhaar.svg" },
+      { "doc_id": "CHILD_AADHAAR", "label_hi": "बच्चे का आधार कार्ड", "icon": "id-card", "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र", "sample_image": "assets/docs/child_aadhaar.svg" },
+      { "doc_id": "INCOME_CERT", "label_hi": "आय प्रमाण पत्र (विधवा/परित्यक्ता/तलाकशुदा/BPL को छोड़कर)", "icon": "certificate", "where_to_get_hi": "तहसील / ई-मित्र", "sample_image": "assets/docs/income_cert.svg" },
+      { "doc_id": "DOMICILE_CERT", "label_hi": "मूल निवास प्रमाण पत्र", "icon": "certificate", "where_to_get_hi": "तहसील / ई-मित्र", "sample_image": "assets/docs/domicile_cert.svg" },
+      { "doc_id": "SCHOOL_ENROLLMENT_CERT", "label_hi": "आंगनवाडी पंजीकरण / विद्यालय अध्ययनरत प्रमाण पत्र", "icon": "certificate", "where_to_get_hi": "आंगनवाड़ी केंद्र / विद्यालय", "sample_image": "assets/docs/school_enrollment_cert.svg" },
+      { "doc_id": "CATEGORY_PROOF", "label_hi": "श्रेणी का प्रमाण (मृत्यु प्रमाण पत्र, PPO, मेडिकल डायरी)", "icon": "certificate", "where_to_get_hi": "संबंधित कार्यालय", "sample_image": "assets/docs/category_proof.svg" }
+    ],
+
+    "apply_via": ["emitra"],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र पर जाकर पुष्टि करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+    }
+  },
+
+  {
+  "scheme_id": "RJ_RAJSSP_OLD_AGE",
+  "name_hi": "मुख्यमंत्री वृद्धजन सम्मान पेंशन योजना",
+  "name_en": "Mukhyamantri Vridhjan Samman Pension Yojana",
+  "keywords_hi": ["बुढ़ापा पेंशन", "वृद्धजन", "वृद्धावस्था पेंशन"],
+  "department": "Social Justice & Empowerment Department",
+  "dataset_version": "2026.08.14-1",
+  "source_url": "https://ssp.rajasthan.gov.in/",
+  "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      { "slot": "annual_income", "op": "lte", "value": 48000 }
+    ],
+    "any_of": [
+      [ { "slot": "gender", "op": "eq", "value": "female" }, { "slot": "age", "op": "gte", "value": 55 } ],
+      [ { "slot": "gender", "op": "eq", "value": "male" }, { "slot": "age", "op": "gte", "value": 58 } ]
+    ],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "monthly_cash",
+    "amount_inr": null,
+    "amount_text_hi": "मासिक पेंशन — राशि आयु वर्ग के अनुसार तय होती है और राज्य सरकार द्वारा समय-समय पर संशोधित की जाती है, नवीनतम दर की पुष्टि ssp.rajasthan.gov.in या नज़दीकी ई-मित्र पर करें",
+    "rate_policy": "REVISED_PERIODICALLY_DO_NOT_STATE",
+    "note": "पिछले वर्षों में दर कई बार संशोधित हुई है — स्थिर आँकड़ा बताने से पुरानी जानकारी का जोखिम है, इसलिए संरचना व स्रोत ही बताया गया है।"
+  },
+  "documents": [
+    { "doc_id": "JAN_AADHAAR", "label_hi": "जन आधार कार्ड", "icon": "id-card", "where_to_get_hi": "ई-मित्र", "sample_image": "assets/docs/jan_aadhaar.svg" },
+    { "doc_id": "AGE_CERT", "label_hi": "आयु प्रमाण पत्र", "icon": "certificate", "where_to_get_hi": "ई-मित्र", "sample_image": "assets/docs/age_cert.svg" },
+    { "doc_id": "INCOME_CERT", "label_hi": "आय प्रमाण पत्र", "icon": "certificate", "where_to_get_hi": "तहसील / ई-मित्र", "sample_image": "assets/docs/income_cert.svg" }
+  ],
+  "apply_via": ["emitra"],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र पर जाकर पुष्टि करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+  }
+},
+
+  {
+    "scheme_id": "RJ_WIDOW_PENSION",
+    "name_hi": "मुख्यमंत्री एकल नारी सम्मान पेंशन योजना",
+    "name_en": "Mukhyamantri Ekal Nari Samman Pension Yojana",
+    "keywords_hi": ["विधवा पेंशन", "रांड्या री पिंडोळी", "तलाकशुदा"],
+    "department": "Social Justice & Empowerment Department",
+    "dataset_version": "2026.08.14-1",
+    "source_url": "https://ssp.rajasthan.gov.in/",
+    "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+
+    "eligibility": {
+      "all_of": [
+        { "slot": "age", "op": "gte", "value": 18 },
+        { "slot": "gender", "op": "eq", "value": "female" },
+        { "slot": "marital_status", "op": "in", "value": ["widow", "divorced", "abandoned"] },
+        { "slot": "annual_income", "op": "lte", "value": 48000 }
+      ],
+      "any_of": [],
+      "none_of": []
+    },
+
+    "benefit": {
+      "type": "monthly_cash",
+      "amount_inr": null,
+      "amount_text_hi": "मासिक पेंशन — राशि आयु वर्ग (18-74 वर्ष व 75+ वर्ष) के अनुसार भिन्न है और राज्य सरकार द्वारा समय-समय पर संशोधित की जाती है, नवीनतम दर की पुष्टि ssp.rajasthan.gov.in या नज़दीकी ई-मित्र पर करें",
+      "rate_policy": "REVISED_PERIODICALLY_DO_NOT_STATE",
+      "note": "राशि आयु वर्ग व समय के साथ बदलती रहती है — स्थिर आँकड़ा देने से पुरानी/गलत जानकारी का जोखिम है, इसलिए संरचना व स्रोत ही बताया गया है।"
+    },
+
+    "documents": [
+      { "doc_id": "JAN_AADHAAR", "label_hi": "जन आधार कार्ड", "icon": "id-card", "where_to_get_hi": "ई-मित्र", "sample_image": "assets/docs/jan_aadhaar.svg" },
+      { "doc_id": "MARITAL_STATUS_PROOF", "label_hi": "पति का मृत्यु प्रमाण पत्र / तलाकनामा", "icon": "certificate", "where_to_get_hi": "नगर निगम / ग्राम पंचायत / न्यायालय", "sample_image": "assets/docs/marital_status_proof.svg" }
+    ],
+
+    "apply_via": ["emitra"],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र पर जाकर पुष्टि करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+    }
+  },
+
+  {
+    "scheme_id": "RJ_DIVYANG_PENSION",
+    "name_hi": "मुख्यमंत्री विशेष योग्यजन सम्मान पेंशन योजना",
+    "name_en": "Mukhyamantri Vishesh Yogyajan Samman Pension Yojana",
+    "keywords_hi": ["विकलांग पेंशन", "विशेष योग्यजन"],
+    "department": "Social Justice & Empowerment Department",
+    "dataset_version": "2026.08.14-1",
+    "source_url": "https://ssp.rajasthan.gov.in/",
+    "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+
+    "eligibility": {
+      "all_of": [
+        { "slot": "annual_income", "op": "lte", "value": 60000 }
+      ],
+      "any_of": [
+        { "slot": "disability_pct", "op": "gte", "value": 40 },
+        { "slot": "category", "op": "in", "value": ["dwarfism", "transgender"] }
+      ],
+      "none_of": []
+    },
+
+    "benefit": {
+      "type": "monthly_cash",
+      "amount_inr": null,
+      "amount_text_hi": "मासिक पेंशन — राशि निशक्तता की श्रेणी (सामान्य/कुष्ठ रोग/सिलिकोसिस) के अनुसार भिन्न है और राज्य सरकार द्वारा समय-समय पर संशोधित की जाती है, नवीनतम दर की पुष्टि ssp.rajasthan.gov.in या नज़दीकी ई-मित्र पर करें",
+      "rate_policy": "REVISED_PERIODICALLY_DO_NOT_STATE",
+      "note": "श्रेणी व समय के साथ दर बदलती रहती है — स्थिर आँकड़ा देने से पुरानी/गलत जानकारी का जोखिम है, इसलिए संरचना व स्रोत ही बताया गया है।"
+    },
+
+    "documents": [
+      { "doc_id": "JAN_AADHAAR", "label_hi": "जन आधार कार्ड", "icon": "id-card", "where_to_get_hi": "ई-मित्र", "sample_image": "assets/docs/jan_aadhaar.svg" },
+      { "doc_id": "DISABILITY_CERT", "label_hi": "40% या अधिक निशक्तता का चिकित्सा प्रमाण पत्र", "icon": "certificate", "where_to_get_hi": "राजकीय चिकित्सालय", "sample_image": "assets/docs/disability_cert.svg" }
+    ],
+
+    "apply_via": ["emitra"],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र पर जाकर पुष्टि करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+    }
+  },
+
+  {
+    "scheme_id": "RJ_RAJSHREE",
+    "name_hi": "मुख्यमंत्री राजश्री योजना",
+    "name_en": "Mukhyamantri Rajshree Yojana",
+    "keywords_hi": ["राजश्री", "बेटी का पैसा", "छोरी", "बालिका"],
+    "department": "Women & Child Development",
+    "dataset_version": "2026.08.14-1",
+    "source_url": "https://wcd.rajasthan.gov.in/",
+    "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+
+    "eligibility": {
+      "all_of": [
+        { "slot": "gender", "op": "eq", "value": "female" },
+        { "slot": "birth_date", "op": "gte", "value": "2016-06-01" },
+        { "slot": "birth_facility_type", "op": "in", "value": ["government", "jsy_empaneled_private"] },
+        { "slot": "family_girls_count", "op": "lte", "value": 2 }
+      ],
+      "any_of": [],
+      "none_of": []
+    },
+
+    "benefit": {
+      "type": "one_time_cash",
+      "amount_inr": null,
+      "amount_text_hi": "कुल ₹50,000 छह किश्तों में (जन्म पर ₹2500, 1 वर्ष/टीकाकरण पर ₹2500, एवं कक्षा 1, 6, 10, 12 में प्रवेश पर क्रमशः ₹4000, ₹5000, ₹11000, ₹25000)",
+      "rate_policy": "STAGED_DISBURSEMENT_DO_NOT_COLLAPSE",
+      "note": "राशि छह किश्तों में चरणबद्ध है — एक बंधी राशि (amount_inr) के रूप में बताना किश्तबद्ध ढांचे को छुपाएगा, इसलिए संरचना ही amount_text_hi में बताई गई है"
+    },
+
+    "documents": [
+      { "doc_id": "JAN_AADHAAR", "label_hi": "माता-पिता का जन आधार / भामाशाह कार्ड", "icon": "id-card", "where_to_get_hi": "ई-मित्र", "sample_image": "assets/docs/jan_aadhaar.svg" },
+      { "doc_id": "CHILD_AADHAAR", "label_hi": "बालिका का आधार कार्ड", "icon": "id-card", "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र", "sample_image": "assets/docs/child_aadhaar.svg" },
+      { "doc_id": "BIRTH_CERT", "label_hi": "जन्म प्रमाण पत्र", "icon": "certificate", "where_to_get_hi": "नगर निगम / ग्राम पंचायत", "sample_image": "assets/docs/birth_cert.svg" },
+      { "doc_id": "MAMTA_CARD", "label_hi": "मातृ-शिशु स्वास्थ्य कार्ड (ममता कार्ड)", "icon": "document", "where_to_get_hi": "आंगनवाड़ी केंद्र / राजकीय चिकित्सालय", "sample_image": "assets/docs/mamta_card.svg" },
+      { "doc_id": "SCHOOL_ADMISSION_CERT", "label_hi": "विद्यालय प्रवेश का प्रमाण पत्र", "icon": "certificate", "where_to_get_hi": "विद्यालय", "sample_image": "assets/docs/school_admission_cert.svg" }
+    ],
+
+    "apply_via": ["emitra"],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र पर जाकर पुष्टि करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+    }
+  },
+
+  {
+    "scheme_id": "RJ_TARBANDI",
+    "name_hi": "राजस्थान तारबंदी योजना",
+    "name_en": "Rajasthan Tarbandi Yojana",
+    "keywords_hi": ["तारबंदी", "बाड़ लगाना", "आवारा पशु", "नीलगाय"],
+    "department": "Agriculture",
+    "dataset_version": "2026.08.14-1",
+    "source_url": "https://rajkisan.rajasthan.gov.in/WebsiteNew/fieldfencing.html",
+    "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+
+    "eligibility": {
+      "all_of": [
+        { "slot": "occupation", "op": "eq", "value": "farmer" }
+      ],
+      "any_of": [
+        { "slot": "landholding_hectares", "op": "gte", "value": 0.5 },
+        [ { "slot": "group_farmer_count", "op": "gte", "value": 3 }, { "slot": "group_landholding_hectares", "op": "gte", "value": 5 } ]
+      ],
+      "none_of": []
+    },
+
+    "benefit": {
+      "type": "subsidy",
+      "amount_inr": null,
+      "amount_text_hi": "तारबंदी लागत का 50% से 70% तक या अधिकतम ₹40,000 से ₹56,000 तक अनुदान (श्रेणी व समूह के अनुसार)",
+      "rate_policy": "VARIES_BY_CATEGORY_DO_NOT_COLLAPSE",
+      "note": "अनुदान प्रतिशत/सीमा श्रेणी व व्यक्तिगत/समूह आवेदन पर निर्भर — एक बंधी राशि (amount_inr) के रूप में बताना गलत श्रेणी के लिए गलत आँकड़ा दे सकता है, इसलिए सीमा व स्रोत ही amount_text_hi में बताई गई है"
+    },
+
+    "documents": [
+      { "doc_id": "AADHAAR", "label_hi": "आधार कार्ड", "icon": "id-card", "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र", "sample_image": "assets/docs/aadhaar.svg" },
+      { "doc_id": "JAN_AADHAAR", "label_hi": "जन आधार कार्ड", "icon": "id-card", "where_to_get_hi": "ई-मित्र", "sample_image": "assets/docs/jan_aadhaar.svg" },
+      { "doc_id": "LAND_RECORD", "label_hi": "जमाबंदी की नकल (छः माह से अधिक पुरानी नहीं हो)", "icon": "document", "where_to_get_hi": "तहसील (राजस्व विभाग)", "sample_image": "assets/docs/land_record.svg" },
+      { "doc_id": "BANK_PASSBOOK", "label_hi": "बैंक खाते संबंधित विवरण", "icon": "bank", "where_to_get_hi": "बैंक शाखा", "sample_image": "assets/docs/bank_passbook.svg" }
+    ],
+
+    "apply_via": ["emitra"],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र पर जाकर पुष्टि करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+    }
+  },
+
+  {
+    "scheme_id": "RJ_BEROJGARI",
+    "name_hi": "मुख्यमंत्री युवा संबल योजना (बेरोजगारी भत्ता)",
+    "name_en": "Mukhyamantri Yuva Sambal Yojana",
+    "keywords_hi": ["बेरोजगारी भत्ता", "युवा संबल", "नौकरी नहीं है", "भत्तो", "भत्ता"],
+    "department": "Skill, Employment & Entrepreneurship",
+    "dataset_version": "2026.08.14-1",
+    "source_url": "https://employment.livelihoods.rajasthan.gov.in/",
+    "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+
+    "eligibility": {
+      "all_of": [
+        { "slot": "education_level", "op": "eq", "value": "graduate" },
+        { "slot": "annual_income", "op": "lte", "value": 200000 },
+        { "slot": "employment_registered", "op": "eq", "value": true }
+      ],
+      "any_of": [
+        [ { "slot": "category", "op": "eq", "value": "general" }, { "slot": "age", "op": "lte", "value": 35 } ],
+        [ { "slot": "category", "op": "in", "value": ["sc", "st"] }, { "slot": "age", "op": "lte", "value": 35 } ],
+        [ { "slot": "gender", "op": "eq", "value": "female" }, { "slot": "age", "op": "lte", "value": 35 } ],
+        [ { "slot": "disability_pct", "op": "gte", "value": 40 }, { "slot": "age", "op": "lte", "value": 35 } ]
+      ],
+      "none_of": []
+    },
+
+    "benefit": {
+      "type": "monthly_cash",
+      "amount_inr": null,
+      "amount_text_hi": "पुरुष आशार्थियों को ₹4000/माह तथा महिला/विशेष योग्यजन/ट्रांसजेंडर को ₹4500/माह (अधिकतम 2 वर्ष तक)",
+      "rate_policy": "VARIES_BY_CATEGORY_DO_NOT_COLLAPSE",
+      "note": "राशि लिंग/श्रेणी के अनुसार दो भिन्न आँकड़े हैं — amount_inr एक ही संख्या धारण कर सकता है, इसलिए इसे null रखा गया है ताकि आधी आबादी को गलत राशि न बताई जाए; दोनों आँकड़े amount_text_hi में स्पष्ट हैं"
+    },
+
+    "documents": [
+      { "doc_id": "JAN_AADHAAR", "label_hi": "जन आधार कार्ड", "icon": "id-card", "where_to_get_hi": "ई-मित्र", "sample_image": "assets/docs/jan_aadhaar.svg" },
+      { "doc_id": "AADHAAR", "label_hi": "आधार कार्ड", "icon": "id-card", "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र", "sample_image": "assets/docs/aadhaar.svg" },
+      { "doc_id": "DEGREE_MARKSHEET", "label_hi": "स्नातक (Graduation) की अंकतालिका / डिग्री", "icon": "document", "where_to_get_hi": "विश्वविद्यालय / महाविद्यालय", "sample_image": "assets/docs/degree_marksheet.svg" },
+      { "doc_id": "INCOME_CERT", "label_hi": "आय प्रमाण पत्र", "icon": "certificate", "where_to_get_hi": "तहसील / ई-मित्र", "sample_image": "assets/docs/income_cert.svg" },
+      { "doc_id": "DOMICILE_CERT", "label_hi": "मूल निवास प्रमाण पत्र", "icon": "certificate", "where_to_get_hi": "तहसील / ई-मित्र", "sample_image": "assets/docs/domicile_cert.svg" },
+      { "doc_id": "BANK_PASSBOOK", "label_hi": "SBI बैंक खाते की पासबुक", "icon": "bank", "where_to_get_hi": "बैंक शाखा", "sample_image": "assets/docs/bank_passbook.svg" }
+    ],
+
+    "apply_via": ["sso_portal"],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र पर जाकर पुष्टि करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+    }
+  },
+
+  {
+    "scheme_id": "RJ_AYUSHMAN",
+    "name_hi": "मुख्यमंत्री आयुष्मान आरोग्य योजना",
+    "name_en": "Mukhyamantri Ayushman Arogya Yojana",
+    "keywords_hi": ["स्वास्थ्य बीमा", "चिरंजीवी", "अस्पताल का खर्चा", "इलाज"],
+    "department": "Medical & Health",
+    "dataset_version": "2026.08.14-1",
+    "source_url": "https://maayojana.rajasthan.gov.in/",
+    "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+
+    "eligibility": {
+      "all_of": [],
+      "any_of": [
+        { "slot": "health_cover_category", "op": "in", "value": ["nfsa", "secc_2011", "small_marginal_farmer", "contract_worker", "covid_exgratia_recipient", "other"] }
+      ],
+      "none_of": []
+    },
+
+    "benefit": {
+      "type": "insurance",
+      "amount_inr": null,
+      "amount_text_hi": "₹25 लाख तक का कैशलेस स्वास्थ्य बीमा और ₹10 लाख तक का दुर्घटना बीमा प्रति परिवार — NFSA, SECC 2011, लघु/सीमांत कृषक, संविदा कर्मी व कोविड-19 अनुग्रह राशि प्राप्तकर्ता श्रेणी के लिए निःशुल्क; अन्य श्रेणी के लिए ₹850 वार्षिक प्रीमियम पर उपलब्ध",
+      "rate_policy": "MULTIPLE_FIGURES_DO_NOT_COLLAPSE",
+      "note": "कवरेज लगभग सार्वभौमिक है (निःशुल्क या ₹850 प्रीमियम पर), इसलिए 'district: *' जैसी खोखली शर्त की जगह अब श्रेणी पूछी जाती है — इससे इंजन वास्तव में कुछ तय करता है, केवल हर किसी को स्वीकृत नहीं करता, और उत्तर बताता है कि निःशुल्क है या प्रीमियम लगेगा"
+    },
+
+    "documents": [
+      { "doc_id": "JAN_AADHAAR", "label_hi": "जन आधार कार्ड", "icon": "id-card", "where_to_get_hi": "ई-मित्र", "sample_image": "assets/docs/jan_aadhaar.svg" },
+      { "doc_id": "AADHAAR", "label_hi": "आधार कार्ड", "icon": "id-card", "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र", "sample_image": "assets/docs/aadhaar.svg" },
+      { "doc_id": "RATION_CARD", "label_hi": "राशन कार्ड (NFSA के लिए)", "icon": "id-card", "where_to_get_hi": "ई-मित्र / रसद विभाग", "sample_image": "assets/docs/ration_card.svg" }
+    ],
+
+    "apply_via": ["emitra", "sso_portal"],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र पर जाकर पुष्टि करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+    }
+  },
+
+{
+    "scheme_id": "RJ_IGMPY",
+    "name_hi": "इंदिरा गांधी मातृत्व पोषण योजना",
+    "name_en": "Indira Gandhi Matritva Poshan Yojana",
+    "keywords_hi": [
+      "मातृत्व पोषण",
+      "गर्भवती सहायता",
+      "दूसरा बच्चा",
+      "आईजीएमपीवाई",
+      "पोषण योजना"
+    ],
+    "department": "Women Empowerment Department (Directorate of Women Empowerment), Rajasthan / महिला अधिकारिता विभाग",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://mahilawfh.rajasthan.gov.in/public/images/IGMPY%20Brief%20Note_Final.pdf",
+    "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "gender",
+          "op": "eq",
+          "value": "female"
+        },
+        {
+          "slot": "pregnancy_status",
+          "op": "in",
+          "value": [
+            "pregnant",
+            "recently_delivered"
+          ]
+        },
+        {
+          "slot": "pregnancy_child_number",
+          "op": "eq",
+          "value": 2
+        }
+      ],
+      "any_of": [],
+      "none_of": [
+        {
+          "slot": "employment_sector",
+          "op": "in",
+          "value": [
+            "government",
+            "psu"
+          ]
+        }
+      ]
+    },
+    "benefit": {
+      "type": "staged_cash",
+      "amount_inr": null,
+      "amount_text_hi": "कुल ₹6,000 पाँच किश्तों में — पंजीकरण व पहली ANC जांच (120 दिन में) पर ₹1,000; कम से कम 2 ANC जांच (6 माह तक) पर ₹1,000; संस्थागत प्रसव पर ₹1,000; प्रसव के 105 दिन में शिशु टीकाकरण (BCG, OPV, DPT, Hepatitis-B) व जन्म पंजीकरण पर ₹2,000; परिवार नियोजन (नसबंदी, दूसरे बच्चे के 3 माह में) पर ₹1,000",
+      "rate_policy": "STAGED_DISBURSEMENT_DO_NOT_COLLAPSE",
+      "note": "राशि पाँच शर्तबद्ध किश्तों में है — एक बंधी राशि (amount_inr) के रूप में बताना किश्तबद्ध ढांचे व शर्तों को छुपाएगा, इसलिए संरचना amount_text_hi में बताई गई है। मूलतः केवल 5 आदिवासी जिलों (प्रतापगढ़, बांसवाड़ा, उदयपुर, डूंगरपुर, बारां) तक सीमित थी; 1 अप्रैल 2022 से पूरे राजस्थान में लागू। आंगनवाड़ी कार्यकर्ता/सहायिका व आशा सहयोगिनी भी पात्र हैं भले ही वे शासकीय सेवा से जुड़ी हों।"
+    },
+    "documents": [
+      {
+        "doc_id": "JAN_AADHAAR",
+        "label_hi": "जन आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/jan_aadhaar.svg"
+      },
+      {
+        "doc_id": "AADHAAR",
+        "label_hi": "आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+        "sample_image": "assets/docs/aadhaar.svg"
+      },
+      {
+        "doc_id": "PREGNANCY_REG_PCTS",
+        "label_hi": "गर्भावस्था पंजीकरण (PCTS/ममता कार्ड)",
+        "icon": "document",
+        "where_to_get_hi": "आंगनवाड़ी केंद्र / राजकीय चिकित्सालय",
+        "sample_image": "assets/docs/mamta_card.svg"
+      },
+      {
+        "doc_id": "BANK_PASSBOOK",
+        "label_hi": "बैंक खाते की पासबुक (DBT हेतु)",
+        "icon": "bank",
+        "where_to_get_hi": "बैंक शाखा",
+        "sample_image": "assets/docs/bank_passbook.svg"
+      },
+      {
+        "doc_id": "BIRTH_CERT",
+        "label_hi": "शिशु जन्म प्रमाण पत्र (चौथी किश्त हेतु)",
+        "icon": "certificate",
+        "where_to_get_hi": "नगर निगम / ग्राम पंचायत",
+        "sample_image": "assets/docs/birth_cert.svg"
+      }
+    ],
+    "apply_via": [
+      "anganwadi_center"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी आंगनवाड़ी केंद्र पर जाकर पुष्टि करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी आंगनवाड़ी केंद्र से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_KALIBAI_SCOOTY",
+    "name_hi": "काली बाई भील मेधावी छात्रा स्कूटी योजना",
+    "name_en": "Kali Bai Bheel Medhavi Chhatra Scooty Yojana",
+    "keywords_hi": [
+      "स्कूटी योजना",
+      "काली बाई भील",
+      "मेधावी छात्रा",
+      "बारहवीं टॉपर"
+    ],
+    "department": "College Education Department / Higher Education Department, Rajasthan / कॉलेज शिक्षा विभाग",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://hte.rajasthan.gov.in/80575",
+    "source_url_secondary": "https://www.myscheme.gov.in/schemes/kbbmcss",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 30,
+    "next_review_due": "2026-09-13",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "gender",
+          "op": "eq",
+          "value": "female"
+        },
+        {
+          "slot": "exam_passed",
+          "op": "in",
+          "value": [
+            "class_10",
+            "class_12",
+            "ug_final_year"
+          ]
+        },
+        {
+          "slot": "annual_income",
+          "op": "lte",
+          "value": 250000
+        }
+      ],
+      "any_of": [],
+      "none_of": []
+    },
+    "benefit": {
+      "type": "in_kind",
+      "amount_inr": null,
+      "amount_text_hi": "नकद राशि नहीं — मेधावी छात्रा को एक स्कूटी (गियरलेस), 5 वर्ष का थर्ड-पार्टी बीमा, 2 लीटर पेट्रोल और हेलमेट दिया जाता है। सभी वर्गों (सामान्य/OBC/SC/ST/EWS) की छात्राएं पात्र हैं, जिनका पारिवारिक वार्षिक आय ₹2.5 लाख से कम हो और RBSE बोर्ड में न्यूनतम 65% अथवा CBSE बोर्ड में न्यूनतम 75% अंक हों।",
+      "rate_policy": "IN_KIND_NOT_CASH_VERIFIED",
+      "note": "आय सीमा (₹2.5 लाख), अंक सीमा (RBSE 65% / CBSE 75%), लाभ का स्वरूप (भौतिक स्कूटी + बीमा + पेट्रोल + हेलमेट, नकद नहीं) और सभी वर्गों हेतु पात्रता की पुष्टि rajsuchna.com के एक विस्तृत लेख से हुई, जो hte.rajasthan.gov.in (आधिकारिक JS पोर्टल, स्वचालित रूप से अपठनीय) की सामग्री का द्वितीयक सारांश है। मूल आधिकारिक पेज (hte.rajasthan.gov.in/80575) व myscheme.gov.in/schemes/kbbmcss से प्रत्यक्ष रूप से मिलान अभी शेष है — शिपिंग से पहले एक बार कॉलेज/ई-मित्र से पुष्टि करने की सलाह दी जाती है।"
+    },
+    "documents": [
+      {
+        "doc_id": "JAN_AADHAAR",
+        "label_hi": "जन आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/jan_aadhaar.svg"
+      },
+      {
+        "doc_id": "MARKSHEET",
+        "label_hi": "10वीं/12वीं की अंकतालिका",
+        "icon": "document",
+        "where_to_get_hi": "विद्यालय / बोर्ड",
+        "sample_image": "assets/docs/marksheet.svg"
+      },
+      {
+        "doc_id": "INCOME_CERT",
+        "label_hi": "आय प्रमाण पत्र",
+        "icon": "certificate",
+        "where_to_get_hi": "तहसील / ई-मित्र",
+        "sample_image": "assets/docs/income_cert.svg"
+      }
+    ],
+    "apply_via": [
+      "sso_portal"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग सकती हैं, लेकिन इस योजना की पूरी शर्तें अभी सत्यापित नहीं हैं — कृपया अपने कॉलेज या hte.rajasthan.gov.in पर पुष्टि करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी कॉलेज या ई-मित्र से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_DEVNARAYAN_SCOOTY",
+    "name_hi": "देवनारायण छात्रा स्कूटी वितरण एवं प्रोत्साहन राशि योजना",
+    "name_en": "Devnarayan Chhatra Scooty Vitran evam Protsahan Rashi Yojana",
+    "keywords_hi": [
+      "देवनारायण स्कूटी",
+      "एमबीसी छात्रा स्कूटी",
+      "गुर्जर स्कूटी योजना",
+      "अति पिछड़ा वर्ग छात्रा स्कूटी"
+    ],
+    "department": "College Education Department, Rajasthan (Most Backward Classes / MBC welfare scheme) / कॉलेज शिक्षा विभाग",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://hte.rajasthan.gov.in/22279",
+    "source_url_secondary": "https://collegeeducation.rajasthan.gov.in/httpdocs/2011_12/acc_sbc_scooty1184_4nov2011.pdf",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 30,
+    "next_review_due": "2026-09-13",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "gender",
+          "op": "eq",
+          "value": "female"
+        },
+        {
+          "slot": "category",
+          "op": "eq",
+          "value": "mbc"
+        },
+        {
+          "slot": "exam_passed",
+          "op": "in",
+          "value": [
+            "class_10",
+            "class_12",
+            "ug_final_year"
+          ]
+        },
+        {
+          "slot": "annual_income",
+          "op": "lte",
+          "value": 250000
+        }
+      ],
+      "any_of": [],
+      "none_of": []
+    },
+    "benefit": {
+      "type": "in_kind",
+      "amount_inr": null,
+      "amount_text_hi": "नकद राशि नहीं — MBC (अति पिछड़ा वर्ग: गुर्जर, रायका, बंजारा, गाड़िया लुहार, गडरिया आदि) वर्ग की छात्रा को स्कूटी दी जाती है, बशर्ते 12वीं में न्यूनतम 50% अंक हों, पारिवारिक वार्षिक आय ₹2.5 लाख से कम हो, और छात्रा को किसी अन्य सरकारी योजना के तहत पहले स्कूटी न मिली हो। स्नातक (BA/BSc/BCom/BTech/MBBS आदि) व डिप्लोमा पाठ्यक्रमों में अध्ययनरत छात्राएं पात्र हैं।",
+      "rate_policy": "IN_KIND_MBC_ONLY_VERIFIED",
+      "note": "राउंड-2 सत्यापन में पता चला कि यह योजना ST-विशिष्ट नहीं बल्कि MBC (अति पिछड़ा वर्ग) विशिष्ट है — मूल शोध में एक अलग 'जनजाति छात्राओं को निःशुल्क स्कूटी वितरण योजना' (TAD विभाग, ST-केंद्रित) से भ्रमित हो गया था। rajsuchna.com के एक विस्तृत लेख से category=MBC, 12वीं में 50% अंक, ₹2.5 लाख आय सीमा, और पूर्व-स्कूटी-लाभार्थी बहिष्करण नियम की पुष्टि हुई। मूल आधिकारिक hte.rajasthan.gov.in/22279 पेज (JS पोर्टल) और 2011 का स्कैन किया गया PDF अभी भी प्रत्यक्ष रूप से नहीं पढ़े जा सके — शिपिंग से पहले एक दूसरे स्वतंत्र स्रोत से क्रॉस-चेक की सलाह दी जाती है।"
+    },
+    "documents": [
+      {
+        "doc_id": "JAN_AADHAAR",
+        "label_hi": "जन आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/jan_aadhaar.svg"
+      },
+      {
+        "doc_id": "CASTE_CERT",
+        "label_hi": "जाति प्रमाण पत्र (MBC)",
+        "icon": "certificate",
+        "where_to_get_hi": "तहसील / ई-मित्र",
+        "sample_image": "assets/docs/caste_cert.svg"
+      },
+      {
+        "doc_id": "MARKSHEET",
+        "label_hi": "10वीं/12वीं की अंकतालिका",
+        "icon": "document",
+        "where_to_get_hi": "विद्यालय / बोर्ड",
+        "sample_image": "assets/docs/marksheet.svg"
+      }
+    ],
+    "apply_via": [
+      "sso_portal"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग सकती हैं, लेकिन इस योजना की पूरी शर्तें अभी सत्यापित नहीं हैं — कृपया अपने कॉलेज या hte.rajasthan.gov.in पर पुष्टि करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी कॉलेज या ई-मित्र से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_WIDOW_REMARRIAGE_GIFT",
+    "name_hi": "विधवा विवाह उपहार योजना",
+    "name_en": "Scheme of Gift on Widow's Marriage (Widow Remarriage Incentive)",
+    "keywords_hi": [
+      "विधवा पुनर्विवाह",
+      "विधवा विवाह उपहार",
+      "पुनर्विवाह प्रोत्साहन"
+    ],
+    "department": "Social Justice & Empowerment Department, Rajasthan",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://sje.rajasthan.gov.in/schemes/WidoMerig.html",
+    "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 60,
+    "next_review_due": "2026-10-13",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "gender",
+          "op": "eq",
+          "value": "female"
+        },
+        {
+          "slot": "marital_status",
+          "op": "eq",
+          "value": "widow"
+        },
+        {
+          "slot": "widow_pension_recipient_or_eligible",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "slot": "remarriage_status",
+          "op": "eq",
+          "value": "remarried"
+        }
+      ],
+      "any_of": [],
+      "none_of": []
+    },
+    "benefit": {
+      "type": "one_time_cash",
+      "amount_inr": 51000,
+      "amount_text_hi": "राज्य सरकार की ओर से पुनर्विवाह पर ₹51,000 की एकमुश्त उपहार राशि (Social Justice & Empowerment Dept)। आधिकारिक sje.rajasthan.gov.in पेज पर अब भी ₹15,000 (2007 के पुराने नियमों के अनुसार) दर्ज है, जो अपडेट न होने की वजह से पुरानी लगती है — पत्रिका (patrika.com, प्रमुख हिंदी समाचार माध्यम) ने विभाग के हवाले से ₹51,000 की पुष्टि की है।",
+      "rate_policy": "51000_PATRIKA_CORROBORATED_OFFICIAL_PAGE_STALE",
+      "note": "आधिकारिक पेज (sje.rajasthan.gov.in) 2007-08 के नियमों पर आधारित है और संभवतः वर्षों से अपडेट नहीं हुआ — round-2 सत्यापन में patrika.com ने SJE विभाग के हवाले से ₹51,000 की राशि की पुष्टि की, जो कई गैर-सरकारी वेबसाइटों पर भी बार-बार दोहराई गई थी। चूंकि patrika.com एक स्थापित मुख्यधारा समाचार स्रोत है (केवल aggregator ब्लॉग नहीं) और विभाग का नाम आधिकारिक पेज से मेल खाता है, ₹51,000 को वर्तमान राशि माना गया है। पुनर्विवाह के एक माह के भीतर संबंधित जिला मजिस्ट्रेट/सामाजिक न्याय अधिकारिता विभाग को निर्धारित प्रपत्र में आवेदन करना होता है। शिपिंग से पहले एक बार sje.rajasthan.gov.in से सीधे फोन पर पुष्टि की सलाह दी जाती है, क्योंकि आधिकारिक पेज अभी भी ₹15,000 दिखाता है।"
+    },
+    "documents": [
+      {
+        "doc_id": "JAN_AADHAAR",
+        "label_hi": "जन आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/jan_aadhaar.svg"
+      },
+      {
+        "doc_id": "MARRIAGE_CERT",
+        "label_hi": "पुनर्विवाह प्रमाण पत्र",
+        "icon": "certificate",
+        "where_to_get_hi": "पंजीयन कार्यालय / न्यायालय",
+        "sample_image": "assets/docs/marriage_cert.svg"
+      },
+      {
+        "doc_id": "MARITAL_STATUS_PROOF",
+        "label_hi": "प्रथम पति का मृत्यु प्रमाण पत्र",
+        "icon": "certificate",
+        "where_to_get_hi": "नगर निगम / ग्राम पंचायत",
+        "sample_image": "assets/docs/marital_status_proof.svg"
+      }
+    ],
+    "apply_via": [
+      "district_sje_office"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रही हैं। {{benefit_text}}। सटीक राशि की पुष्टि जिला सामाजिक न्याय अधिकारिता कार्यालय से करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_SHUBH_SHAKTI",
+    "name_hi": "शुभ शक्ति योजना",
+    "name_en": "Shubh Shakti Yojana",
+    "keywords_hi": [
+      "शुभ शक्ति",
+      "श्रमिक बेटी विवाह",
+      "निर्माण श्रमिक बेटी सहायता"
+    ],
+    "department": "Labour Department / Rajasthan Building & Other Construction Workers Welfare Board",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://labour.rajasthan.gov.in/RuleBuildng.aspx",
+    "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 60,
+    "next_review_due": "2026-10-13",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "occupation",
+          "op": "eq",
+          "value": "construction_worker"
+        },
+        {
+          "slot": "bocw_board_registered",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "any_of": [],
+      "none_of": []
+    },
+    "benefit": {
+      "type": "one_time_cash",
+      "amount_inr": null,
+      "amount_text_hi": "श्रमिक की अविवाहित पुत्री/महिला हिताधिकारी को एकमुश्त प्रोत्साहन राशि। राशि की पुष्टि श्रम विभाग की आधिकारिक अधिसूचना से करें — नज़दीकी ई-मित्र या श्रम कार्यालय पर जाँचें।",
+      "rate_policy": "UNVERIFIED_DO_NOT_STATE",
+      "note": "Amount widely reported as ₹55,000 by aggregator sites only; no official page or mainstream source found in two rounds of searching. Figure withheld from BOTH amount_inr and amount_text_hi so the app cannot speak it. Confirm with Labour Dept before promoting."
+    },
+    "documents": [
+      {
+        "doc_id": "JAN_AADHAAR",
+        "label_hi": "जन आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/jan_aadhaar.svg"
+      },
+      {
+        "doc_id": "BOCW_REG_CARD",
+        "label_hi": "श्रम विभाग/BOCW बोर्ड पंजीयन कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "श्रम विभाग कार्यालय / ई-मित्र",
+        "sample_image": "assets/docs/bocw_card.svg"
+      }
+    ],
+    "apply_via": [
+      "emitra"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग सकते हैं, लेकिन सटीक शर्तें सत्यापित नहीं हैं — कृपया श्रम विभाग कार्यालय से पुष्टि करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_PMKISAN",
+    "name_hi": "प्रधानमंत्री किसान सम्मान निधि योजना",
+    "name_en": "PM Kisan Samman Nidhi Yojana",
+    "keywords_hi": [
+      "पीएम किसान",
+      "किसान सम्मान निधि",
+      "किसान सालाना 6000"
+    ],
+    "department": "Union Ministry of Agriculture & Farmers Welfare (Central Sector Scheme), implemented in Rajasthan via Agriculture Department",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://pmkisan.gov.in/",
+    "source_url_secondary": "https://rajkisan.rajasthan.gov.in/",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "occupation",
+          "op": "eq",
+          "value": "farmer"
+        },
+        {
+          "slot": "landholding_hectares",
+          "op": "gte",
+          "value": 1
+        }
+      ],
+      "any_of": [],
+      "none_of": [
+        {
+          "slot": "employment_sector",
+          "op": "in",
+          "value": [
+            "government",
+            "constitutional_post",
+            "elected_official"
+          ]
+        },
+        {
+          "slot": "is_income_tax_payer",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "slot": "occupation",
+          "op": "in",
+          "value": [
+            "doctor",
+            "engineer",
+            "lawyer",
+            "ca",
+            "architect"
+          ]
+        },
+        {
+          "slot": "pension_monthly_inr",
+          "op": "gte",
+          "value": 10000
+        }
+      ]
+    },
+    "benefit": {
+      "type": "staged_cash",
+      "amount_inr": 6000,
+      "amount_text_hi": "₹6,000 प्रति वर्ष, तीन बराबर किश्तों (₹2,000 प्रत्येक) में सीधे बैंक खाते में — केंद्र सरकार की 100% वित्तपोषित योजना। इसके अतिरिक्त राजस्थान सरकार की मुख्यमंत्री किसान सम्मान निधि योजना के तहत राज्यस्तर पर ₹2,000-3,000 प्रति वर्ष अतिरिक्त सहायता की घोषणा हुई है (कुल ~₹9,000 तक) — यह राज्य-टॉप-अप राशि केवल समाचार स्रोतों से मिली है, आधिकारिक कृषि विभाग पेज से पुष्टि नहीं हो सकी, अतः अलग से मैन्युअली सत्यापित करें",
+      "rate_policy": "STATE_TOPUP_UNVERIFIED_CHECK_SEPARATELY",
+      "note": "मूल ₹6,000/वर्ष राशि आधिकारिक pmkisan.gov.in व PIB दस्तावेज़ से पूर्णतः सत्यापित है। राज्य टॉप-अप राशि (मुख्यमंत्री किसान सम्मान निधि योजना) पत्रिका व Zee Business समाचारों में है परंतु आधिकारिक rajkisan.rajasthan.gov.in पेज पर सीधे नहीं मिली — इसलिए amount_inr में केवल केंद्रीय राशि (सत्यापित) रखी है।"
+    },
+    "documents": [
+      {
+        "doc_id": "AADHAAR",
+        "label_hi": "आधार कार्ड (बैंक खाते से लिंक)",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+        "sample_image": "assets/docs/aadhaar.svg"
+      },
+      {
+        "doc_id": "JAN_AADHAAR",
+        "label_hi": "जन आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/jan_aadhaar.svg"
+      },
+      {
+        "doc_id": "LAND_RECORD",
+        "label_hi": "जमाबंदी की नकल",
+        "icon": "document",
+        "where_to_get_hi": "तहसील (राजस्व विभाग)",
+        "sample_image": "assets/docs/land_record.svg"
+      },
+      {
+        "doc_id": "BANK_PASSBOOK",
+        "label_hi": "बैंक खाते की पासबुक",
+        "icon": "bank",
+        "where_to_get_hi": "बैंक शाखा",
+        "sample_image": "assets/docs/bank_passbook.svg"
+      }
+    ],
+    "apply_via": [
+      "emitra",
+      "sso_portal"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र पर जाकर पुष्टि करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_PMFBY",
+    "name_hi": "प्रधानमंत्री फसल बीमा योजना",
+    "name_en": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+    "keywords_hi": [
+      "फसल बीमा",
+      "फसल खराब",
+      "बीमा योजना किसान",
+      "पीएमएफबीवाई"
+    ],
+    "department": "Union Ministry of Agriculture & Farmers Welfare (Central Sector Scheme), implemented in Rajasthan via Agriculture Department & empanelled insurance companies",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://pmfby.gov.in/compendium/General/1_2_3_merged.pdf",
+    "source_url_secondary": "https://rajkisan.rajasthan.gov.in/",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "occupation",
+          "op": "eq",
+          "value": "farmer"
+        }
+      ],
+      "any_of": [
+        {
+          "slot": "farmer_loan_status",
+          "op": "eq",
+          "value": "loanee"
+        },
+        {
+          "slot": "farmer_loan_status",
+          "op": "eq",
+          "value": "non_loanee"
+        }
+      ],
+      "none_of": []
+    },
+    "benefit": {
+      "type": "insurance",
+      "amount_inr": null,
+      "amount_text_hi": "किसान का प्रीमियम अंश फसल के अनुसार तय है — खरीफ फसलों पर बीमित राशि का 2%, रबी फसलों पर 1.5%, वाणिज्यिक/बागवानी फसलों पर 5%; शेष प्रीमियम केंद्र व राज्य सरकार वहन करती है (सिंचित जिलों में 25% व असिंचित में 30% तक सरकार की सीमा)। दावा राशि फसल के नुकसान के आकलन पर निर्भर है, इसलिए एक स्थिर amount_inr नहीं दिया जा सकता",
+      "rate_policy": "PREMIUM_PERCENT_VARIES_BY_CROP_DO_NOT_COLLAPSE",
+      "note": "PMFBY 2.0 (खरीफ 2020 से) के तहत ऋणी (loanee) किसानों के लिए भी नामांकन अब स्वैच्छिक है, पहले अनिवार्य था। बीमित राशि व दावा फसल-वार व मौसम-वार तय होती है, इसलिए एक बंधी राशि देना भ्रामक होगा।"
+    },
+    "documents": [
+      {
+        "doc_id": "AADHAAR",
+        "label_hi": "आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+        "sample_image": "assets/docs/aadhaar.svg"
+      },
+      {
+        "doc_id": "LAND_RECORD",
+        "label_hi": "जमाबंदी / बुवाई प्रमाण पत्र",
+        "icon": "document",
+        "where_to_get_hi": "तहसील (राजस्व विभाग)",
+        "sample_image": "assets/docs/land_record.svg"
+      },
+      {
+        "doc_id": "BANK_PASSBOOK",
+        "label_hi": "बैंक खाते की पासबुक",
+        "icon": "bank",
+        "where_to_get_hi": "बैंक शाखा",
+        "sample_image": "assets/docs/bank_passbook.svg"
+      },
+      {
+        "doc_id": "SOWING_CERT",
+        "label_hi": "बुवाई प्रमाण पत्र (स्व-घोषणा)",
+        "icon": "certificate",
+        "where_to_get_hi": "पटवारी / ई-मित्र",
+        "sample_image": "assets/docs/sowing_cert.svg"
+      }
+    ],
+    "apply_via": [
+      "emitra",
+      "bank_branch"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र या बैंक शाखा पर जाकर पुष्टि करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_DRIP_SPRINKLER",
+    "name_hi": "सूक्ष्म सिंचाई (ड्रिप/स्प्रिंकलर) अनुदान योजना",
+    "name_en": "Micro-Irrigation (Drip/Sprinkler) Subsidy Scheme",
+    "keywords_hi": [
+      "ड्रिप सिंचाई",
+      "स्प्रिंकलर",
+      "सूक्ष्म सिंचाई अनुदान",
+      "टपक सिंचाई"
+    ],
+    "department": "Agriculture Department (Horticulture Division), Rajasthan / कृषि विभाग (उद्यान शाखा)",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://rajkisan.rajasthan.gov.in/WebsiteNew/dripirrigation.html",
+    "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "occupation",
+          "op": "eq",
+          "value": "farmer"
+        },
+        {
+          "slot": "landholding_hectares",
+          "op": "gte",
+          "value": 0.2
+        }
+      ],
+      "any_of": [],
+      "none_of": []
+    },
+    "benefit": {
+      "type": "subsidy",
+      "amount_inr": null,
+      "amount_text_hi": "सामान्य किसानों को लागत का 50% अनुदान; लघु व सीमांत किसानों को 70% अनुदान — अधिकतम 5 हेक्टेयर प्रति किसान तक कवर",
+      "rate_policy": "VARIES_BY_CATEGORY_DO_NOT_COLLAPSE",
+      "note": "अनुदान प्रतिशत किसान की श्रेणी (सामान्य बनाम लघु/सीमांत) पर निर्भर है — एक बंधी राशि देना गलत श्रेणी के लिए गलत आँकड़ा दे सकता है, इसलिए प्रतिशत ही amount_text_hi में बताया गया है। योजना केवल चालू वित्तीय वर्ष के लिए वैध रहती है, दरें वर्ष-दर-वर्ष बदल सकती हैं।"
+    },
+    "documents": [
+      {
+        "doc_id": "LAND_RECORD",
+        "label_hi": "जमाबंदी की नकल (छः माह से अधिक पुरानी नहीं)",
+        "icon": "document",
+        "where_to_get_hi": "तहसील (राजस्व विभाग)",
+        "sample_image": "assets/docs/land_record.svg"
+      },
+      {
+        "doc_id": "JAN_AADHAAR",
+        "label_hi": "जन आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/jan_aadhaar.svg"
+      },
+      {
+        "doc_id": "AADHAAR",
+        "label_hi": "आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+        "sample_image": "assets/docs/aadhaar.svg"
+      },
+      {
+        "doc_id": "IRRIGATION_SOURCE_CERT",
+        "label_hi": "सिंचाई स्रोत प्रमाण पत्र",
+        "icon": "certificate",
+        "where_to_get_hi": "कृषि पर्यवेक्षक / पटवारी",
+        "sample_image": "assets/docs/irrigation_source_cert.svg"
+      },
+      {
+        "doc_id": "SOIL_WATER_TEST",
+        "label_hi": "मृदा एवं जल परीक्षण रिपोर्ट",
+        "icon": "document",
+        "where_to_get_hi": "कृषि विभाग प्रयोगशाला",
+        "sample_image": "assets/docs/soil_water_test.svg"
+      },
+      {
+        "doc_id": "SUPPLIER_QUOTATION",
+        "label_hi": "आपूर्तिकर्ता का कोटेशन",
+        "icon": "document",
+        "where_to_get_hi": "अधिकृत डीलर",
+        "sample_image": "assets/docs/supplier_quotation.svg"
+      }
+    ],
+    "apply_via": [
+      "emitra"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र पर जाकर पुष्टि करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_FARM_POND",
+    "name_hi": "खेत तलाई अनुदान योजना",
+    "name_en": "Farm Pond (Khet Talai) Subsidy Scheme",
+    "keywords_hi": [
+      "खेत तलाई",
+      "फार्म पौंड",
+      "वर्षा जल संग्रहण खेत"
+    ],
+    "department": "Agriculture Department (Agriculture Extension Division), Rajasthan / कृषि विभाग (कृषि विस्तार शाखा)",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://rajkisan.rajasthan.gov.in/WebsiteNew/farmpound.html",
+    "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "occupation",
+          "op": "eq",
+          "value": "farmer"
+        },
+        {
+          "slot": "landholding_hectares",
+          "op": "gte",
+          "value": 0.3
+        }
+      ],
+      "any_of": [],
+      "none_of": []
+    },
+    "benefit": {
+      "type": "subsidy",
+      "amount_inr": null,
+      "amount_text_hi": "निर्माण लागत का 60% अनुदान — सामान्य (मिट्टी) तलाई हेतु अधिकतम ₹63,000, प्लास्टिक लाइनिंग वाली तलाई हेतु अधिकतम ₹90,000 (जो भी कम हो), न्यूनतम क्षमता 400 घन मीटर आवश्यक — सभी श्रेणी के किसानों के लिए समान दर",
+      "rate_policy": "STAGED_BY_POND_TYPE_DO_NOT_COLLAPSE",
+      "note": "राशि तलाई के प्रकार (सामान्य/प्लास्टिक लाइनिंग) पर निर्भर है, इसलिए दोनों सीमाएँ amount_text_hi में स्पष्ट रखी हैं।"
+    },
+    "documents": [
+      {
+        "doc_id": "AADHAAR",
+        "label_hi": "आधार कार्ड / जन आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+        "sample_image": "assets/docs/aadhaar.svg"
+      },
+      {
+        "doc_id": "LAND_RECORD",
+        "label_hi": "जमाबंदी की नकल (छः माह से अधिक पुरानी नहीं)",
+        "icon": "document",
+        "where_to_get_hi": "तहसील (राजस्व विभाग)",
+        "sample_image": "assets/docs/land_record.svg"
+      }
+    ],
+    "apply_via": [
+      "emitra",
+      "sso_portal"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र पर जाकर पुष्टि करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_KCC",
+    "name_hi": "किसान क्रेडिट कार्ड योजना",
+    "name_en": "Kisan Credit Card (KCC) Scheme",
+    "keywords_hi": [
+      "किसान क्रेडिट कार्ड",
+      "केसीसी",
+      "फसली ऋण",
+      "कृषि ऋण"
+    ],
+    "department": "Reserve Bank of India / NABARD (national credit scheme, delivered via nationalised banks, RRBs and cooperative banks in Rajasthan)",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://www.rbi.org.in/commonman/english/scripts/Notification.aspx?Id=2311",
+    "source_url_secondary": "https://www.newsonair.gov.in/10-lakh-crore-rupees-loan-given-under-kisan-credit-card-benefitting-7-72-crore-farmers",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [],
+      "any_of": [
+        {
+          "slot": "occupation",
+          "op": "eq",
+          "value": "farmer"
+        },
+        {
+          "slot": "occupation",
+          "op": "in",
+          "value": [
+            "tenant_farmer",
+            "oral_lessee",
+            "sharecropper"
+          ]
+        },
+        {
+          "slot": "group_type",
+          "op": "in",
+          "value": [
+            "shg",
+            "jlg"
+          ]
+        }
+      ],
+      "none_of": []
+    },
+    "benefit": {
+      "type": "credit_line",
+      "amount_inr": null,
+      "amount_text_hi": "फसली ऋण सीमा भूमि के क्षेत्रफल व फसल की 'scale of finance' पर आधारित; सीमांत किसानों (1 हेक्टेयर से कम) के लिए फ्लेक्सी-केसीसी के तहत ₹10,000 से ₹50,000 तक। ₹3 लाख तक के अल्पकालिक फसली ऋण पर सरकार की ब्याज सहायता (1.5% सबवेंशन) से प्रभावी दर 7% वार्षिक, समय पर भुगतान करने पर अतिरिक्त 3% प्रोत्साहन छूट से प्रभावी दर घटकर 4% वार्षिक",
+      "rate_policy": "LOAN_LIMIT_VARIES_BY_LAND_AND_CROP_DO_NOT_COLLAPSE",
+      "note": "यह एक ऋण/क्रेडिट योजना है, नकद अनुदान नहीं — सीमा भूमि जोत व फसल पर निर्भर होने से एक स्थिर amount_inr देना भ्रामक होगा। बैंक KCC की वैधता अवधि व नवीनीकरण स्वयं तय करते हैं।"
+    },
+    "documents": [
+      {
+        "doc_id": "AADHAAR",
+        "label_hi": "आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+        "sample_image": "assets/docs/aadhaar.svg"
+      },
+      {
+        "doc_id": "JAN_AADHAAR",
+        "label_hi": "जन आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/jan_aadhaar.svg"
+      },
+      {
+        "doc_id": "LAND_RECORD",
+        "label_hi": "जमाबंदी की नकल / भूमि स्वामित्व प्रमाण",
+        "icon": "document",
+        "where_to_get_hi": "तहसील (राजस्व विभाग)",
+        "sample_image": "assets/docs/land_record.svg"
+      },
+      {
+        "doc_id": "PASSPORT_PHOTO",
+        "label_hi": "पासपोर्ट साइज़ फोटो",
+        "icon": "document",
+        "where_to_get_hi": "फोटो स्टूडियो",
+        "sample_image": "assets/docs/passport_photo.svg"
+      }
+    ],
+    "apply_via": [
+      "bank_branch"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी बैंक शाखा (राष्ट्रीयकृत/सहकारी/ग्रामीण बैंक) पर जाकर आवेदन करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी बैंक शाखा से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_BOCW_WELFARE",
+    "name_hi": "भवन एवं अन्य सन्निर्माण कर्मकार कल्याण मंडल - कल्याण योजनाएं",
+    "name_en": "Rajasthan Building & Other Construction Workers (BOCW) Welfare Board - Welfare Schemes",
+    "keywords_hi": [
+      "श्रमिक कार्ड",
+      "निर्माण श्रमिक",
+      "बीओसीडब्ल्यू",
+      "मजदूर कल्याण मंडल"
+    ],
+    "department": "Labour Department, Government of Rajasthan (BOCW Welfare Board) / श्रम विभाग",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://labour.rajasthan.gov.in/BOCWNotifications.aspx",
+    "source_url_secondary": "https://labour.rajasthan.gov.in/Home.aspx",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 60,
+    "next_review_due": "2026-10-13",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "occupation",
+          "op": "eq",
+          "value": "construction_worker"
+        },
+        {
+          "slot": "age",
+          "op": "between",
+          "value": {
+            "min": 18,
+            "max": 60
+          }
+        },
+        {
+          "slot": "construction_work_days_last_year",
+          "op": "gte",
+          "value": 90
+        }
+      ],
+      "any_of": [],
+      "none_of": []
+    },
+    "benefit": {
+      "type": "basket_of_benefits",
+      "amount_inr": null,
+      "amount_text_hi": "पंजीकृत निर्माण श्रमिकों के लिए कई अलग-अलग कल्याण योजनाओं की टोकरी है, प्रत्येक की अपनी राशि है — शुभ शक्ति (पुत्री सहायता), सिलिकोसिस पीड़ित सहायता, टूलकिट/औज़ार सहायता, सुगम्य आवास योजना, छात्रवृत्ति योजना, प्रसूति सहायता, मृत्यु/दुर्घटना सहायता आदि। पंजीयन अंशदान ₹60 है जो अब 1 वर्ष के बजाय 5 वर्ष के लिए मान्य है (24/11/2015 की अधिसूचना)।",
+      "rate_policy": "BASKET_OF_SUBSCHEMES_SEE_INDIVIDUAL_RECORDS",
+      "note": "आयु (18-60) व 90 दिन कार्य की शर्त भवन एवं अन्य सन्निर्माण कर्मकार अधिनियम 1996 की मानक राष्ट्रीय शर्तें हैं — राजस्थान श्रम विभाग की वेबसाइट से सीधे इस सत्र में पुष्टि नहीं हो सकी (पेज केवल सूचनाओं की सूची दिखाता है, विस्तृत नियम PDF के रूप में हैं जो स्वचालित रूप से पढ़े नहीं जा सके), अतः मैन्युअली पुष्टि करें। शुभ शक्ति योजना (पुत्री सहायता) का विवरण अलग रिकॉर्ड RJ_SHUBH_SHAKTI में है।"
+    },
+    "documents": [
+      {
+        "doc_id": "JAN_AADHAAR",
+        "label_hi": "जन आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/jan_aadhaar.svg"
+      },
+      {
+        "doc_id": "AADHAAR",
+        "label_hi": "आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+        "sample_image": "assets/docs/aadhaar.svg"
+      },
+      {
+        "doc_id": "WORK_CERT_90DAYS",
+        "label_hi": "90 दिन निर्माण कार्य प्रमाण पत्र (ठेकेदार/नियोक्ता द्वारा)",
+        "icon": "certificate",
+        "where_to_get_hi": "नियोक्ता / ठेकेदार / ग्राम पंचायत",
+        "sample_image": "assets/docs/work_cert.svg"
+      },
+      {
+        "doc_id": "PASSPORT_PHOTO",
+        "label_hi": "पासपोर्ट साइज़ फोटो",
+        "icon": "document",
+        "where_to_get_hi": "फोटो स्टूडियो",
+        "sample_image": "assets/docs/passport_photo.svg"
+      }
+    ],
+    "apply_via": [
+      "emitra"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। पंजीयन के बाद कई कल्याण योजनाओं का लाभ मिल सकता है — नज़दीकी ई-मित्र या श्रम विभाग कार्यालय पर जाकर पुष्टि करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_SILICOSIS_ASSISTANCE",
+    "name_hi": "राजस्थान सिलिकोसिस नीति - पीड़ित सहायता योजना",
+    "name_en": "Rajasthan Silicosis Policy - Victim Assistance Scheme",
+    "keywords_hi": [
+      "सिलिकोसिस",
+      "खनन श्रमिक बीमारी",
+      "पत्थर तोड़ने वाले श्रमिक सहायता"
+    ],
+    "department": "Joint implementation: Mining, Health, Labour, and Social Justice & Empowerment Departments, Rajasthan",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://silicosis.rajasthan.gov.in/AboutUs.aspx",
+    "source_url_secondary": "https://rajsilicosis.rajasthan.gov.in/",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "silicosis_certified",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "any_of": [
+        {
+          "slot": "occupation",
+          "op": "in",
+          "value": [
+            "mine_worker",
+            "stone_cutter",
+            "crusher_worker"
+          ]
+        },
+        {
+          "slot": "residence_distance_from_crusher_km",
+          "op": "lte",
+          "value": 2
+        }
+      ],
+      "none_of": []
+    },
+    "benefit": {
+      "type": "mixed_cash_and_pension",
+      "amount_inr": null,
+      "amount_text_hi": "प्रमाणित जीवित सिलिकोसिस मरीज़ को ₹3 लाख तक की आर्थिक सहायता; मृत्यु होने पर आश्रितों को ₹2 लाख की सहायता एवं आजीवन पेंशन",
+      "rate_policy": "MULTIPLE_FIGURES_LIVING_VS_DECEASED_DO_NOT_COLLAPSE",
+      "note": "राशि दो समाचार स्रोतों (Down To Earth हिंदी, ETV Bharat) से एक समान रूप से मिली है, जो एक-दूसरे से स्वतंत्र होते हुए भी सहमत हैं; आधिकारिक silicosis.rajasthan.gov.in पोर्टल केवल सिस्टम व विभागों की पुष्टि करता है, राशि विस्तार से नहीं बताता — पेंशन की मासिक राशि आधिकारिक रूप से सत्यापित नहीं हो सकी।"
+    },
+    "documents": [
+      {
+        "doc_id": "JAN_AADHAAR",
+        "label_hi": "जन आधार / भामाशाह कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/jan_aadhaar.svg"
+      },
+      {
+        "doc_id": "CHEST_XRAY_MEDICAL_CERT",
+        "label_hi": "मेडिकल बोर्ड द्वारा सिलिकोसिस प्रमाण पत्र (छाती का एक्स-रे सहित)",
+        "icon": "certificate",
+        "where_to_get_hi": "सामुदायिक स्वास्थ्य केंद्र / राजकीय चिकित्सालय",
+        "sample_image": "assets/docs/silicosis_cert.svg"
+      },
+      {
+        "doc_id": "WORK_EXPERIENCE_AFFIDAVIT",
+        "label_hi": "कार्य अनुभव का स्व-घोषणा शपथ पत्र",
+        "icon": "document",
+        "where_to_get_hi": "नोटरी / ई-मित्र",
+        "sample_image": "assets/docs/work_affidavit.svg"
+      }
+    ],
+    "apply_via": [
+      "sso_portal"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग सकते हैं। {{benefit_text}}। नज़दीकी सामुदायिक स्वास्थ्य केंद्र पर जाकर पंजीयन व चिकित्सा जांच करवाएं।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी सामुदायिक स्वास्थ्य केंद्र से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_SHRAMIK_SAMBAL",
+    "name_hi": "मुख्यमंत्री चिरंजीवी श्रमिक संबल योजना",
+    "name_en": "Mukhyamantri Chiranjeevi Shramik Sambal Yojana",
+    "keywords_hi": [
+      "श्रमिक संबल",
+      "अस्पताल भर्ती सहायता",
+      "रेहड़ी पटरी वाले सहायता"
+    ],
+    "department": "Construction Worker Welfare Fund / Labour Department, Rajasthan (unorganized sector)",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://labour.rajasthan.gov.in/Home.aspx",
+    "source_url_secondary": "https://www.drishtiias.com/hindi/state-pcs-current-affairs/mukhymantri-chiranjeevi-shramik-sambal-yojana",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 60,
+    "next_review_due": "2026-10-13",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "age",
+          "op": "between",
+          "value": {
+            "min": 25,
+            "max": 60
+          }
+        },
+        {
+          "slot": "hospitalization_hours",
+          "op": "gte",
+          "value": 24
+        }
+      ],
+      "any_of": [
+        {
+          "slot": "occupation",
+          "op": "eq",
+          "value": "construction_worker"
+        },
+        {
+          "slot": "occupation",
+          "op": "eq",
+          "value": "street_vendor"
+        }
+      ],
+      "none_of": []
+    },
+    "benefit": {
+      "type": "daily_cash",
+      "amount_inr": 1400,
+      "amount_text_hi": "अस्पताल में न्यूनतम 24 घंटे भर्ती रहने पर ₹200 प्रतिदिन की दर से अधिकतम 7 दिन तक — कुल अधिकतम ₹1,400, सीधे लाभार्थी के खाते में ऑटो-डेबिट के माध्यम से",
+      "rate_policy": "DAILY_RATE_CAPPED_AT_7_DAYS",
+      "note": "योजना 14-15 जून 2023 को शुरू हुई — पंजीकृत निर्माण श्रमिकों व चिन्हित रेहड़ी-पटरी विक्रेताओं तथा उनके 25-60 वर्ष आयु वर्ग के परिवारजनों के लिए। अस्पताल में भर्ती के दौरान मृत्यु होने पर अतिरिक्त सहायता का प्रावधान भी बताया गया है, राशि अलग से सत्यापित नहीं हो सकी।"
+    },
+    "documents": [
+      {
+        "doc_id": "JAN_AADHAAR",
+        "label_hi": "जन आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/jan_aadhaar.svg"
+      },
+      {
+        "doc_id": "BOCW_REG_CARD",
+        "label_hi": "श्रम विभाग/BOCW पंजीयन कार्ड या रेहड़ी-पटरी पहचान पत्र",
+        "icon": "id-card",
+        "where_to_get_hi": "श्रम विभाग कार्यालय / ई-मित्र",
+        "sample_image": "assets/docs/bocw_card.svg"
+      },
+      {
+        "doc_id": "HOSPITAL_ADMISSION_CERT",
+        "label_hi": "अस्पताल भर्ती प्रमाण पत्र (24 घंटे से अधिक)",
+        "icon": "certificate",
+        "where_to_get_hi": "राजकीय चिकित्सालय",
+        "sample_image": "assets/docs/hospital_admission_cert.svg"
+      },
+      {
+        "doc_id": "BANK_PASSBOOK",
+        "label_hi": "बैंक खाते की पासबुक",
+        "icon": "bank",
+        "where_to_get_hi": "बैंक शाखा",
+        "sample_image": "assets/docs/bank_passbook.svg"
+      }
+    ],
+    "apply_via": [
+      "emitra"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग सकते हैं। {{benefit_text}}। नज़दीकी श्रम विभाग कार्यालय या ई-मित्र पर जाकर पुष्टि करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_POST_MATRIC_SCHOLARSHIP",
+    "name_hi": "उत्तर मैट्रिक (पोस्ट मैट्रिक) छात्रवृत्ति योजना",
+    "name_en": "Post-Matric Scholarship Scheme (SC / ST / OBC / Minority)",
+    "keywords_hi": [
+      "पोस्ट मैट्रिक छात्रवृत्ति",
+      "उत्तर मैट्रिक छात्रवृत्ति",
+      "कॉलेज छात्रवृत्ति SC ST OBC"
+    ],
+    "department": "Social Justice & Empowerment Dept (SC/ST/OBC) + Minority Affairs Dept, Rajasthan, under the Centrally-Sponsored Post-Matric Scholarship Scheme (Union Ministry of Social Justice & Empowerment / Ministry of Minority Affairs)",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://scholarships.gov.in/public/schemeGuidelines/Postmatric_SC.pdf",
+    "source_url_secondary": "https://sje.rajasthan.gov.in/Scholarship_portal.aspx",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "exam_passed",
+          "op": "in",
+          "value": [
+            "class_10",
+            "class_12"
+          ]
+        }
+      ],
+      "any_of": [
+        [
+          {
+            "slot": "category",
+            "op": "in",
+            "value": [
+              "sc",
+              "st"
+            ]
+          },
+          {
+            "slot": "annual_income",
+            "op": "lte",
+            "value": 250000
+          }
+        ],
+        [
+          {
+            "slot": "category",
+            "op": "eq",
+            "value": "obc"
+          },
+          {
+            "slot": "annual_income",
+            "op": "lte",
+            "value": 250000
+          }
+        ],
+        [
+          {
+            "slot": "religion",
+            "op": "in",
+            "value": [
+              "muslim",
+              "sikh",
+              "christian",
+              "buddhist",
+              "jain",
+              "parsi"
+            ]
+          },
+          {
+            "slot": "annual_income",
+            "op": "lte",
+            "value": 200000
+          }
+        ]
+      ],
+      "none_of": []
+    },
+    "benefit": {
+      "type": "staged_cash",
+      "amount_inr": null,
+      "amount_text_hi": "श्रेणी व पाठ्यक्रम समूह (Group I-IV) के अनुसार भिन्न — SC/ST: रखरखाव भत्ता ₹380-₹1,200/माह (छात्रावासी) या ₹230-₹550/माह (डे-स्कॉलर) + अनिवार्य शुल्क प्रतिपूर्ति; OBC: वार्षिक शैक्षणिक भत्ता ₹5,000-₹10,000 + शिक्षण शुल्क ₹0-₹10,000 (कुल ₹5,000-₹20,000/वर्ष); अल्पसंख्यक: प्रवेश/शिक्षण शुल्क ₹3,000-₹10,000/वर्ष + रखरखाव भत्ता ₹230-₹1,200/माह — चारों श्रेणियों की राशि व आय सीमा अलग-अलग है",
+      "rate_policy": "VARIES_BY_CATEGORY_AND_COURSE_GROUP_DO_NOT_COLLAPSE",
+      "note": "यह चार अलग-अलग केंद्र प्रायोजित योजनाओं (SC, ST, OBC, अल्पसंख्यक) का सम्मिश्रण है, प्रत्येक की अपनी आय सीमा व राशि संरचना है — इसलिए एक बंधी राशि देना गलत होगा। SC/ST PMS की दरें 2013-14 की guideline PDF से हैं और तब से संशोधित हो सकती हैं — वर्तमान दर राष्ट्रीय छात्रवृत्ति पोर्टल (scholarships.gov.in) पर पुष्टि करें।"
+    },
+    "documents": [
+      {
+        "doc_id": "JAN_AADHAAR",
+        "label_hi": "जन आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/jan_aadhaar.svg"
+      },
+      {
+        "doc_id": "CASTE_CERT",
+        "label_hi": "जाति प्रमाण पत्र (तहसीलदार स्तर से नीचे नहीं)",
+        "icon": "certificate",
+        "where_to_get_hi": "तहसील / ई-मित्र",
+        "sample_image": "assets/docs/caste_cert.svg"
+      },
+      {
+        "doc_id": "INCOME_CERT",
+        "label_hi": "आय प्रमाण पत्र",
+        "icon": "certificate",
+        "where_to_get_hi": "तहसील / ई-मित्र",
+        "sample_image": "assets/docs/income_cert.svg"
+      },
+      {
+        "doc_id": "MARKSHEET",
+        "label_hi": "पिछली कक्षा की अंकतालिका",
+        "icon": "document",
+        "where_to_get_hi": "विद्यालय / बोर्ड",
+        "sample_image": "assets/docs/marksheet.svg"
+      },
+      {
+        "doc_id": "BANK_PASSBOOK",
+        "label_hi": "बैंक खाते की पासबुक (DBT हेतु)",
+        "icon": "bank",
+        "where_to_get_hi": "बैंक शाखा",
+        "sample_image": "assets/docs/bank_passbook.svg"
+      }
+    ],
+    "apply_via": [
+      "sso_portal"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। राष्ट्रीय छात्रवृत्ति पोर्टल (scholarships.gov.in) पर आवेदन करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_ANUPRATI_COACHING",
+    "name_hi": "मुख्यमंत्री अनुप्रति कोचिंग योजना",
+    "name_en": "Mukhyamantri Anuprati Coaching Yojana",
+    "keywords_hi": [
+      "अनुप्रति कोचिंग",
+      "निःशुल्क कोचिंग",
+      "प्रतियोगी परीक्षा कोचिंग"
+    ],
+    "department": "Social Justice & Empowerment Department, Rajasthan (in coordination with Tribal Area Development Dept for ST candidates) / सामाजिक न्याय एवं अधिकारिता विभाग",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://sje.rajasthan.gov.in/siteadmin/Uploads/202206141157335834.pdf",
+    "source_url_secondary": "https://sje.rajasthan.gov.in/schemes/Anuprati.html",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 60,
+    "next_review_due": "2026-10-13",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "marks_percent_10_or_12",
+          "op": "gte",
+          "value": 60
+        }
+      ],
+      "any_of": [
+        [
+          {
+            "slot": "category",
+            "op": "in",
+            "value": [
+              "sc",
+              "st",
+              "obc",
+              "mbc"
+            ]
+          },
+          {
+            "slot": "annual_income",
+            "op": "lte",
+            "value": 250000
+          }
+        ],
+        [
+          {
+            "slot": "category",
+            "op": "eq",
+            "value": "ews"
+          },
+          {
+            "slot": "annual_income",
+            "op": "lte",
+            "value": 800000
+          }
+        ],
+        [
+          {
+            "slot": "religion",
+            "op": "in",
+            "value": [
+              "muslim",
+              "sikh",
+              "christian",
+              "buddhist",
+              "jain",
+              "parsi"
+            ]
+          },
+          {
+            "slot": "annual_income",
+            "op": "lte",
+            "value": 800000
+          }
+        ]
+      ],
+      "none_of": []
+    },
+    "benefit": {
+      "type": "free_coaching_plus_allowance",
+      "amount_inr": null,
+      "amount_text_hi": "चयनित सरकारी-सूचीबद्ध कोचिंग संस्थान में निःशुल्क कोचिंग; बाहरी शहर के छात्रों को आवास/भोजन भत्ता अधिकतम ₹40,000/वर्ष; परीक्षा में सफलता पर प्रोत्साहन राशि — UPSC/IIT/AIIMS/IIM/NIT/NLU जैसी उच्च स्तरीय परीक्षाओं में ₹40,000-₹50,000, RPSC परीक्षाओं में ₹50,000 तक, RPMT/RPET प्रवेश पर ₹1,000 — कुल सहायता ₹1,00,000 तक बताई गई है",
+      "rate_policy": "COACHING_PLUS_TIERED_INCENTIVE_UNOFFICIAL_FIGURES",
+      "note": "आधिकारिक sje.rajasthan.gov.in PDF (2022 का संशोधित शासनादेश) मिला परंतु वह स्कैन की हुई इमेज होने से स्वचालित रूप से नहीं पढ़ी जा सकी। राशि व आय सीमा के आँकड़े प्रतिष्ठित समाचार स्रोत (careers360) व एक सुसंगत गैर-सरकारी सारांश से लिए गए हैं, इसलिए null रखी गई है — शुरू होने से पहले हर वर्ष की सटीक राशि व सीटों की संख्या sje.rajasthan.gov.in या sso.rajasthan.gov.in से पुष्टि करें, क्योंकि यह योजना समय-समय पर विस्तारित होती रही है (10,000 → 15,000 → 30,000 सीटें)।"
+    },
+    "documents": [
+      {
+        "doc_id": "AADHAAR",
+        "label_hi": "आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+        "sample_image": "assets/docs/aadhaar.svg"
+      },
+      {
+        "doc_id": "INCOME_CERT",
+        "label_hi": "आय प्रमाण पत्र",
+        "icon": "certificate",
+        "where_to_get_hi": "तहसील / ई-मित्र",
+        "sample_image": "assets/docs/income_cert.svg"
+      },
+      {
+        "doc_id": "DOMICILE_CERT",
+        "label_hi": "मूल निवास प्रमाण पत्र",
+        "icon": "certificate",
+        "where_to_get_hi": "तहसील / ई-मित्र",
+        "sample_image": "assets/docs/domicile_cert.svg"
+      },
+      {
+        "doc_id": "CASTE_CERT",
+        "label_hi": "जाति प्रमाण पत्र (यदि लागू हो)",
+        "icon": "certificate",
+        "where_to_get_hi": "तहसील / ई-मित्र",
+        "sample_image": "assets/docs/caste_cert.svg"
+      },
+      {
+        "doc_id": "MARKSHEET",
+        "label_hi": "10वीं/12वीं की अंकतालिका",
+        "icon": "document",
+        "where_to_get_hi": "विद्यालय / बोर्ड",
+        "sample_image": "assets/docs/marksheet.svg"
+      }
+    ],
+    "apply_via": [
+      "sso_portal",
+      "emitra"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग सकते हैं। {{benefit_text}}। sso.rajasthan.gov.in पर आवेदन की तिथियाँ (सामान्यतः फरवरी-मार्च) देखें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_GARGI_BALIKA_PROTSAHAN",
+    "name_hi": "गार्गी पुरस्कार एवं बालिका प्रोत्साहन पुरस्कार योजना",
+    "name_en": "Gargi Puraskar & Balika Protsahan Puraskar Yojana (Girl-Child Education Incentive)",
+    "keywords_hi": [
+      "गार्गी पुरस्कार",
+      "बालिका प्रोत्साहन",
+      "बेटी पढ़ाई इनाम",
+      "10वीं 12वीं बालिका पुरस्कार"
+    ],
+    "department": "Directorate of Secondary Education, Rajasthan (Bikaner) / Balika Shiksha Foundation / माध्यमिक शिक्षा निदेशालय",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://rajshaladarpan.rajasthan.gov.in/sd2/Home/BSF/Index.aspx",
+    "source_url_secondary": "https://rajshaladarpan.rajasthan.gov.in/SD3/Home/BSF/Index.aspx",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "gender",
+          "op": "eq",
+          "value": "female"
+        },
+        {
+          "slot": "marks_percent_board_exam",
+          "op": "gte",
+          "value": 75
+        }
+      ],
+      "any_of": [
+        {
+          "slot": "exam_passed",
+          "op": "eq",
+          "value": "class_10"
+        },
+        {
+          "slot": "exam_passed",
+          "op": "eq",
+          "value": "class_12"
+        }
+      ],
+      "none_of": []
+    },
+    "benefit": {
+      "type": "staged_cash",
+      "amount_inr": null,
+      "amount_text_hi": "गार्गी पुरस्कार (कक्षा 10 में 75%+ अंक, कक्षा 11 में नियमित रहने पर) — पहली किश्त ₹3,000; कक्षा 12 में नियमित रहने पर दूसरी किश्त ₹3,000; बालिका प्रोत्साहन पुरस्कार (कक्षा 12 में 75%+ अंक) — ₹5,000। सभी राशि प्रमाण पत्र सहित DBT द्वारा बसंत पंचमी पर दी जाती है।",
+      "rate_policy": "STAGED_BY_CLASS_DO_NOT_COLLAPSE",
+      "note": "गार्गी पुरस्कार व बालिका प्रोत्साहन पुरस्कार तकनीकी रूप से दो जुड़ी हुई पर अलग योजनाएं हैं (एक कक्षा 10 उत्तीर्ण पर, दूसरी कक्षा 12 उत्तीर्ण पर) — दोनों एक ही आधिकारिक पोर्टल व विभाग द्वारा संचालित हैं इसलिए एक रिकॉर्ड में रखी गई हैं। स्वामी विवेकानंद मॉडल स्कूल के 8-10 CGPA वाले विद्यार्थी भी पात्र हैं।"
+    },
+    "documents": [
+      {
+        "doc_id": "JAN_AADHAAR",
+        "label_hi": "जन आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/jan_aadhaar.svg"
+      },
+      {
+        "doc_id": "MARKSHEET",
+        "label_hi": "10वीं/12वीं की अंकतालिका (राजस्थान बोर्ड)",
+        "icon": "document",
+        "where_to_get_hi": "विद्यालय / बोर्ड",
+        "sample_image": "assets/docs/marksheet.svg"
+      },
+      {
+        "doc_id": "BANK_PASSBOOK",
+        "label_hi": "बैंक खाते की पासबुक (DBT हेतु)",
+        "icon": "bank",
+        "where_to_get_hi": "बैंक शाखा",
+        "sample_image": "assets/docs/bank_passbook.svg"
+      },
+      {
+        "doc_id": "SCHOOL_ENROLLMENT_CERT",
+        "label_hi": "अगली कक्षा में नियमित नामांकन प्रमाण पत्र",
+        "icon": "certificate",
+        "where_to_get_hi": "विद्यालय",
+        "sample_image": "assets/docs/school_enrollment_cert.svg"
+      }
+    ],
+    "apply_via": [
+      "school"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रही हैं। {{benefit_text}}। अपने विद्यालय के माध्यम से आवेदन करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। अपने विद्यालय से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_VRIDHJAN_KRISHAK_PENSION",
+    "name_hi": "वृद्धजन कृषक सम्मान पेंशन योजना",
+    "name_en": "Vridhjan Krishak Samman Pension Yojana (Old-Age Farmer Honour Pension)",
+    "keywords_hi": [
+      "किसान पेंशन",
+      "वृद्ध किसान पेंशन",
+      "कृषक सम्मान पेंशन",
+      "बुढ़ापा किसान पेंशन"
+    ],
+    "department": "Social Justice & Empowerment Department, Rajasthan",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://ssp.rajasthan.gov.in/",
+    "source_url_secondary": "https://www.amarujala.com/rajasthan/rajasthan-government-issued-rules-for-social-protection-old-age-farmer-honor-pension-scheme",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "occupation",
+          "op": "eq",
+          "value": "farmer"
+        },
+        {
+          "slot": "landholding_category",
+          "op": "in",
+          "value": [
+            "small",
+            "marginal"
+          ]
+        },
+        {
+          "slot": "has_regular_income_source",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "any_of": [
+        [
+          {
+            "slot": "gender",
+            "op": "eq",
+            "value": "female"
+          },
+          {
+            "slot": "age",
+            "op": "gte",
+            "value": 55
+          }
+        ],
+        [
+          {
+            "slot": "gender",
+            "op": "eq",
+            "value": "male"
+          },
+          {
+            "slot": "age",
+            "op": "gte",
+            "value": 58
+          }
+        ]
+      ],
+      "none_of": [
+        {
+          "slot": "other_social_security_pension_recipient",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "benefit": {
+      "type": "monthly_cash",
+      "amount_inr": null,
+      "amount_text_hi": "55-74 वर्ष (महिला) / 58-74 वर्ष (पुरुष) आयु वर्ग में ₹750 प्रतिमाह; 75 वर्ष व अधिक आयु में ₹1,000 प्रतिमाह — 1 मार्च 2019 से प्रभावी",
+      "rate_policy": "VARIES_BY_AGE_BAND_DO_NOT_COLLAPSE",
+      "note": "यह योजना सामान्य वृद्धावस्था पेंशन (RJ_RAJSSP_OLD_AGE) जैसी ही राशि-संरचना उपयोग करती है परंतु विशेष रूप से लघु/सीमांत किसानों के लिए है जिनकी नियमित आय का कोई स्रोत नहीं है — दोनों योजनाओं का एक साथ लाभ नहीं मिलता। राशि 2019 की घोषणा पर आधारित है, तब से संशोधित हो सकती है।"
+    },
+    "documents": [
+      {
+        "doc_id": "JAN_AADHAAR",
+        "label_hi": "जन आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/jan_aadhaar.svg"
+      },
+      {
+        "doc_id": "AGE_CERT",
+        "label_hi": "आयु प्रमाण पत्र",
+        "icon": "certificate",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/age_cert.svg"
+      },
+      {
+        "doc_id": "LAND_RECORD",
+        "label_hi": "जमाबंदी की नकल (लघु/सीमांत किसान श्रेणी हेतु)",
+        "icon": "document",
+        "where_to_get_hi": "तहसील (राजस्व विभाग)",
+        "sample_image": "assets/docs/land_record.svg"
+      }
+    ],
+    "apply_via": [
+      "emitra"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र पर जाकर पुष्टि करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_DISABILITY_AIDS_ADIP",
+    "name_hi": "विशेष योग्यजन सहायक उपकरण योजना (ADIP)",
+    "name_en": "Assistance to Disabled Persons for Purchase/Fitting of Aids & Appliances (ADIP) + Rajasthan State Support",
+    "keywords_hi": [
+      "कृत्रिम अंग",
+      "व्हीलचेयर सहायता",
+      "बैसाखी",
+      "सहायक उपकरण दिव्यांग"
+    ],
+    "department": "Dept of Empowerment of Persons with Disabilities (Union Ministry of Social Justice & Empowerment) + Rajasthan Social Justice & Empowerment Dept (state top-up schemes)",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://depwd.gov.in/en/adip/",
+    "source_url_secondary": "https://sje.rajasthan.gov.in/schemes/Disabled%20Schemes.html",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "disability_pct",
+          "op": "gte",
+          "value": 40
+        },
+        {
+          "slot": "monthly_family_income",
+          "op": "lte",
+          "value": 20000
+        }
+      ],
+      "any_of": [],
+      "none_of": []
+    },
+    "benefit": {
+      "type": "subsidy_tiered",
+      "amount_inr": null,
+      "amount_text_hi": "₹10,000 तक के मानक उपकरण: ₹15,000/माह तक आय पर पूर्ण लागत निःशुल्क, ₹15,001-₹20,000/माह आय पर 50% अनुदान; ₹10,000-₹20,000 के उपकरण पर सरकार अधिकतम ₹10,000 (विद्यार्थियों हेतु ₹12,000) वहन करती है; ₹20,000 से अधिक के उपकरण पर लागत का 50% (कॉक्लियर इम्प्लांट को छोड़कर); कॉक्लियर इम्प्लांट पर अधिकतम ₹6 लाख प्रति यूनिट। इसके अतिरिक्त राजस्थान सामाजिक न्याय अधिकारिता विभाग की संयुक्त सहायता अनुदान योजना में स्वरोजगार हेतु उपकरण/मशीनरी के लिए अधिकतम ₹5,000 अतिरिक्त सहायता (वार्षिक पारिवारिक आय ₹25,000 तक)",
+      "rate_policy": "TIERED_BY_INCOME_AND_DEVICE_COST_DO_NOT_COLLAPSE",
+      "note": "मोटराइज़्ड व्हीलचेयर/ट्राइसाइकिल व दृष्टिबाधितों हेतु मोबाइल फोन जैसे कुछ उपकरण केवल 18+ आयु में व एक निश्चित अवधि (5-10 वर्ष) में एक बार मिलते हैं। 12 वर्ष से कम आयु के बच्चों के लिए सहायता चक्र 1 वर्ष है (अन्यथा सामान्यतः 3 वर्ष)। यह केंद्रीय ADIP योजना व राजस्थान राज्य की पूरक योजनाओं का सम्मिश्रण है।"
+    },
+    "documents": [
+      {
+        "doc_id": "AADHAAR",
+        "label_hi": "आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+        "sample_image": "assets/docs/aadhaar.svg"
+      },
+      {
+        "doc_id": "DISABILITY_CERT",
+        "label_hi": "40% या अधिक निशक्तता प्रमाण पत्र (चिकित्सा बोर्ड)",
+        "icon": "certificate",
+        "where_to_get_hi": "राजकीय चिकित्सालय",
+        "sample_image": "assets/docs/disability_cert.svg"
+      },
+      {
+        "doc_id": "INCOME_CERT",
+        "label_hi": "आय प्रमाण पत्र (स्वयं/अभिभावक)",
+        "icon": "certificate",
+        "where_to_get_hi": "तहसील / ई-मित्र",
+        "sample_image": "assets/docs/income_cert.svg"
+      },
+      {
+        "doc_id": "PASSPORT_PHOTO",
+        "label_hi": "पासपोर्ट साइज़ फोटो",
+        "icon": "document",
+        "where_to_get_hi": "फोटो स्टूडियो",
+        "sample_image": "assets/docs/passport_photo.svg"
+      }
+    ],
+    "apply_via": [
+      "sso_portal"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। ARJUN पोर्टल (adip.depwd.gov.in) या जिला सामाजिक न्याय अधिकारिता कार्यालय पर आवेदन करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_PMAY_GRAMIN",
+    "name_hi": "प्रधानमंत्री आवास योजना - ग्रामीण",
+    "name_en": "Pradhan Mantri Awas Yojana - Gramin (PMAY-G)",
+    "keywords_hi": [
+      "पीएम आवास ग्रामीण",
+      "आवास योजना गांव",
+      "पक्का घर योजना"
+    ],
+    "department": "Union Ministry of Rural Development (Central Sector Scheme), implemented in Rajasthan via Rural Development Department",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2024/nov/doc20241119437801.pdf",
+    "source_url_secondary": "https://rural.nic.in/en/press-release/applications-under-new-phase-pradhan-mantri-awas-yojana-gramin",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "owns_pucca_house",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "any_of": [],
+      "none_of": [
+        {
+          "slot": "kcc_limit_inr",
+          "op": "gte",
+          "value": 50000
+        },
+        {
+          "slot": "employment_sector",
+          "op": "eq",
+          "value": "government"
+        },
+        {
+          "slot": "monthly_income",
+          "op": "gte",
+          "value": 15001
+        },
+        {
+          "slot": "is_income_tax_payer",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "slot": "owns_non_agri_enterprise",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "slot": "irrigated_land_acres",
+          "op": "gte",
+          "value": 3.5
+        }
+      ]
+    },
+    "benefit": {
+      "type": "one_time_cash",
+      "amount_inr": 120000,
+      "amount_text_hi": "मैदानी क्षेत्रों में ₹1.20 लाख; पूर्वोत्तर राज्यों व पहाड़ी/दुर्गम क्षेत्रों (हिमाचल, उत्तराखंड, जम्मू-कश्मीर, लद्दाख) में ₹1.30 लाख — इकाई सहायता (राजस्थान मैदानी राज्य होने से सामान्यतः ₹1.20 लाख लागू)। इसके अतिरिक्त शौचालय निर्माण हेतु ₹12,000 तक व मनरेगा के तहत 95 दिन अकुशल श्रम रोजगार (₹90.95/दिन मजदूरी दर) का प्रावधान",
+      "rate_policy": "VARIES_BY_TERRAIN_DO_NOT_COLLAPSE",
+      "note": "राजस्थान एक मैदानी राज्य है, इसलिए सामान्यतः ₹1.20 लाख की दर लागू होती है — पहाड़ी दर केवल उल्लेखित विशेष राज्यों के लिए है। पात्रता SECC 2011 डेटा के स्वतः-बहिष्करण मानदंडों (KCC सीमा, सरकारी नौकरी, आयकर, सिंचित भूमि आदि) पर आधारित है।"
+    },
+    "documents": [
+      {
+        "doc_id": "JAN_AADHAAR",
+        "label_hi": "जन आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/jan_aadhaar.svg"
+      },
+      {
+        "doc_id": "AADHAAR",
+        "label_hi": "आधार कार्ड (सभी परिवार सदस्यों का)",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+        "sample_image": "assets/docs/aadhaar.svg"
+      },
+      {
+        "doc_id": "MGNREGA_JOB_CARD",
+        "label_hi": "मनरेगा जॉब कार्ड (यदि उपलब्ध हो)",
+        "icon": "id-card",
+        "where_to_get_hi": "ग्राम पंचायत",
+        "sample_image": "assets/docs/mgnrega_job_card.svg"
+      },
+      {
+        "doc_id": "BANK_PASSBOOK",
+        "label_hi": "बैंक खाते की पासबुक (आधार लिंक्ड)",
+        "icon": "bank",
+        "where_to_get_hi": "बैंक शाखा",
+        "sample_image": "assets/docs/bank_passbook.svg"
+      }
+    ],
+    "apply_via": [
+      "gram_panchayat"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग सकते हैं। {{benefit_text}}। सूची में नाम की पुष्टि ग्राम पंचायत या पटवारी से करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। ग्राम पंचायत से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_PMAY_URBAN",
+    "name_hi": "प्रधानमंत्री आवास योजना - शहरी 2.0",
+    "name_en": "Pradhan Mantri Awas Yojana - Urban 2.0 (PMAY-U 2.0)",
+    "keywords_hi": [
+      "पीएम आवास शहरी",
+      "आवास योजना शहर",
+      "ईडब्ल्यूएस आवास"
+    ],
+    "department": "Union Ministry of Housing & Urban Affairs (Central Sector Scheme), implemented in Rajasthan via Urban Local Bodies / Housing Dept",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://pmay-urban.gov.in/about",
+    "source_url_secondary": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2043927",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "owns_pucca_house",
+          "op": "eq",
+          "value": false
+        }
+      ],
+      "any_of": [
+        {
+          "slot": "annual_income",
+          "op": "lte",
+          "value": 300000
+        },
+        {
+          "slot": "annual_income",
+          "op": "between",
+          "value": {
+            "min": 300001,
+            "max": 600000
+          }
+        },
+        {
+          "slot": "annual_income",
+          "op": "between",
+          "value": {
+            "min": 600001,
+            "max": 900000
+          }
+        }
+      ],
+      "none_of": []
+    },
+    "benefit": {
+      "type": "mixed_subsidy_and_grant",
+      "amount_inr": null,
+      "amount_text_hi": "लाभार्थी-नेतृत्व निर्माण/किफायती आवास भागीदारी में ₹2.50 लाख प्रति इकाई सहायता (कुछ राज्यों में ₹1.50 लाख + राज्य अंश ₹1 लाख); ब्याज सहायता योजना में ₹8 लाख तक के ऋण पर 4% ब्याज सब्सिडी (12 वर्ष तक, अधिकतम ₹1.80 लाख); झुग्गी पुनर्विकास में ₹1 लाख प्रति घर — योजना EWS (₹3 लाख तक आय), LIG (₹3-6 लाख), MIG (₹6-9 लाख) तीन श्रेणियों में विभाजित है",
+      "rate_policy": "VARIES_BY_VERTICAL_AND_INCOME_CATEGORY_DO_NOT_COLLAPSE",
+      "note": "अगस्त 2024 में स्वीकृत PMAY-U 2.0 पुराने PMAY-U (2015) की जगह लेती है — 5 वर्ष में 1 करोड़ घर का लक्ष्य। दिव्यांगजन, SC/ST/OBC, अल्पसंख्यक, ट्रांसजेंडर व विधवा महिलाओं को प्राथमिकता। चार अलग वर्टिकल (BLC, AHP, ISSR/झुग्गी पुनर्विकास, किफायती किराया आवास) की अलग-अलग सहायता राशि है।"
+    },
+    "documents": [
+      {
+        "doc_id": "JAN_AADHAAR",
+        "label_hi": "जन आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/jan_aadhaar.svg"
+      },
+      {
+        "doc_id": "AADHAAR",
+        "label_hi": "आधार कार्ड (परिवार के सभी सदस्यों का)",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+        "sample_image": "assets/docs/aadhaar.svg"
+      },
+      {
+        "doc_id": "INCOME_CERT",
+        "label_hi": "आय प्रमाण पत्र",
+        "icon": "certificate",
+        "where_to_get_hi": "तहसील / ई-मित्र",
+        "sample_image": "assets/docs/income_cert.svg"
+      },
+      {
+        "doc_id": "NO_PUCCA_HOUSE_AFFIDAVIT",
+        "label_hi": "पक्का मकान न होने का शपथ पत्र",
+        "icon": "document",
+        "where_to_get_hi": "नोटरी / ई-मित्र",
+        "sample_image": "assets/docs/no_pucca_house_affidavit.svg"
+      },
+      {
+        "doc_id": "BANK_PASSBOOK",
+        "label_hi": "बैंक खाते की पासबुक (आधार लिंक्ड)",
+        "icon": "bank",
+        "where_to_get_hi": "बैंक शाखा",
+        "sample_image": "assets/docs/bank_passbook.svg"
+      }
+    ],
+    "apply_via": [
+      "sso_portal",
+      "emitra"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग सकते हैं। {{benefit_text}}। pmaymis.gov.in पोर्टल या नगर निकाय कार्यालय पर पुष्टि करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_UJJWALA",
+    "name_hi": "प्रधानमंत्री उज्ज्वला योजना 2.0",
+    "name_en": "Pradhan Mantri Ujjwala Yojana 2.0 (PMUY)",
+    "keywords_hi": [
+      "उज्ज्वला योजना",
+      "मुफ्त गैस कनेक्शन",
+      "एलपीजी कनेक्शन गरीब महिला"
+    ],
+    "department": "Union Ministry of Petroleum & Natural Gas (Central Sector Scheme), delivered via Oil Marketing Companies (Indane, Bharat Gas, HP Gas) in Rajasthan",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://www.pmuy.gov.in/ujjwala2.html",
+    "source_url_secondary": "https://mopng.gov.in/en/page/46",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "gender",
+          "op": "eq",
+          "value": "female"
+        },
+        {
+          "slot": "age",
+          "op": "gte",
+          "value": 18
+        },
+        {
+          "slot": "household_poor_declaration",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "any_of": [],
+      "none_of": [
+        {
+          "slot": "household_has_lpg_connection",
+          "op": "eq",
+          "value": true
+        }
+      ]
+    },
+    "benefit": {
+      "type": "one_time_subsidy",
+      "amount_inr": 2200,
+      "amount_text_hi": "₹2,200 प्रति कनेक्शन की वित्तीय सहायता (शुरुआत में ₹1,600 थी, बाद में बढ़ाकर ₹2,200 की गई); नए PMUY लाभार्थियों को पहला रिफिल व चूल्हा (स्टोव) भी निःशुल्क",
+      "rate_policy": "STABLE_CURRENT_RATE",
+      "note": "प्रवासी आवेदकों के लिए विशेष स्व-घोषणा प्रपत्र (Annexure I) की सुविधा है, जिसमें स्थायी निवास प्रमाण की सामान्य शर्त में छूट मिलती है। परिवार में किसी भी तेल कंपनी से पहले से LPG कनेक्शन न होना अनिवार्य शर्त है।"
+    },
+    "documents": [
+      {
+        "doc_id": "AADHAAR",
+        "label_hi": "आधार कार्ड (आवेदक महिला व वयस्क परिवार सदस्यों का)",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+        "sample_image": "assets/docs/aadhaar.svg"
+      },
+      {
+        "doc_id": "RATION_CARD",
+        "label_hi": "राशन कार्ड या परिवार संरचना प्रमाणित करने वाला दस्तावेज़",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र / रसद विभाग",
+        "sample_image": "assets/docs/ration_card.svg"
+      },
+      {
+        "doc_id": "DEPRIVATION_DECLARATION",
+        "label_hi": "गरीब परिवार होने का स्व-घोषणा पत्र (Deprivation Declaration)",
+        "icon": "document",
+        "where_to_get_hi": "गैस एजेंसी / ई-मित्र",
+        "sample_image": "assets/docs/deprivation_declaration.svg"
+      },
+      {
+        "doc_id": "BANK_PASSBOOK",
+        "label_hi": "बैंक पासबुक / रद्द चेक",
+        "icon": "bank",
+        "where_to_get_hi": "बैंक शाखा",
+        "sample_image": "assets/docs/bank_passbook.svg"
+      }
+    ],
+    "apply_via": [
+      "gas_agency"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रही हैं। {{benefit_text}}। नज़दीकी गैस एजेंसी (इंडेन/भारत गैस/एचपी गैस) पर आवेदन करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी गैस एजेंसी से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_NFSA",
+    "name_hi": "राष्ट्रीय खाद्य सुरक्षा अधिनियम (राशन/खाद्य सुरक्षा योजना)",
+    "name_en": "National Food Security Act (NFSA) - Food Security / Ration Scheme",
+    "keywords_hi": [
+      "राशन कार्ड",
+      "खाद्य सुरक्षा योजना",
+      "मुफ्त गेहूं चावल",
+      "अंत्योदय"
+    ],
+    "department": "Union Ministry of Consumer Affairs, Food & Public Distribution (Central Act), implemented in Rajasthan via Food Department (food.raj.nic.in)",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=1897933&reg=48&lang=2",
+    "source_url_secondary": "https://department.rajasthan.gov.in/scheme/detail/203",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [],
+      "any_of": [
+        {
+          "slot": "ration_card_category",
+          "op": "eq",
+          "value": "aay"
+        },
+        {
+          "slot": "ration_card_category",
+          "op": "eq",
+          "value": "priority_household"
+        }
+      ],
+      "none_of": []
+    },
+    "benefit": {
+      "type": "monthly_in_kind",
+      "amount_inr": null,
+      "amount_text_hi": "अंत्योदय अन्न योजना (AAY) - सबसे निर्धन परिवार: प्रति परिवार 35 किलो अनाज प्रतिमाह; प्राथमिकता परिवार (Priority Household): प्रति व्यक्ति 5 किलो प्रतिमाह — 1 जनवरी 2024 से अगले 5 वर्षों (दिसंबर 2029 तक) के लिए पूर्णतः निःशुल्क (पहले न्यूनतम मूल्य पर मिलता था)",
+      "rate_policy": "IN_KIND_QUANTITY_VARIES_BY_CARD_TYPE",
+      "note": "यह अनाज (गेहूं/चावल) के रूप में लाभ है, नकद नहीं, इसलिए amount_inr लागू नहीं। पात्र परिवारों की पहचान राज्य सरकार द्वारा निरंतर अद्यतन डेटाबेस से होती है। ग्रामीण क्षेत्र की 75% व शहरी क्षेत्र की 50% जनसंख्या तक कवरेज का प्रावधान राष्ट्रीय स्तर पर है — राजस्थान-विशिष्ट कवरेज आँकड़ा इस सत्र में सत्यापित नहीं हो सका।"
+    },
+    "documents": [
+      {
+        "doc_id": "JAN_AADHAAR",
+        "label_hi": "जन आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/jan_aadhaar.svg"
+      },
+      {
+        "doc_id": "RATION_CARD",
+        "label_hi": "राशन कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र / रसद विभाग",
+        "sample_image": "assets/docs/ration_card.svg"
+      },
+      {
+        "doc_id": "AADHAAR",
+        "label_hi": "आधार कार्ड (सभी परिवार सदस्यों का, e-KYC हेतु)",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+        "sample_image": "assets/docs/aadhaar.svg"
+      }
+    ],
+    "apply_via": [
+      "emitra"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी उचित मूल्य दुकान या ई-मित्र से राशन कार्ड की स्थिति जांचें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_NISHULK_DAWA_JANCH",
+    "name_hi": "मुख्यमंत्री निःशुल्क दवा एवं जांच योजना",
+    "name_en": "Mukhyamantri Nishulk Dawa evam Janch Yojana (Free Medicine & Free Diagnostics - Chiranjeevi/Ayushman OPD add-on)",
+    "keywords_hi": [
+      "निःशुल्क दवा",
+      "मुफ्त जांच",
+      "फ्री मेडिसिन योजना",
+      "ओपीडी दवा मुफ्त"
+    ],
+    "department": "Medical, Health & Family Welfare Department, Rajasthan",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://rajswasthya.rajasthan.gov.in/schemes.php?id=1",
+    "source_url_secondary": "https://rajswasthya.rajasthan.gov.in/schemes.php",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [],
+      "any_of": [
+        {
+          "slot": "visited_government_health_facility",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "none_of": []
+    },
+    "benefit": {
+      "type": "free_service",
+      "amount_inr": null,
+      "amount_text_hi": "राजकीय चिकित्सा संस्थानों में सभी मरीजों को 1,829 दवाओं, सर्जिकल सामग्री व टांकों की निःशुल्क उपलब्धता (कैंसर, हृदय, किडनी, हीमोफीलिया, मधुमेह की महंगी दवाएं भी शामिल, कुछ इंजेक्शन ₹1,29,665 तक मूल्य के); साथ ही निःशुल्क जांच योजना के तहत रक्त जांच, इमेजिंग, एक्स-रे व विशेष जांचें भी निःशुल्क",
+      "rate_policy": "UNIVERSAL_NO_INCOME_TEST",
+      "note": "यह योजना चिरंजीवी/मुख्यमंत्री आयुष्मान आरोग्य योजना (RJ_AYUSHMAN) की पूरक है — Ayushman/Chiranjeevi केवल भर्ती (IPD) प्रक्रियाओं को कवर करता है, जबकि यह योजना OPD स्तर पर दवा व जांच का मुफ्त लाभ देती है, बिना किसी आय/श्रेणी की शर्त के। दवा योजना अक्टूबर 2011 से व जांच योजना अप्रैल 2013 से चालू है।"
+    },
+    "documents": [
+      {
+        "doc_id": "JAN_AADHAAR",
+        "label_hi": "जन आधार कार्ड (पहचान हेतु)",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/jan_aadhaar.svg"
+      },
+      {
+        "doc_id": "OPD_SLIP",
+        "label_hi": "राजकीय अस्पताल की OPD पर्ची",
+        "icon": "document",
+        "where_to_get_hi": "राजकीय चिकित्सालय",
+        "sample_image": "assets/docs/opd_slip.svg"
+      }
+    ],
+    "apply_via": [
+      "hospital_direct"
+    ],
+    "response_templates_hi": {
+      "eligible": "यह योजना सभी के लिए निःशुल्क है — किसी भी राजकीय चिकित्सालय में दिखाने पर स्वतः लागू होती है। {{benefit_text}}",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी राजकीय चिकित्सालय से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_RGHS",
+    "name_hi": "राजस्थान सरकारी स्वास्थ्य योजना (आरजीएचएस)",
+    "name_en": "Rajasthan Government Health Scheme (RGHS)",
+    "keywords_hi": [
+      "आरजीएचएस",
+      "सरकारी कर्मचारी स्वास्थ्य बीमा",
+      "पेंशनर स्वास्थ्य योजना"
+    ],
+    "department": "Medical, Health & Family Welfare Department, Rajasthan",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://rghs.rajasthan.gov.in/RGHS/home/homeintro",
+    "source_url_secondary": "https://rghs.rajasthan.gov.in/RGHS/home/homedefinition",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 90,
+    "next_review_due": "2026-11-12",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [],
+      "any_of": [
+        {
+          "slot": "employment_sector",
+          "op": "eq",
+          "value": "rajasthan_state_government"
+        },
+        {
+          "slot": "is_state_government_pensioner",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "slot": "occupation",
+          "op": "in",
+          "value": [
+            "mla",
+            "ex_mla",
+            "minister",
+            "all_india_service_officer"
+          ]
+        },
+        {
+          "slot": "is_dependent_of_rghs_beneficiary",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "none_of": []
+    },
+    "benefit": {
+      "type": "cashless_health_coverage",
+      "amount_inr": null,
+      "amount_text_hi": "OPD उपचार व IPD/डे-केयर सेवाओं के लिए कैशलेस सुविधा, सरकारी व सूचीबद्ध निजी अस्पतालों में; दरें सामान्यतः CGHS (केंद्रीय सरकारी स्वास्थ्य योजना) दरों पर आधारित जब तक अलग से संशोधित न हो; जांच, परिवार कल्याण, प्रसूति व शिशु स्वास्थ्य सेवाएं भी शामिल",
+      "rate_policy": "CGHS_RATE_BASED_NO_FIXED_CAP_MENTIONED",
+      "note": "यह योजना केवल राज्य सरकार के वर्तमान/सेवानिवृत्त कर्मचारियों, विधायकों, मंत्रियों व अखिल भारतीय सेवा अधिकारियों तथा उनके आश्रितों के लिए है — सामान्य नागरिकों के लिए नहीं (इसलिए X1 सूची में 'जहां लागू हो' कहा गया है)। पात्रता जन आधार डेटाबेस से सत्यापित होती है, कोई प्रीमियम राशि आधिकारिक पेज पर उल्लेखित नहीं मिली।"
+    },
+    "documents": [
+      {
+        "doc_id": "JAN_AADHAAR",
+        "label_hi": "जन आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/jan_aadhaar.svg"
+      },
+      {
+        "doc_id": "RGHS_CARD",
+        "label_hi": "RGHS कार्ड / नियुक्ति या पेंशन आदेश",
+        "icon": "id-card",
+        "where_to_get_hi": "संबंधित कार्यालय / rghs.rajasthan.gov.in",
+        "sample_image": "assets/docs/rghs_card.svg"
+      }
+    ],
+    "apply_via": [
+      "sso_portal"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं (राज्य सरकार कर्मचारी/पेंशनर होने के आधार पर)। {{benefit_text}}। rghs.rajasthan.gov.in पर पंजीकरण की पुष्टि करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "यह योजना केवल राज्य सरकार कर्मचारियों/पेंशनरों व उनके आश्रितों के लिए है — सामान्य नागरिकों के लिए मुख्यमंत्री आयुष्मान आरोग्य योजना उपयुक्त हो सकती है।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। हेल्पलाइन 181 या helpdesk.rghs@rajasthan.gov.in से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_RURAL_EMPLOYMENT_GUARANTEE",
+    "name_hi": "विकसित भारत - ग्राम रोजगार एवं आजीविका मिशन (ग्रामीण) अधिनियम, 2025 (पूर्व में मनरेगा)",
+    "name_en": "Viksit Bharat - Guarantee for Rozgar and Ajeevika Mission (Gramin) Act, 2025 (VB-G RAM G) - successor to MGNREGA",
+    "keywords_hi": [
+      "मनरेगा",
+      "ग्रामीण रोजगार गारंटी",
+      "जॉब कार्ड",
+      "नरेगा"
+    ],
+    "department": "Union Ministry of Rural Development (Centrally Sponsored Scheme, 60:40 Centre-State), implemented in Rajasthan via Panchayati Raj & Rural Development Dept",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://www.scconline.com/blog/post/2026/07/06/state-wise-wage-rates-revised-under-vb-g-ram-g-act/",
+    "source_url_secondary": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2279660&reg=3&lang=1",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 30,
+    "next_review_due": "2026-09-13",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "residence_type",
+          "op": "eq",
+          "value": "rural"
+        },
+        {
+          "slot": "willing_to_do_unskilled_manual_work",
+          "op": "eq",
+          "value": true
+        },
+        {
+          "slot": "age",
+          "op": "gte",
+          "value": 18
+        }
+      ],
+      "any_of": [],
+      "none_of": []
+    },
+    "benefit": {
+      "type": "wage_employment_guarantee",
+      "amount_inr": 300,
+      "amount_text_hi": "प्रति परिवार वार्षिक 125 दिन गारंटीशुदा रोजगार (पहले मनरेगा में 100 दिन था); राजस्थान में अकुशल श्रम की मजदूरी दर ₹300/दिन — 1 जुलाई 2026 से प्रभावी नई राष्ट्रीय आधार दर (30 जून 2026 की अधिसूचना अनुसार, यह पुरानी 26 फरवरी 2013 की अधिसूचना का स्थान लेती है); 15 दिन तक कार्य न मिलने पर बेरोज़गारी भत्ता अनिवार्य",
+      "rate_policy": "NEW_ACT_2026_SUPERSEDES_MGNREGA_VERIFY_LOCALLY",
+      "note": "**महत्वपूर्ण**: यह योजना पूर्व मनरेगा (MGNREGA, 2005) का स्थान लेने वाला बिल्कुल नया कानून है — राष्ट्रपति की स्वीकृति 22 दिसंबर 2025 को मिली, 1 जुलाई 2026 से प्रभावी (आज की तारीख 14 अगस्त 2026 से मात्र 6 सप्ताह पहले)। पुराना नाम/ब्रांडिंग (मनरेगा/नरेगा) आम बोलचाल में अभी भी प्रचलित रहेगा, इसलिए keywords में दोनों रखे गए हैं। साप्ताहिक/पाक्षिक मजदूरी भुगतान, GPS व बायोमेट्रिक निगरानी नई विशेषताएं हैं।"
+    },
+    "documents": [
+      {
+        "doc_id": "JAN_AADHAAR",
+        "label_hi": "जन आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/jan_aadhaar.svg"
+      },
+      {
+        "doc_id": "JOB_CARD",
+        "label_hi": "जॉब कार्ड (ग्राम पंचायत से पंजीकरण पर जारी)",
+        "icon": "id-card",
+        "where_to_get_hi": "ग्राम पंचायत",
+        "sample_image": "assets/docs/job_card.svg"
+      },
+      {
+        "doc_id": "BANK_PASSBOOK",
+        "label_hi": "बैंक खाते की पासबुक (आधार लिंक्ड)",
+        "icon": "bank",
+        "where_to_get_hi": "बैंक शाखा",
+        "sample_image": "assets/docs/bank_passbook.svg"
+      }
+    ],
+    "apply_via": [
+      "gram_panchayat"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। ग्राम पंचायत में जॉब कार्ड हेतु पंजीयन करवाएं।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। ग्राम पंचायत से पूछें।"
+    }
+  },
+  {
+    "scheme_id": "RJ_URBAN_EMPLOYMENT_GUARANTEE",
+    "name_hi": "इंदिरा गांधी शहरी रोजगार गारंटी योजना",
+    "name_en": "Indira Gandhi Shahri (Urban) Rozgar Guarantee Yojana",
+    "keywords_hi": [
+      "शहरी रोजगार गारंटी",
+      "शहरी नरेगा",
+      "शहर में रोजगार गारंटी"
+    ],
+    "department": "Local Self Government / Urban Development Department, Rajasthan",
+    "dataset_version": "2026.08.14-3",
+    "source_url": "https://x.com/RajGovOfficial/status/1674040167953252353",
+    "source_url_secondary": "https://www.patrika.com/jaipur-news/indira-gandhi-shahari-rojgar-gurantee-yojna-cm-ashok-gehlot-125-days-8063002",
+    "last_verified": "2026-08-14",
+    "verification_interval_days": 60,
+    "next_review_due": "2026-10-13",
+    "verified_by": "manual",
+    "eligibility": {
+      "all_of": [
+        {
+          "slot": "residence_type",
+          "op": "eq",
+          "value": "urban"
+        },
+        {
+          "slot": "age",
+          "op": "between",
+          "value": {
+            "min": 18,
+            "max": 60
+          }
+        },
+        {
+          "slot": "willing_to_do_unskilled_manual_work",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "any_of": [],
+      "none_of": []
+    },
+    "benefit": {
+      "type": "wage_employment_guarantee",
+      "amount_inr": null,
+      "amount_text_hi": "प्रति परिवार वार्षिक 125 दिन गारंटीशुदा रोजगार (9 सितंबर 2022 को शुरुआत में 100 दिन थी, बाद में बढ़ाकर 125 दिन की गई) — शहरी निकायों (नगर निगम/परिषद/पालिका) में अकुशल श्रम कार्य के लिए; प्रतिदिन की मजदूरी दर आधिकारिक रूप से इस सत्र में सत्यापित नहीं हो सकी",
+      "rate_policy": "DAILY_WAGE_RATE_NOT_VERIFIED",
+      "note": "यह मनरेगा (अब VB-G RAM G) के समकक्ष राजस्थान की अपनी शहरी योजना है — केंद्रीय योजना नहीं, राज्य सरकार की अपनी पहल है। पंजीकरण महंगाई राहत कैंपों व नगर निकाय कार्यालयों के माध्यम से हुआ करता था। दैनिक मजदूरी दर की पुष्टि नगर निकाय/स्थानीय स्वशासन विभाग से करें।"
+    },
+    "documents": [
+      {
+        "doc_id": "JAN_AADHAAR",
+        "label_hi": "जन आधार कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "ई-मित्र",
+        "sample_image": "assets/docs/jan_aadhaar.svg"
+      },
+      {
+        "doc_id": "URBAN_JOB_CARD",
+        "label_hi": "शहरी रोजगार गारंटी जॉब कार्ड",
+        "icon": "id-card",
+        "where_to_get_hi": "नगर निकाय कार्यालय",
+        "sample_image": "assets/docs/job_card.svg"
+      },
+      {
+        "doc_id": "BANK_PASSBOOK",
+        "label_hi": "बैंक खाते की पासबुक",
+        "icon": "bank",
+        "where_to_get_hi": "बैंक शाखा",
+        "sample_image": "assets/docs/bank_passbook.svg"
+      }
+    ],
+    "apply_via": [
+      "urban_local_body"
+    ],
+    "response_templates_hi": {
+      "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग सकते हैं। {{benefit_text}}। नज़दीकी नगर निकाय कार्यालय पर जाकर पंजीयन की पुष्टि करें।",
+      "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+      "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+      "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नगर निकाय कार्यालय से पूछें।"
+    }
+  }
+]

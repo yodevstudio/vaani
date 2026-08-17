@@ -1,0 +1,112 @@
+{
+  "scheme_id": "RJ_PMKISAN",
+  "name_hi": "प्रधानमंत्री किसान सम्मान निधि योजना",
+  "name_en": "PM Kisan Samman Nidhi Yojana",
+  "keywords_hi": [
+    "पीएम किसान",
+    "किसान सम्मान निधि",
+    "किसान सालाना 6000"
+  ],
+  "department": "Union Ministry of Agriculture & Farmers Welfare (Central Sector Scheme), implemented in Rajasthan via Agriculture Department",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://pmkisan.gov.in/",
+  "source_url_secondary": "https://rajkisan.rajasthan.gov.in/",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "occupation",
+        "op": "eq",
+        "value": "farmer"
+      },
+      {
+        "slot": "landholding_hectares",
+        "op": "gte",
+        "value": 1
+      }
+    ],
+    "any_of": [],
+    "none_of": [
+      {
+        "slot": "employment_sector",
+        "op": "in",
+        "value": [
+          "government",
+          "constitutional_post",
+          "elected_official"
+        ]
+      },
+      {
+        "slot": "is_income_tax_payer",
+        "op": "eq",
+        "value": true
+      },
+      {
+        "slot": "occupation",
+        "op": "in",
+        "value": [
+          "doctor",
+          "engineer",
+          "lawyer",
+          "ca",
+          "architect"
+        ]
+      },
+      {
+        "slot": "pension_monthly_inr",
+        "op": "gte",
+        "value": 10000
+      }
+    ]
+  },
+  "benefit": {
+    "type": "staged_cash",
+    "amount_inr": 6000,
+    "amount_text_hi": "₹6,000 प्रति वर्ष, तीन बराबर किश्तों (₹2,000 प्रत्येक) में सीधे बैंक खाते में — केंद्र सरकार की 100% वित्तपोषित योजना। इसके अतिरिक्त राजस्थान सरकार की मुख्यमंत्री किसान सम्मान निधि योजना के तहत राज्यस्तर पर ₹2,000-3,000 प्रति वर्ष अतिरिक्त सहायता की घोषणा हुई है (कुल ~₹9,000 तक) — यह राज्य-टॉप-अप राशि केवल समाचार स्रोतों से मिली है, आधिकारिक कृषि विभाग पेज से पुष्टि नहीं हो सकी, अतः अलग से मैन्युअली सत्यापित करें",
+    "rate_policy": "STATE_TOPUP_UNVERIFIED_CHECK_SEPARATELY",
+    "note": "मूल ₹6,000/वर्ष राशि आधिकारिक pmkisan.gov.in व PIB दस्तावेज़ से पूर्णतः सत्यापित है। राज्य टॉप-अप राशि (मुख्यमंत्री किसान सम्मान निधि योजना) पत्रिका व Zee Business समाचारों में है परंतु आधिकारिक rajkisan.rajasthan.gov.in पेज पर सीधे नहीं मिली — इसलिए amount_inr में केवल केंद्रीय राशि (सत्यापित) रखी है।"
+  },
+  "documents": [
+    {
+      "doc_id": "AADHAAR",
+      "label_hi": "आधार कार्ड (बैंक खाते से लिंक)",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+      "sample_image": "assets/docs/aadhaar.svg"
+    },
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "LAND_RECORD",
+      "label_hi": "जमाबंदी की नकल",
+      "icon": "document",
+      "where_to_get_hi": "तहसील (राजस्व विभाग)",
+      "sample_image": "assets/docs/land_record.svg"
+    },
+    {
+      "doc_id": "BANK_PASSBOOK",
+      "label_hi": "बैंक खाते की पासबुक",
+      "icon": "bank",
+      "where_to_get_hi": "बैंक शाखा",
+      "sample_image": "assets/docs/bank_passbook.svg"
+    }
+  ],
+  "apply_via": [
+    "emitra",
+    "sso_portal"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र पर जाकर पुष्टि करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+  }
+}

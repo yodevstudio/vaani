@@ -1,0 +1,109 @@
+{
+  "scheme_id": "RJ_PALANHAR",
+  "name_hi": "पालनहार योजना",
+  "name_en": "Palanhar Yojana",
+  "keywords_hi": [
+    "अनाथ",
+    "पालनहार",
+    "विधवा के बच्चे",
+    "स्कूल का खर्च"
+  ],
+  "department": "Social Justice & Empowerment",
+  "dataset_version": "2026.08.14-1",
+  "source_url": "https://sje.rajasthan.gov.in/Default.aspx?PageID=89",
+  "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "child_age",
+        "op": "lte",
+        "value": 18
+      },
+      {
+        "slot": "annual_income",
+        "op": "lte",
+        "value": 120000
+      },
+      {
+        "slot": "residency_years",
+        "op": "gte",
+        "value": 3
+      },
+      {
+        "slot": "child_status",
+        "op": "in",
+        "value": [
+          "orphan",
+          "single_parent_child",
+          "special_needs_or_ill_parent_child"
+        ]
+      }
+    ],
+    "any_of": [],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "monthly_cash",
+    "amount_inr": null,
+    "amount_text_hi": "मासिक सहायता — राशि बच्चे की आयु वर्ग (0-6 वर्ष या 6-18 वर्ष) के अनुसार तय होती है और राज्य सरकार द्वारा समय-समय पर संशोधित की जाती है, नवीनतम दर की पुष्टि नज़दीकी ई-मित्र या sje.rajasthan.gov.in पर करें",
+    "rate_policy": "REVISED_PERIODICALLY_DO_NOT_STATE",
+    "note": "राशि आयु वर्ग व समय के साथ बदलती रहती है — स्थिर आँकड़ा देने से पुरानी/गलत जानकारी का जोखिम है, इसलिए संरचना व स्रोत ही बताया गया है।"
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "पालनहार का भामाशाह/जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "CHILD_AADHAAR",
+      "label_hi": "बच्चे का आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+      "sample_image": "assets/docs/child_aadhaar.svg"
+    },
+    {
+      "doc_id": "INCOME_CERT",
+      "label_hi": "आय प्रमाण पत्र (विधवा/परित्यक्ता/तलाकशुदा/BPL को छोड़कर)",
+      "icon": "certificate",
+      "where_to_get_hi": "तहसील / ई-मित्र",
+      "sample_image": "assets/docs/income_cert.svg"
+    },
+    {
+      "doc_id": "DOMICILE_CERT",
+      "label_hi": "मूल निवास प्रमाण पत्र",
+      "icon": "certificate",
+      "where_to_get_hi": "तहसील / ई-मित्र",
+      "sample_image": "assets/docs/domicile_cert.svg"
+    },
+    {
+      "doc_id": "SCHOOL_ENROLLMENT_CERT",
+      "label_hi": "आंगनवाडी पंजीकरण / विद्यालय अध्ययनरत प्रमाण पत्र",
+      "icon": "certificate",
+      "where_to_get_hi": "आंगनवाड़ी केंद्र / विद्यालय",
+      "sample_image": "assets/docs/school_enrollment_cert.svg"
+    },
+    {
+      "doc_id": "CATEGORY_PROOF",
+      "label_hi": "श्रेणी का प्रमाण (मृत्यु प्रमाण पत्र, PPO, मेडिकल डायरी)",
+      "icon": "certificate",
+      "where_to_get_hi": "संबंधित कार्यालय",
+      "sample_image": "assets/docs/category_proof.svg"
+    }
+  ],
+  "apply_via": [
+    "emitra"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र पर जाकर पुष्टि करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+  }
+}

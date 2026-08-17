@@ -1,0 +1,81 @@
+{
+  "scheme_id": "RJ_RGHS",
+  "name_hi": "राजस्थान सरकारी स्वास्थ्य योजना (आरजीएचएस)",
+  "name_en": "Rajasthan Government Health Scheme (RGHS)",
+  "keywords_hi": [
+    "आरजीएचएस",
+    "सरकारी कर्मचारी स्वास्थ्य बीमा",
+    "पेंशनर स्वास्थ्य योजना"
+  ],
+  "department": "Medical, Health & Family Welfare Department, Rajasthan",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://rghs.rajasthan.gov.in/RGHS/home/homeintro",
+  "source_url_secondary": "https://rghs.rajasthan.gov.in/RGHS/home/homedefinition",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [],
+    "any_of": [
+      {
+        "slot": "employment_sector",
+        "op": "eq",
+        "value": "rajasthan_state_government"
+      },
+      {
+        "slot": "is_state_government_pensioner",
+        "op": "eq",
+        "value": true
+      },
+      {
+        "slot": "occupation",
+        "op": "in",
+        "value": [
+          "mla",
+          "ex_mla",
+          "minister",
+          "all_india_service_officer"
+        ]
+      },
+      {
+        "slot": "is_dependent_of_rghs_beneficiary",
+        "op": "eq",
+        "value": true
+      }
+    ],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "cashless_health_coverage",
+    "amount_inr": null,
+    "amount_text_hi": "OPD उपचार व IPD/डे-केयर सेवाओं के लिए कैशलेस सुविधा, सरकारी व सूचीबद्ध निजी अस्पतालों में; दरें सामान्यतः CGHS (केंद्रीय सरकारी स्वास्थ्य योजना) दरों पर आधारित जब तक अलग से संशोधित न हो; जांच, परिवार कल्याण, प्रसूति व शिशु स्वास्थ्य सेवाएं भी शामिल",
+    "rate_policy": "CGHS_RATE_BASED_NO_FIXED_CAP_MENTIONED",
+    "note": "यह योजना केवल राज्य सरकार के वर्तमान/सेवानिवृत्त कर्मचारियों, विधायकों, मंत्रियों व अखिल भारतीय सेवा अधिकारियों तथा उनके आश्रितों के लिए है — सामान्य नागरिकों के लिए नहीं (इसलिए X1 सूची में 'जहां लागू हो' कहा गया है)। पात्रता जन आधार डेटाबेस से सत्यापित होती है, कोई प्रीमियम राशि आधिकारिक पेज पर उल्लेखित नहीं मिली।"
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "RGHS_CARD",
+      "label_hi": "RGHS कार्ड / नियुक्ति या पेंशन आदेश",
+      "icon": "id-card",
+      "where_to_get_hi": "संबंधित कार्यालय / rghs.rajasthan.gov.in",
+      "sample_image": "assets/docs/rghs_card.svg"
+    }
+  ],
+  "apply_via": [
+    "sso_portal"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं (राज्य सरकार कर्मचारी/पेंशनर होने के आधार पर)। {{benefit_text}}। rghs.rajasthan.gov.in पर पंजीकरण की पुष्टि करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "यह योजना केवल राज्य सरकार कर्मचारियों/पेंशनरों व उनके आश्रितों के लिए है — सामान्य नागरिकों के लिए मुख्यमंत्री आयुष्मान आरोग्य योजना उपयुक्त हो सकती है।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। हेल्पलाइन 181 या helpdesk.rghs@rajasthan.gov.in से पूछें।"
+  }
+}

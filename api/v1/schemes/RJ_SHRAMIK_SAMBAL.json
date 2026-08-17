@@ -1,0 +1,94 @@
+{
+  "scheme_id": "RJ_SHRAMIK_SAMBAL",
+  "name_hi": "मुख्यमंत्री चिरंजीवी श्रमिक संबल योजना",
+  "name_en": "Mukhyamantri Chiranjeevi Shramik Sambal Yojana",
+  "keywords_hi": [
+    "श्रमिक संबल",
+    "अस्पताल भर्ती सहायता",
+    "रेहड़ी पटरी वाले सहायता"
+  ],
+  "department": "Construction Worker Welfare Fund / Labour Department, Rajasthan (unorganized sector)",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://labour.rajasthan.gov.in/Home.aspx",
+  "source_url_secondary": "https://www.drishtiias.com/hindi/state-pcs-current-affairs/mukhymantri-chiranjeevi-shramik-sambal-yojana",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 60,
+  "next_review_due": "2026-10-13",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "age",
+        "op": "between",
+        "value": {
+          "min": 25,
+          "max": 60
+        }
+      },
+      {
+        "slot": "hospitalization_hours",
+        "op": "gte",
+        "value": 24
+      }
+    ],
+    "any_of": [
+      {
+        "slot": "occupation",
+        "op": "eq",
+        "value": "construction_worker"
+      },
+      {
+        "slot": "occupation",
+        "op": "eq",
+        "value": "street_vendor"
+      }
+    ],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "daily_cash",
+    "amount_inr": 1400,
+    "amount_text_hi": "अस्पताल में न्यूनतम 24 घंटे भर्ती रहने पर ₹200 प्रतिदिन की दर से अधिकतम 7 दिन तक — कुल अधिकतम ₹1,400, सीधे लाभार्थी के खाते में ऑटो-डेबिट के माध्यम से",
+    "rate_policy": "DAILY_RATE_CAPPED_AT_7_DAYS",
+    "note": "योजना 14-15 जून 2023 को शुरू हुई — पंजीकृत निर्माण श्रमिकों व चिन्हित रेहड़ी-पटरी विक्रेताओं तथा उनके 25-60 वर्ष आयु वर्ग के परिवारजनों के लिए। अस्पताल में भर्ती के दौरान मृत्यु होने पर अतिरिक्त सहायता का प्रावधान भी बताया गया है, राशि अलग से सत्यापित नहीं हो सकी।"
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "BOCW_REG_CARD",
+      "label_hi": "श्रम विभाग/BOCW पंजीयन कार्ड या रेहड़ी-पटरी पहचान पत्र",
+      "icon": "id-card",
+      "where_to_get_hi": "श्रम विभाग कार्यालय / ई-मित्र",
+      "sample_image": "assets/docs/bocw_card.svg"
+    },
+    {
+      "doc_id": "HOSPITAL_ADMISSION_CERT",
+      "label_hi": "अस्पताल भर्ती प्रमाण पत्र (24 घंटे से अधिक)",
+      "icon": "certificate",
+      "where_to_get_hi": "राजकीय चिकित्सालय",
+      "sample_image": "assets/docs/hospital_admission_cert.svg"
+    },
+    {
+      "doc_id": "BANK_PASSBOOK",
+      "label_hi": "बैंक खाते की पासबुक",
+      "icon": "bank",
+      "where_to_get_hi": "बैंक शाखा",
+      "sample_image": "assets/docs/bank_passbook.svg"
+    }
+  ],
+  "apply_via": [
+    "emitra"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग सकते हैं। {{benefit_text}}। नज़दीकी श्रम विभाग कार्यालय या ई-मित्र पर जाकर पुष्टि करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+  }
+}

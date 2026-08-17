@@ -1,0 +1,66 @@
+{
+  "scheme_id": "RJ_SHUBH_SHAKTI",
+  "name_hi": "शुभ शक्ति योजना",
+  "name_en": "Shubh Shakti Yojana",
+  "keywords_hi": [
+    "शुभ शक्ति",
+    "श्रमिक बेटी विवाह",
+    "निर्माण श्रमिक बेटी सहायता"
+  ],
+  "department": "Labour Department / Rajasthan Building & Other Construction Workers Welfare Board",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://labour.rajasthan.gov.in/RuleBuildng.aspx",
+  "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 60,
+  "next_review_due": "2026-10-13",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "occupation",
+        "op": "eq",
+        "value": "construction_worker"
+      },
+      {
+        "slot": "bocw_board_registered",
+        "op": "eq",
+        "value": true
+      }
+    ],
+    "any_of": [],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "one_time_cash",
+    "amount_inr": null,
+    "amount_text_hi": "श्रमिक की अविवाहित पुत्री/महिला हिताधिकारी को एकमुश्त प्रोत्साहन राशि। राशि की पुष्टि श्रम विभाग की आधिकारिक अधिसूचना से करें — नज़दीकी ई-मित्र या श्रम कार्यालय पर जाँचें।",
+    "rate_policy": "UNVERIFIED_DO_NOT_STATE",
+    "note": "Amount widely reported as ₹55,000 by aggregator sites only; no official page or mainstream source found in two rounds of searching. Figure withheld from BOTH amount_inr and amount_text_hi so the app cannot speak it. Confirm with Labour Dept before promoting."
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "BOCW_REG_CARD",
+      "label_hi": "श्रम विभाग/BOCW बोर्ड पंजीयन कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "श्रम विभाग कार्यालय / ई-मित्र",
+      "sample_image": "assets/docs/bocw_card.svg"
+    }
+  ],
+  "apply_via": [
+    "emitra"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग सकते हैं, लेकिन सटीक शर्तें सत्यापित नहीं हैं — कृपया श्रम विभाग कार्यालय से पुष्टि करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+  }
+}

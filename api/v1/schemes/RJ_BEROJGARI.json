@@ -1,0 +1,153 @@
+{
+  "scheme_id": "RJ_BEROJGARI",
+  "name_hi": "मुख्यमंत्री युवा संबल योजना (बेरोजगारी भत्ता)",
+  "name_en": "Mukhyamantri Yuva Sambal Yojana",
+  "keywords_hi": [
+    "बेरोजगारी भत्ता",
+    "युवा संबल",
+    "नौकरी नहीं है",
+    "भत्तो",
+    "भत्ता"
+  ],
+  "department": "Skill, Employment & Entrepreneurship",
+  "dataset_version": "2026.08.14-1",
+  "source_url": "https://employment.livelihoods.rajasthan.gov.in/",
+  "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "education_level",
+        "op": "eq",
+        "value": "graduate"
+      },
+      {
+        "slot": "annual_income",
+        "op": "lte",
+        "value": 200000
+      },
+      {
+        "slot": "employment_registered",
+        "op": "eq",
+        "value": true
+      }
+    ],
+    "any_of": [
+      [
+        {
+          "slot": "category",
+          "op": "eq",
+          "value": "general"
+        },
+        {
+          "slot": "age",
+          "op": "lte",
+          "value": 35
+        }
+      ],
+      [
+        {
+          "slot": "category",
+          "op": "in",
+          "value": [
+            "sc",
+            "st"
+          ]
+        },
+        {
+          "slot": "age",
+          "op": "lte",
+          "value": 35
+        }
+      ],
+      [
+        {
+          "slot": "gender",
+          "op": "eq",
+          "value": "female"
+        },
+        {
+          "slot": "age",
+          "op": "lte",
+          "value": 35
+        }
+      ],
+      [
+        {
+          "slot": "disability_pct",
+          "op": "gte",
+          "value": 40
+        },
+        {
+          "slot": "age",
+          "op": "lte",
+          "value": 35
+        }
+      ]
+    ],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "monthly_cash",
+    "amount_inr": null,
+    "amount_text_hi": "पुरुष आशार्थियों को ₹4000/माह तथा महिला/विशेष योग्यजन/ट्रांसजेंडर को ₹4500/माह (अधिकतम 2 वर्ष तक)",
+    "rate_policy": "VARIES_BY_CATEGORY_DO_NOT_COLLAPSE",
+    "note": "राशि लिंग/श्रेणी के अनुसार दो भिन्न आँकड़े हैं — amount_inr एक ही संख्या धारण कर सकता है, इसलिए इसे null रखा गया है ताकि आधी आबादी को गलत राशि न बताई जाए; दोनों आँकड़े amount_text_hi में स्पष्ट हैं"
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "AADHAAR",
+      "label_hi": "आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+      "sample_image": "assets/docs/aadhaar.svg"
+    },
+    {
+      "doc_id": "DEGREE_MARKSHEET",
+      "label_hi": "स्नातक (Graduation) की अंकतालिका / डिग्री",
+      "icon": "document",
+      "where_to_get_hi": "विश्वविद्यालय / महाविद्यालय",
+      "sample_image": "assets/docs/degree_marksheet.svg"
+    },
+    {
+      "doc_id": "INCOME_CERT",
+      "label_hi": "आय प्रमाण पत्र",
+      "icon": "certificate",
+      "where_to_get_hi": "तहसील / ई-मित्र",
+      "sample_image": "assets/docs/income_cert.svg"
+    },
+    {
+      "doc_id": "DOMICILE_CERT",
+      "label_hi": "मूल निवास प्रमाण पत्र",
+      "icon": "certificate",
+      "where_to_get_hi": "तहसील / ई-मित्र",
+      "sample_image": "assets/docs/domicile_cert.svg"
+    },
+    {
+      "doc_id": "BANK_PASSBOOK",
+      "label_hi": "SBI बैंक खाते की पासबुक",
+      "icon": "bank",
+      "where_to_get_hi": "बैंक शाखा",
+      "sample_image": "assets/docs/bank_passbook.svg"
+    }
+  ],
+  "apply_via": [
+    "sso_portal"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र पर जाकर पुष्टि करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "scheme_id": "RJ_AYUSHMAN",
+  "name_hi": "मुख्यमंत्री आयुष्मान आरोग्य योजना",
+  "name_en": "Mukhyamantri Ayushman Arogya Yojana",
+  "keywords_hi": [
+    "स्वास्थ्य बीमा",
+    "चिरंजीवी",
+    "अस्पताल का खर्चा",
+    "इलाज"
+  ],
+  "department": "Medical & Health",
+  "dataset_version": "2026.08.14-1",
+  "source_url": "https://maayojana.rajasthan.gov.in/",
+  "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [],
+    "any_of": [
+      {
+        "slot": "health_cover_category",
+        "op": "in",
+        "value": [
+          "nfsa",
+          "secc_2011",
+          "small_marginal_farmer",
+          "contract_worker",
+          "covid_exgratia_recipient",
+          "other"
+        ]
+      }
+    ],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "insurance",
+    "amount_inr": null,
+    "amount_text_hi": "₹25 लाख तक का कैशलेस स्वास्थ्य बीमा और ₹10 लाख तक का दुर्घटना बीमा प्रति परिवार — NFSA, SECC 2011, लघु/सीमांत कृषक, संविदा कर्मी व कोविड-19 अनुग्रह राशि प्राप्तकर्ता श्रेणी के लिए निःशुल्क; अन्य श्रेणी के लिए ₹850 वार्षिक प्रीमियम पर उपलब्ध",
+    "rate_policy": "MULTIPLE_FIGURES_DO_NOT_COLLAPSE",
+    "note": "कवरेज लगभग सार्वभौमिक है (निःशुल्क या ₹850 प्रीमियम पर), इसलिए 'district: *' जैसी खोखली शर्त की जगह अब श्रेणी पूछी जाती है — इससे इंजन वास्तव में कुछ तय करता है, केवल हर किसी को स्वीकृत नहीं करता, और उत्तर बताता है कि निःशुल्क है या प्रीमियम लगेगा"
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "AADHAAR",
+      "label_hi": "आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+      "sample_image": "assets/docs/aadhaar.svg"
+    },
+    {
+      "doc_id": "RATION_CARD",
+      "label_hi": "राशन कार्ड (NFSA के लिए)",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र / रसद विभाग",
+      "sample_image": "assets/docs/ration_card.svg"
+    }
+  ],
+  "apply_via": [
+    "emitra",
+    "sso_portal"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र पर जाकर पुष्टि करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+  }
+}

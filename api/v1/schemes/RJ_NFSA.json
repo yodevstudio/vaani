@@ -1,0 +1,74 @@
+{
+  "scheme_id": "RJ_NFSA",
+  "name_hi": "राष्ट्रीय खाद्य सुरक्षा अधिनियम (राशन/खाद्य सुरक्षा योजना)",
+  "name_en": "National Food Security Act (NFSA) - Food Security / Ration Scheme",
+  "keywords_hi": [
+    "राशन कार्ड",
+    "खाद्य सुरक्षा योजना",
+    "मुफ्त गेहूं चावल",
+    "अंत्योदय"
+  ],
+  "department": "Union Ministry of Consumer Affairs, Food & Public Distribution (Central Act), implemented in Rajasthan via Food Department (food.raj.nic.in)",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=1897933&reg=48&lang=2",
+  "source_url_secondary": "https://department.rajasthan.gov.in/scheme/detail/203",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [],
+    "any_of": [
+      {
+        "slot": "ration_card_category",
+        "op": "eq",
+        "value": "aay"
+      },
+      {
+        "slot": "ration_card_category",
+        "op": "eq",
+        "value": "priority_household"
+      }
+    ],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "monthly_in_kind",
+    "amount_inr": null,
+    "amount_text_hi": "अंत्योदय अन्न योजना (AAY) - सबसे निर्धन परिवार: प्रति परिवार 35 किलो अनाज प्रतिमाह; प्राथमिकता परिवार (Priority Household): प्रति व्यक्ति 5 किलो प्रतिमाह — 1 जनवरी 2024 से अगले 5 वर्षों (दिसंबर 2029 तक) के लिए पूर्णतः निःशुल्क (पहले न्यूनतम मूल्य पर मिलता था)",
+    "rate_policy": "IN_KIND_QUANTITY_VARIES_BY_CARD_TYPE",
+    "note": "यह अनाज (गेहूं/चावल) के रूप में लाभ है, नकद नहीं, इसलिए amount_inr लागू नहीं। पात्र परिवारों की पहचान राज्य सरकार द्वारा निरंतर अद्यतन डेटाबेस से होती है। ग्रामीण क्षेत्र की 75% व शहरी क्षेत्र की 50% जनसंख्या तक कवरेज का प्रावधान राष्ट्रीय स्तर पर है — राजस्थान-विशिष्ट कवरेज आँकड़ा इस सत्र में सत्यापित नहीं हो सका।"
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "RATION_CARD",
+      "label_hi": "राशन कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र / रसद विभाग",
+      "sample_image": "assets/docs/ration_card.svg"
+    },
+    {
+      "doc_id": "AADHAAR",
+      "label_hi": "आधार कार्ड (सभी परिवार सदस्यों का, e-KYC हेतु)",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+      "sample_image": "assets/docs/aadhaar.svg"
+    }
+  ],
+  "apply_via": [
+    "emitra"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी उचित मूल्य दुकान या ई-मित्र से राशन कार्ड की स्थिति जांचें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+  }
+}

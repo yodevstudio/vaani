@@ -1,0 +1,240 @@
+[
+  {
+    "scheme_id": "RJ_PALANHAR",
+    "name_hi": "पालनहार योजना",
+    "name_en": "Palanhar Yojana",
+    "department": "Social Justice & Empowerment",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_RAJSSP_OLD_AGE",
+    "name_hi": "मुख्यमंत्री वृद्धजन सम्मान पेंशन योजना",
+    "name_en": "Mukhyamantri Vridhjan Samman Pension Yojana",
+    "department": "Social Justice & Empowerment Department",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_WIDOW_PENSION",
+    "name_hi": "मुख्यमंत्री एकल नारी सम्मान पेंशन योजना",
+    "name_en": "Mukhyamantri Ekal Nari Samman Pension Yojana",
+    "department": "Social Justice & Empowerment Department",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_DIVYANG_PENSION",
+    "name_hi": "मुख्यमंत्री विशेष योग्यजन सम्मान पेंशन योजना",
+    "name_en": "Mukhyamantri Vishesh Yogyajan Samman Pension Yojana",
+    "department": "Social Justice & Empowerment Department",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_RAJSHREE",
+    "name_hi": "मुख्यमंत्री राजश्री योजना",
+    "name_en": "Mukhyamantri Rajshree Yojana",
+    "department": "Women & Child Development",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_TARBANDI",
+    "name_hi": "राजस्थान तारबंदी योजना",
+    "name_en": "Rajasthan Tarbandi Yojana",
+    "department": "Agriculture",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_BEROJGARI",
+    "name_hi": "मुख्यमंत्री युवा संबल योजना (बेरोजगारी भत्ता)",
+    "name_en": "Mukhyamantri Yuva Sambal Yojana",
+    "department": "Skill, Employment & Entrepreneurship",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_AYUSHMAN",
+    "name_hi": "मुख्यमंत्री आयुष्मान आरोग्य योजना",
+    "name_en": "Mukhyamantri Ayushman Arogya Yojana",
+    "department": "Medical & Health",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_IGMPY",
+    "name_hi": "इंदिरा गांधी मातृत्व पोषण योजना",
+    "name_en": "Indira Gandhi Matritva Poshan Yojana",
+    "department": "Women Empowerment Department (Directorate of Women Empowerment), Rajasthan / महिला अधिकारिता विभाग",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_KALIBAI_SCOOTY",
+    "name_hi": "काली बाई भील मेधावी छात्रा स्कूटी योजना",
+    "name_en": "Kali Bai Bheel Medhavi Chhatra Scooty Yojana",
+    "department": "College Education Department / Higher Education Department, Rajasthan / कॉलेज शिक्षा विभाग",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_DEVNARAYAN_SCOOTY",
+    "name_hi": "देवनारायण छात्रा स्कूटी वितरण एवं प्रोत्साहन राशि योजना",
+    "name_en": "Devnarayan Chhatra Scooty Vitran evam Protsahan Rashi Yojana",
+    "department": "College Education Department, Rajasthan (Most Backward Classes / MBC welfare scheme) / कॉलेज शिक्षा विभाग",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_WIDOW_REMARRIAGE_GIFT",
+    "name_hi": "विधवा विवाह उपहार योजना",
+    "name_en": "Scheme of Gift on Widow's Marriage (Widow Remarriage Incentive)",
+    "department": "Social Justice & Empowerment Department, Rajasthan",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_SHUBH_SHAKTI",
+    "name_hi": "शुभ शक्ति योजना",
+    "name_en": "Shubh Shakti Yojana",
+    "department": "Labour Department / Rajasthan Building & Other Construction Workers Welfare Board",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_PMKISAN",
+    "name_hi": "प्रधानमंत्री किसान सम्मान निधि योजना",
+    "name_en": "PM Kisan Samman Nidhi Yojana",
+    "department": "Union Ministry of Agriculture & Farmers Welfare (Central Sector Scheme), implemented in Rajasthan via Agriculture Department",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_PMFBY",
+    "name_hi": "प्रधानमंत्री फसल बीमा योजना",
+    "name_en": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+    "department": "Union Ministry of Agriculture & Farmers Welfare (Central Sector Scheme), implemented in Rajasthan via Agriculture Department & empanelled insurance companies",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_DRIP_SPRINKLER",
+    "name_hi": "सूक्ष्म सिंचाई (ड्रिप/स्प्रिंकलर) अनुदान योजना",
+    "name_en": "Micro-Irrigation (Drip/Sprinkler) Subsidy Scheme",
+    "department": "Agriculture Department (Horticulture Division), Rajasthan / कृषि विभाग (उद्यान शाखा)",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_FARM_POND",
+    "name_hi": "खेत तलाई अनुदान योजना",
+    "name_en": "Farm Pond (Khet Talai) Subsidy Scheme",
+    "department": "Agriculture Department (Agriculture Extension Division), Rajasthan / कृषि विभाग (कृषि विस्तार शाखा)",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_KCC",
+    "name_hi": "किसान क्रेडिट कार्ड योजना",
+    "name_en": "Kisan Credit Card (KCC) Scheme",
+    "department": "Reserve Bank of India / NABARD (national credit scheme, delivered via nationalised banks, RRBs and cooperative banks in Rajasthan)",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_BOCW_WELFARE",
+    "name_hi": "भवन एवं अन्य सन्निर्माण कर्मकार कल्याण मंडल - कल्याण योजनाएं",
+    "name_en": "Rajasthan Building & Other Construction Workers (BOCW) Welfare Board - Welfare Schemes",
+    "department": "Labour Department, Government of Rajasthan (BOCW Welfare Board) / श्रम विभाग",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_SILICOSIS_ASSISTANCE",
+    "name_hi": "राजस्थान सिलिकोसिस नीति - पीड़ित सहायता योजना",
+    "name_en": "Rajasthan Silicosis Policy - Victim Assistance Scheme",
+    "department": "Joint implementation: Mining, Health, Labour, and Social Justice & Empowerment Departments, Rajasthan",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_SHRAMIK_SAMBAL",
+    "name_hi": "मुख्यमंत्री चिरंजीवी श्रमिक संबल योजना",
+    "name_en": "Mukhyamantri Chiranjeevi Shramik Sambal Yojana",
+    "department": "Construction Worker Welfare Fund / Labour Department, Rajasthan (unorganized sector)",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_POST_MATRIC_SCHOLARSHIP",
+    "name_hi": "उत्तर मैट्रिक (पोस्ट मैट्रिक) छात्रवृत्ति योजना",
+    "name_en": "Post-Matric Scholarship Scheme (SC / ST / OBC / Minority)",
+    "department": "Social Justice & Empowerment Dept (SC/ST/OBC) + Minority Affairs Dept, Rajasthan, under the Centrally-Sponsored Post-Matric Scholarship Scheme (Union Ministry of Social Justice & Empowerment / Ministry of Minority Affairs)",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_ANUPRATI_COACHING",
+    "name_hi": "मुख्यमंत्री अनुप्रति कोचिंग योजना",
+    "name_en": "Mukhyamantri Anuprati Coaching Yojana",
+    "department": "Social Justice & Empowerment Department, Rajasthan (in coordination with Tribal Area Development Dept for ST candidates) / सामाजिक न्याय एवं अधिकारिता विभाग",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_GARGI_BALIKA_PROTSAHAN",
+    "name_hi": "गार्गी पुरस्कार एवं बालिका प्रोत्साहन पुरस्कार योजना",
+    "name_en": "Gargi Puraskar & Balika Protsahan Puraskar Yojana (Girl-Child Education Incentive)",
+    "department": "Directorate of Secondary Education, Rajasthan (Bikaner) / Balika Shiksha Foundation / माध्यमिक शिक्षा निदेशालय",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_VRIDHJAN_KRISHAK_PENSION",
+    "name_hi": "वृद्धजन कृषक सम्मान पेंशन योजना",
+    "name_en": "Vridhjan Krishak Samman Pension Yojana (Old-Age Farmer Honour Pension)",
+    "department": "Social Justice & Empowerment Department, Rajasthan",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_DISABILITY_AIDS_ADIP",
+    "name_hi": "विशेष योग्यजन सहायक उपकरण योजना (ADIP)",
+    "name_en": "Assistance to Disabled Persons for Purchase/Fitting of Aids & Appliances (ADIP) + Rajasthan State Support",
+    "department": "Dept of Empowerment of Persons with Disabilities (Union Ministry of Social Justice & Empowerment) + Rajasthan Social Justice & Empowerment Dept (state top-up schemes)",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_PMAY_GRAMIN",
+    "name_hi": "प्रधानमंत्री आवास योजना - ग्रामीण",
+    "name_en": "Pradhan Mantri Awas Yojana - Gramin (PMAY-G)",
+    "department": "Union Ministry of Rural Development (Central Sector Scheme), implemented in Rajasthan via Rural Development Department",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_PMAY_URBAN",
+    "name_hi": "प्रधानमंत्री आवास योजना - शहरी 2.0",
+    "name_en": "Pradhan Mantri Awas Yojana - Urban 2.0 (PMAY-U 2.0)",
+    "department": "Union Ministry of Housing & Urban Affairs (Central Sector Scheme), implemented in Rajasthan via Urban Local Bodies / Housing Dept",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_UJJWALA",
+    "name_hi": "प्रधानमंत्री उज्ज्वला योजना 2.0",
+    "name_en": "Pradhan Mantri Ujjwala Yojana 2.0 (PMUY)",
+    "department": "Union Ministry of Petroleum & Natural Gas (Central Sector Scheme), delivered via Oil Marketing Companies (Indane, Bharat Gas, HP Gas) in Rajasthan",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_NFSA",
+    "name_hi": "राष्ट्रीय खाद्य सुरक्षा अधिनियम (राशन/खाद्य सुरक्षा योजना)",
+    "name_en": "National Food Security Act (NFSA) - Food Security / Ration Scheme",
+    "department": "Union Ministry of Consumer Affairs, Food & Public Distribution (Central Act), implemented in Rajasthan via Food Department (food.raj.nic.in)",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_NISHULK_DAWA_JANCH",
+    "name_hi": "मुख्यमंत्री निःशुल्क दवा एवं जांच योजना",
+    "name_en": "Mukhyamantri Nishulk Dawa evam Janch Yojana (Free Medicine & Free Diagnostics - Chiranjeevi/Ayushman OPD add-on)",
+    "department": "Medical, Health & Family Welfare Department, Rajasthan",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_RGHS",
+    "name_hi": "राजस्थान सरकारी स्वास्थ्य योजना (आरजीएचएस)",
+    "name_en": "Rajasthan Government Health Scheme (RGHS)",
+    "department": "Medical, Health & Family Welfare Department, Rajasthan",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_RURAL_EMPLOYMENT_GUARANTEE",
+    "name_hi": "विकसित भारत - ग्राम रोजगार एवं आजीविका मिशन (ग्रामीण) अधिनियम, 2025 (पूर्व में मनरेगा)",
+    "name_en": "Viksit Bharat - Guarantee for Rozgar and Ajeevika Mission (Gramin) Act, 2025 (VB-G RAM G) - successor to MGNREGA",
+    "department": "Union Ministry of Rural Development (Centrally Sponsored Scheme, 60:40 Centre-State), implemented in Rajasthan via Panchayati Raj & Rural Development Dept",
+    "last_verified": "2026-08-14"
+  },
+  {
+    "scheme_id": "RJ_URBAN_EMPLOYMENT_GUARANTEE",
+    "name_hi": "इंदिरा गांधी शहरी रोजगार गारंटी योजना",
+    "name_en": "Indira Gandhi Shahri (Urban) Rozgar Guarantee Yojana",
+    "department": "Local Self Government / Urban Development Department, Rajasthan",
+    "last_verified": "2026-08-14"
+  }
+]

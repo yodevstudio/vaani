@@ -1,0 +1,101 @@
+{
+  "scheme_id": "RJ_RAJSHREE",
+  "name_hi": "मुख्यमंत्री राजश्री योजना",
+  "name_en": "Mukhyamantri Rajshree Yojana",
+  "keywords_hi": [
+    "राजश्री",
+    "बेटी का पैसा",
+    "छोरी",
+    "बालिका"
+  ],
+  "department": "Women & Child Development",
+  "dataset_version": "2026.08.14-1",
+  "source_url": "https://wcd.rajasthan.gov.in/",
+  "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "gender",
+        "op": "eq",
+        "value": "female"
+      },
+      {
+        "slot": "birth_date",
+        "op": "gte",
+        "value": "2016-06-01"
+      },
+      {
+        "slot": "birth_facility_type",
+        "op": "in",
+        "value": [
+          "government",
+          "jsy_empaneled_private"
+        ]
+      },
+      {
+        "slot": "family_girls_count",
+        "op": "lte",
+        "value": 2
+      }
+    ],
+    "any_of": [],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "one_time_cash",
+    "amount_inr": null,
+    "amount_text_hi": "कुल ₹50,000 छह किश्तों में (जन्म पर ₹2500, 1 वर्ष/टीकाकरण पर ₹2500, एवं कक्षा 1, 6, 10, 12 में प्रवेश पर क्रमशः ₹4000, ₹5000, ₹11000, ₹25000)",
+    "rate_policy": "STAGED_DISBURSEMENT_DO_NOT_COLLAPSE",
+    "note": "राशि छह किश्तों में चरणबद्ध है — एक बंधी राशि (amount_inr) के रूप में बताना किश्तबद्ध ढांचे को छुपाएगा, इसलिए संरचना ही amount_text_hi में बताई गई है"
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "माता-पिता का जन आधार / भामाशाह कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "CHILD_AADHAAR",
+      "label_hi": "बालिका का आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+      "sample_image": "assets/docs/child_aadhaar.svg"
+    },
+    {
+      "doc_id": "BIRTH_CERT",
+      "label_hi": "जन्म प्रमाण पत्र",
+      "icon": "certificate",
+      "where_to_get_hi": "नगर निगम / ग्राम पंचायत",
+      "sample_image": "assets/docs/birth_cert.svg"
+    },
+    {
+      "doc_id": "MAMTA_CARD",
+      "label_hi": "मातृ-शिशु स्वास्थ्य कार्ड (ममता कार्ड)",
+      "icon": "document",
+      "where_to_get_hi": "आंगनवाड़ी केंद्र / राजकीय चिकित्सालय",
+      "sample_image": "assets/docs/mamta_card.svg"
+    },
+    {
+      "doc_id": "SCHOOL_ADMISSION_CERT",
+      "label_hi": "विद्यालय प्रवेश का प्रमाण पत्र",
+      "icon": "certificate",
+      "where_to_get_hi": "विद्यालय",
+      "sample_image": "assets/docs/school_admission_cert.svg"
+    }
+  ],
+  "apply_via": [
+    "emitra"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र पर जाकर पुष्टि करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+  }
+}

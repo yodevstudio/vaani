@@ -1,0 +1,19 @@
+VAANI — Rajasthan Innovation Challenge submission
+Copyright (c) 2026 Yogendra Singh Chouhan / YoDevStudio
+
+This repository is a submission to the Rajasthan Innovation Challenge.
+Intellectual property terms for the submission follow the challenge's
+IIC guidelines; no separate open-source license is granted for the
+application code (`index.html`, `css/`, `js/`) beyond evaluating this
+submission, pending those terms.
+
+Two parts of this repository are licensed independently of the above:
+
+1. Fonts (`assets/fonts/`) — Noto Sans Devanagari and Inter, both under
+   the SIL Open Font License 1.1. See `assets/fonts/OFL-*.txt`.
+
+2. The Rajasthani lexicon (`data/lexicon.json`) — offered as an open
+   contribution to DoIT&C regardless of the challenge outcome, per the
+   note in that file.
+
+See `README.md` § Licence for the same statement in context.

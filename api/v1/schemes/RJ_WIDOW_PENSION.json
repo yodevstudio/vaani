@@ -1,0 +1,80 @@
+{
+  "scheme_id": "RJ_WIDOW_PENSION",
+  "name_hi": "मुख्यमंत्री एकल नारी सम्मान पेंशन योजना",
+  "name_en": "Mukhyamantri Ekal Nari Samman Pension Yojana",
+  "keywords_hi": [
+    "विधवा पेंशन",
+    "रांड्या री पिंडोळी",
+    "तलाकशुदा"
+  ],
+  "department": "Social Justice & Empowerment Department",
+  "dataset_version": "2026.08.14-1",
+  "source_url": "https://ssp.rajasthan.gov.in/",
+  "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "age",
+        "op": "gte",
+        "value": 18
+      },
+      {
+        "slot": "gender",
+        "op": "eq",
+        "value": "female"
+      },
+      {
+        "slot": "marital_status",
+        "op": "in",
+        "value": [
+          "widow",
+          "divorced",
+          "abandoned"
+        ]
+      },
+      {
+        "slot": "annual_income",
+        "op": "lte",
+        "value": 48000
+      }
+    ],
+    "any_of": [],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "monthly_cash",
+    "amount_inr": null,
+    "amount_text_hi": "मासिक पेंशन — राशि आयु वर्ग (18-74 वर्ष व 75+ वर्ष) के अनुसार भिन्न है और राज्य सरकार द्वारा समय-समय पर संशोधित की जाती है, नवीनतम दर की पुष्टि ssp.rajasthan.gov.in या नज़दीकी ई-मित्र पर करें",
+    "rate_policy": "REVISED_PERIODICALLY_DO_NOT_STATE",
+    "note": "राशि आयु वर्ग व समय के साथ बदलती रहती है — स्थिर आँकड़ा देने से पुरानी/गलत जानकारी का जोखिम है, इसलिए संरचना व स्रोत ही बताया गया है।"
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "MARITAL_STATUS_PROOF",
+      "label_hi": "पति का मृत्यु प्रमाण पत्र / तलाकनामा",
+      "icon": "certificate",
+      "where_to_get_hi": "नगर निगम / ग्राम पंचायत / न्यायालय",
+      "sample_image": "assets/docs/marital_status_proof.svg"
+    }
+  ],
+  "apply_via": [
+    "emitra"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र पर जाकर पुष्टि करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+  }
+}

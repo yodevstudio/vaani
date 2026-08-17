@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The app makes no external requests (no CDN, no third-party API, no
+     analytics) — every script, style, font and fetch target is same-origin,
+     so this policy permits only 'self' and should change nothing observable. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<title>VAANI — योजना सहायक</title>
+<link rel="stylesheet" href="css/vaani.css">
+<!-- W2: installable + offline. js/pwa.js registers sw.js, HTTPS-only. -->
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#1B3A6B">
+</head>
+<body>
+<div class="app-shell">
+  <header class="app-header">
+    <div class="app-header__brand">VAANI</div>
+    <button type="button" id="janaadhaar-trigger" class="janaadhaar-trigger-btn">जन आधार सत्यापन</button>
+    <div class="app-header__mode-toggle" role="group" aria-label="मोड चुनें">
+      <button type="button" class="mode-btn mode-btn--active" id="mode-citizen" aria-pressed="true">नागरिक</button>
+      <button type="button" class="mode-btn" id="mode-emitra" aria-pressed="false">ई-मित्र</button>
+    </div>
+  </header>
+
+  <!-- S1: shown only when no Hindi-capable TTS voice is detected on this
+       device — js/speech.js decides, js/app.js toggles this and disables
+       every speaker button rather than letting them play unintelligible
+       audio. All response text is still shown regardless. -->
+  <p id="tts-degraded-notice" class="tts-degraded-notice" hidden>इस डिवाइस पर हिन्दी आवाज़ उपलब्ध नहीं है — जवाब पढ़कर देखें</p>
+
+  <main class="app-main">
+    <section class="mic-hero">
+      <button type="button" id="mic-button" class="mic-button" aria-label="बोलने के लिए दबाएँ">
+        <span class="mic-button__icon" aria-hidden="true">●</span>
+        <span class="mic-button__label">बोलिए</span>
+      </button>
+
+      <!-- S2: announced (and shown) only while actively listening, so a
+           user who can't see the mic-ring animation still gets a clear
+           state cue — paired with the start/stop beeps from js/speech.js. -->
+      <p id="mic-status" class="mic-status" aria-live="polite"></p>
+
+      <div class="transcript-block">
+        <p id="transcript-line" class="transcript-line" aria-live="polite"></p>
+        <button type="button" class="speaker-btn" data-speak-target="#transcript-line" aria-label="सुनिए">🔊</button>
+      </div>
+
+      <div id="normalisation-block" class="normalisation-block" hidden>
+        <p class="normalisation-line">
+          <span class="normalisation-line__arrow" aria-hidden="true">↓</span>
+          समझा गया: <span id="normalisation-line" class="normalisation-line__text"></span>
+        </p>
+        <button type="button" class="speaker-btn" data-speak-target="#normalisation-line" aria-label="सुनिए">🔊</button>
+      </div>
+
+      <div class="discovery-entry">
+        <button type="button" id="discovery-entry-btn" class="discovery-entry-btn">मुझे क्या-क्या मिल सकता है?</button>
+        <button type="button" class="speaker-btn" data-speak-target="#discovery-entry-btn" aria-label="सुनिए">🔊</button>
+      </div>
+    </section>
+
+    <section id="clarification-chips" class="clarification-chips" hidden aria-live="polite">
+      <!-- populated later: low-confidence candidate schemes / missing-slot options -->
+    </section>
+
+    <section id="fallback-panel" class="fallback-panel">
+      <p class="fallback-panel__message" id="fallback-message">माइक दबाकर बोलिए, नीचे से कोई सवाल चुनें, या टाइप करें</p>
+      <div class="fallback-chips" id="fallback-chips" aria-label="नमूना सवाल"></div>
+      <form id="typed-input-form" class="typed-input-form">
+        <label for="typed-input" class="sr-only">अपना सवाल टाइप करें</label>
+        <input type="text" id="typed-input" class="typed-input" placeholder="यहाँ अपना सवाल टाइप करें">
+        <button type="submit" class="typed-input__submit">पूछें</button>
+      </form>
+    </section>
+
+    <section id="verdict-card" class="verdict-card" hidden aria-live="polite">
+      <div class="verdict-card__header">
+        <span id="verdict-icon" class="verdict-card__icon" aria-hidden="true"></span>
+        <h2 id="verdict-title" class="verdict-card__title"></h2>
+        <button type="button" class="speaker-btn" data-speak-target="#verdict-title" aria-label="सुनिए">🔊</button>
+      </div>
+      <p id="verdict-scheme-name" class="verdict-card__scheme-name"></p>
+      <div id="document-cards" class="document-cards"></div>
+      <p id="verdict-citation" class="verdict-card__citation"></p>
+      <!-- W1: plain-text summary via https://wa.me/?text= — no API, no
+           key, no backend. js/app.js sets the click handler per render. -->
+      <button type="button" id="verdict-share-btn" class="whatsapp-share-btn">व्हाट्सएप पर भेजें</button>
+    </section>
+
+    <!-- D5: discovery flow's ranked result — three groups, eligible expanded
+         with full verdict cards, needs-more-info as tappable questions,
+         not-eligible collapsed by default. -->
+    <section id="discovery-results" class="discovery-results" hidden aria-live="polite">
+      <div class="discovery-group">
+        <h2 id="discovery-eligible-heading" class="discovery-group__heading"></h2>
+        <!-- W1: shares a summary of every eligible scheme in one message —
+             separate from each card's own share button below. -->
+        <button type="button" id="discovery-share-all-btn" class="whatsapp-share-btn" hidden>सभी पात्र योजनाएं व्हाट्सएप पर भेजें</button>
+        <div id="discovery-eligible-cards" class="discovery-eligible-cards"></div>
+      </div>
+
+      <div class="discovery-group">
+        <h2 id="discovery-needinfo-heading" class="discovery-group__heading"></h2>
+        <div id="discovery-needinfo-list" class="discovery-needinfo-list"></div>
+      </div>
+
+      <div id="discovery-nearmiss-group" class="discovery-group" hidden>
+        <h2 id="discovery-nearmiss-heading" class="discovery-group__heading"></h2>
+        <div id="discovery-nearmiss-list" class="discovery-nearmiss-list"></div>
+      </div>
+
+      <div class="discovery-group">
+        <button type="button" id="discovery-noteligible-toggle" class="discovery-group__heading discovery-group__heading--toggle" aria-expanded="false"></button>
+        <div id="discovery-noteligible-list" class="discovery-noteligible-list" hidden></div>
+      </div>
+    </section>
+  </main>
+
+  <section id="operator-view" class="operator-view" hidden aria-label="ई-मित्र संचालक दृश्य">
+    <div class="operator-view__toolbar">
+      <span id="operator-timer" class="operator-timer">सत्र समय: —</span>
+      <span class="operator-hint">Space = सुनें · Esc = रीसेट</span>
+    </div>
+
+    <section class="operator-panel" aria-label="ट्रांसक्रिप्ट">
+      <h3>ट्रांसक्रिप्ट</h3>
+      <p><strong>Raw:</strong> <span id="operator-raw-transcript">—</span></p>
+      <p><strong>Normalised:</strong> <span id="operator-normalised-transcript">—</span></p>
+    </section>
+
+    <section class="operator-panel" aria-label="स्लॉट तालिका">
+      <h3>स्लॉट (संपादन योग्य)</h3>
+      <table class="operator-slot-table">
+        <thead><tr><th>स्लॉट</th><th>मान</th></tr></thead>
+        <tbody id="operator-slot-table-body"></tbody>
+      </table>
+    </section>
+
+    <section class="operator-panel" aria-label="योजना पात्रता सूची">
+      <h3>सभी योजनाएं — पात्रता विवरण</h3>
+      <div class="operator-schemes-table-wrapper">
+        <table class="operator-schemes-table">
+          <thead><tr><th>योजना</th><th>निर्णय</th><th>विवरण</th><th>स्रोत</th></tr></thead>
+          <tbody id="operator-schemes-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <button type="button" id="operator-print-btn" class="operator-print-btn">चेकलिस्ट प्रिंट करें (Ctrl+P)</button>
+  </section>
+
+  <div id="operator-print-area" class="operator-print-area"></div>
+
+  <footer class="app-footer">
+    <!-- TODO before submission: this video link is pending a real URL. Replace the <span data-pending> below with a proper <a href="..."> once the demo video is recorded and uploaded. -->
+    <span class="app-footer__link app-footer__link--pending" data-pending="true" aria-disabled="true">डेमो वीडियो (जल्द)</span>
+    <a class="app-footer__link" href="https://github.com/yodevstudio/vaani" target="_blank" rel="noopener noreferrer">सोर्स कोड</a>
+    <a class="app-footer__link" href="tests/eligibility.test.html" target="_blank" rel="noopener noreferrer">टेस्ट सूट</a>
+    <button type="button" id="disclosure-trigger" class="app-footer__link app-footer__link--btn">क्या असली, क्या सिम्युलेटेड?</button>
+  </footer>
+</div>
+
+<div id="janaadhaar-modal" class="janaadhaar-modal" hidden role="dialog" aria-label="जन आधार सत्यापन">
+  <div class="janaadhaar-modal__content">
+    <!-- B4: text injected from js/janaadhaar-sim.js's SIMULATED_BANNER_TEXT export — the one non-dismissible disclosure this simulator must always carry, kept in one place so this markup and that string can't drift apart. -->
+    <p id="janaadhaar-banner" class="janaadhaar-banner"></p>
+
+    <div class="janaadhaar-modal__header">
+      <h2>जन आधार सत्यापन (सिम्युलेटेड)</h2>
+      <button type="button" id="janaadhaar-close" class="janaadhaar-close-btn" aria-label="बंद करें">✕ बंद करें</button>
+    </div>
+
+    <div class="janaadhaar-error-force">
+      <label for="janaadhaar-error-select">त्रुटि कोड बाध्य करें / force error code (परीक्षण हेतु):</label>
+      <!-- P5: options populated at init time by initJanAadhaar() from
+           DOCUMENTED_RESPONSE_CODES in js/janaadhaar-sim.js, so this list
+           can't drift out of sync with what that module actually documents. -->
+      <select id="janaadhaar-error-select"></select>
+    </div>
+
+    <div id="janaadhaar-error" class="janaadhaar-error" hidden></div>
+
+    <section class="janaadhaar-step">
+      <h3>चरण 1 — सदस्य सूची / member-list</h3>
+      <label for="janaadhaar-jan-id">जन आधार ID</label>
+      <input type="text" id="janaadhaar-jan-id" list="janaadhaar-mock-ids" value="JANID-DEMO-0001">
+      <datalist id="janaadhaar-mock-ids">
+        <option value="JANID-DEMO-0001"></option>
+        <option value="JANID-DEMO-0002"></option>
+      </datalist>
+      <button type="button" id="janaadhaar-fetch-btn" class="chip-btn">सदस्य सूची लाएं</button>
+      <div id="janaadhaar-members" class="janaadhaar-members"></div>
+    </section>
+
+    <section id="janaadhaar-step2" class="janaadhaar-step" hidden>
+      <h3>चरण 2 — OTP भेजें / generate-otp</h3>
+      <button type="button" id="janaadhaar-otp-btn" class="chip-btn">OTP भेजें</button>
+    </section>
+
+    <section id="janaadhaar-step3" class="janaadhaar-step" hidden>
+      <h3>चरण 3 — OTP सत्यापन / validate-otp</h3>
+      <p>डेमो OTP (सिम्युलेटेड, कोई वास्तविक SMS नहीं भेजा गया): <strong id="janaadhaar-demo-otp"></strong></p>
+      <label for="janaadhaar-otp-input">OTP दर्ज करें</label>
+      <input type="text" id="janaadhaar-otp-input">
+      <button type="button" id="janaadhaar-validate-btn" class="chip-btn">सत्यापित करें</button>
+    </section>
+
+    <div id="janaadhaar-result" class="janaadhaar-result" hidden></div>
+
+    <details class="janaadhaar-log-details">
+      <summary>अनुरोध/प्रतिक्रिया envelopes देखें (तकनीकी विवरण / technical detail)</summary>
+      <div id="janaadhaar-log"></div>
+    </details>
+  </div>
+</div>
+
+<div id="disclosure-modal" class="disclosure-modal" hidden role="dialog" aria-label="क्या असली है, क्या सिम्युलेटेड है">
+  <div class="disclosure-modal__content">
+    <div class="disclosure-modal__header">
+      <h2>क्या असली है, क्या सिम्युलेटेड है</h2>
+      <button type="button" id="disclosure-close" class="janaadhaar-close-btn" aria-label="बंद करें">✕ बंद करें</button>
+    </div>
+
+    <div class="disclosure-columns">
+      <div class="disclosure-column disclosure-column--live">
+        <h3>✅ जो असली है / LIVE</h3>
+        <ul id="disclosure-live-list"></ul>
+      </div>
+      <div class="disclosure-column disclosure-column--simulated">
+        <h3>🧪 जो सिम्युलेटेड है / SIMULATED</h3>
+        <ul id="disclosure-simulated-list"></ul>
+      </div>
+    </div>
+
+    <p class="disclosure-footer">
+      <a href="tests/eligibility.test.html" target="_blank" rel="noopener noreferrer">पात्रता इंजन परीक्षण देखें / view eligibility engine tests</a>
+    </p>
+  </div>
+</div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

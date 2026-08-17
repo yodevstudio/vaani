@@ -1,0 +1,113 @@
+{
+  "scheme_id": "RJ_VRIDHJAN_KRISHAK_PENSION",
+  "name_hi": "वृद्धजन कृषक सम्मान पेंशन योजना",
+  "name_en": "Vridhjan Krishak Samman Pension Yojana (Old-Age Farmer Honour Pension)",
+  "keywords_hi": [
+    "किसान पेंशन",
+    "वृद्ध किसान पेंशन",
+    "कृषक सम्मान पेंशन",
+    "बुढ़ापा किसान पेंशन"
+  ],
+  "department": "Social Justice & Empowerment Department, Rajasthan",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://ssp.rajasthan.gov.in/",
+  "source_url_secondary": "https://www.amarujala.com/rajasthan/rajasthan-government-issued-rules-for-social-protection-old-age-farmer-honor-pension-scheme",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "occupation",
+        "op": "eq",
+        "value": "farmer"
+      },
+      {
+        "slot": "landholding_category",
+        "op": "in",
+        "value": [
+          "small",
+          "marginal"
+        ]
+      },
+      {
+        "slot": "has_regular_income_source",
+        "op": "eq",
+        "value": false
+      }
+    ],
+    "any_of": [
+      [
+        {
+          "slot": "gender",
+          "op": "eq",
+          "value": "female"
+        },
+        {
+          "slot": "age",
+          "op": "gte",
+          "value": 55
+        }
+      ],
+      [
+        {
+          "slot": "gender",
+          "op": "eq",
+          "value": "male"
+        },
+        {
+          "slot": "age",
+          "op": "gte",
+          "value": 58
+        }
+      ]
+    ],
+    "none_of": [
+      {
+        "slot": "other_social_security_pension_recipient",
+        "op": "eq",
+        "value": true
+      }
+    ]
+  },
+  "benefit": {
+    "type": "monthly_cash",
+    "amount_inr": null,
+    "amount_text_hi": "55-74 वर्ष (महिला) / 58-74 वर्ष (पुरुष) आयु वर्ग में ₹750 प्रतिमाह; 75 वर्ष व अधिक आयु में ₹1,000 प्रतिमाह — 1 मार्च 2019 से प्रभावी",
+    "rate_policy": "VARIES_BY_AGE_BAND_DO_NOT_COLLAPSE",
+    "note": "यह योजना सामान्य वृद्धावस्था पेंशन (RJ_RAJSSP_OLD_AGE) जैसी ही राशि-संरचना उपयोग करती है परंतु विशेष रूप से लघु/सीमांत किसानों के लिए है जिनकी नियमित आय का कोई स्रोत नहीं है — दोनों योजनाओं का एक साथ लाभ नहीं मिलता। राशि 2019 की घोषणा पर आधारित है, तब से संशोधित हो सकती है।"
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "AGE_CERT",
+      "label_hi": "आयु प्रमाण पत्र",
+      "icon": "certificate",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/age_cert.svg"
+    },
+    {
+      "doc_id": "LAND_RECORD",
+      "label_hi": "जमाबंदी की नकल (लघु/सीमांत किसान श्रेणी हेतु)",
+      "icon": "document",
+      "where_to_get_hi": "तहसील (राजस्व विभाग)",
+      "sample_image": "assets/docs/land_record.svg"
+    }
+  ],
+  "apply_via": [
+    "emitra"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र पर जाकर पुष्टि करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+  }
+}

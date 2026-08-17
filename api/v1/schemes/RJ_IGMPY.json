@@ -1,0 +1,106 @@
+{
+  "scheme_id": "RJ_IGMPY",
+  "name_hi": "इंदिरा गांधी मातृत्व पोषण योजना",
+  "name_en": "Indira Gandhi Matritva Poshan Yojana",
+  "keywords_hi": [
+    "मातृत्व पोषण",
+    "गर्भवती सहायता",
+    "दूसरा बच्चा",
+    "आईजीएमपीवाई",
+    "पोषण योजना"
+  ],
+  "department": "Women Empowerment Department (Directorate of Women Empowerment), Rajasthan / महिला अधिकारिता विभाग",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://mahilawfh.rajasthan.gov.in/public/images/IGMPY%20Brief%20Note_Final.pdf",
+  "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "gender",
+        "op": "eq",
+        "value": "female"
+      },
+      {
+        "slot": "pregnancy_status",
+        "op": "in",
+        "value": [
+          "pregnant",
+          "recently_delivered"
+        ]
+      },
+      {
+        "slot": "pregnancy_child_number",
+        "op": "eq",
+        "value": 2
+      }
+    ],
+    "any_of": [],
+    "none_of": [
+      {
+        "slot": "employment_sector",
+        "op": "in",
+        "value": [
+          "government",
+          "psu"
+        ]
+      }
+    ]
+  },
+  "benefit": {
+    "type": "staged_cash",
+    "amount_inr": null,
+    "amount_text_hi": "कुल ₹6,000 पाँच किश्तों में — पंजीकरण व पहली ANC जांच (120 दिन में) पर ₹1,000; कम से कम 2 ANC जांच (6 माह तक) पर ₹1,000; संस्थागत प्रसव पर ₹1,000; प्रसव के 105 दिन में शिशु टीकाकरण (BCG, OPV, DPT, Hepatitis-B) व जन्म पंजीकरण पर ₹2,000; परिवार नियोजन (नसबंदी, दूसरे बच्चे के 3 माह में) पर ₹1,000",
+    "rate_policy": "STAGED_DISBURSEMENT_DO_NOT_COLLAPSE",
+    "note": "राशि पाँच शर्तबद्ध किश्तों में है — एक बंधी राशि (amount_inr) के रूप में बताना किश्तबद्ध ढांचे व शर्तों को छुपाएगा, इसलिए संरचना amount_text_hi में बताई गई है। मूलतः केवल 5 आदिवासी जिलों (प्रतापगढ़, बांसवाड़ा, उदयपुर, डूंगरपुर, बारां) तक सीमित थी; 1 अप्रैल 2022 से पूरे राजस्थान में लागू। आंगनवाड़ी कार्यकर्ता/सहायिका व आशा सहयोगिनी भी पात्र हैं भले ही वे शासकीय सेवा से जुड़ी हों।"
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "AADHAAR",
+      "label_hi": "आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+      "sample_image": "assets/docs/aadhaar.svg"
+    },
+    {
+      "doc_id": "PREGNANCY_REG_PCTS",
+      "label_hi": "गर्भावस्था पंजीकरण (PCTS/ममता कार्ड)",
+      "icon": "document",
+      "where_to_get_hi": "आंगनवाड़ी केंद्र / राजकीय चिकित्सालय",
+      "sample_image": "assets/docs/mamta_card.svg"
+    },
+    {
+      "doc_id": "BANK_PASSBOOK",
+      "label_hi": "बैंक खाते की पासबुक (DBT हेतु)",
+      "icon": "bank",
+      "where_to_get_hi": "बैंक शाखा",
+      "sample_image": "assets/docs/bank_passbook.svg"
+    },
+    {
+      "doc_id": "BIRTH_CERT",
+      "label_hi": "शिशु जन्म प्रमाण पत्र (चौथी किश्त हेतु)",
+      "icon": "certificate",
+      "where_to_get_hi": "नगर निगम / ग्राम पंचायत",
+      "sample_image": "assets/docs/birth_cert.svg"
+    }
+  ],
+  "apply_via": [
+    "anganwadi_center"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी आंगनवाड़ी केंद्र पर जाकर पुष्टि करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी आंगनवाड़ी केंद्र से पूछें।"
+  }
+}

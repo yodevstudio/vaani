@@ -1,0 +1,94 @@
+{
+  "scheme_id": "RJ_TARBANDI",
+  "name_hi": "राजस्थान तारबंदी योजना",
+  "name_en": "Rajasthan Tarbandi Yojana",
+  "keywords_hi": [
+    "तारबंदी",
+    "बाड़ लगाना",
+    "आवारा पशु",
+    "नीलगाय"
+  ],
+  "department": "Agriculture",
+  "dataset_version": "2026.08.14-1",
+  "source_url": "https://rajkisan.rajasthan.gov.in/WebsiteNew/fieldfencing.html",
+  "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "occupation",
+        "op": "eq",
+        "value": "farmer"
+      }
+    ],
+    "any_of": [
+      {
+        "slot": "landholding_hectares",
+        "op": "gte",
+        "value": 0.5
+      },
+      [
+        {
+          "slot": "group_farmer_count",
+          "op": "gte",
+          "value": 3
+        },
+        {
+          "slot": "group_landholding_hectares",
+          "op": "gte",
+          "value": 5
+        }
+      ]
+    ],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "subsidy",
+    "amount_inr": null,
+    "amount_text_hi": "तारबंदी लागत का 50% से 70% तक या अधिकतम ₹40,000 से ₹56,000 तक अनुदान (श्रेणी व समूह के अनुसार)",
+    "rate_policy": "VARIES_BY_CATEGORY_DO_NOT_COLLAPSE",
+    "note": "अनुदान प्रतिशत/सीमा श्रेणी व व्यक्तिगत/समूह आवेदन पर निर्भर — एक बंधी राशि (amount_inr) के रूप में बताना गलत श्रेणी के लिए गलत आँकड़ा दे सकता है, इसलिए सीमा व स्रोत ही amount_text_hi में बताई गई है"
+  },
+  "documents": [
+    {
+      "doc_id": "AADHAAR",
+      "label_hi": "आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+      "sample_image": "assets/docs/aadhaar.svg"
+    },
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "LAND_RECORD",
+      "label_hi": "जमाबंदी की नकल (छः माह से अधिक पुरानी नहीं हो)",
+      "icon": "document",
+      "where_to_get_hi": "तहसील (राजस्व विभाग)",
+      "sample_image": "assets/docs/land_record.svg"
+    },
+    {
+      "doc_id": "BANK_PASSBOOK",
+      "label_hi": "बैंक खाते संबंधित विवरण",
+      "icon": "bank",
+      "where_to_get_hi": "बैंक शाखा",
+      "sample_image": "assets/docs/bank_passbook.svg"
+    }
+  ],
+  "apply_via": [
+    "emitra"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र पर जाकर पुष्टि करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+  }
+}

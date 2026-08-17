@@ -1,0 +1,105 @@
+{
+  "scheme_id": "RJ_PMAY_URBAN",
+  "name_hi": "प्रधानमंत्री आवास योजना - शहरी 2.0",
+  "name_en": "Pradhan Mantri Awas Yojana - Urban 2.0 (PMAY-U 2.0)",
+  "keywords_hi": [
+    "पीएम आवास शहरी",
+    "आवास योजना शहर",
+    "ईडब्ल्यूएस आवास"
+  ],
+  "department": "Union Ministry of Housing & Urban Affairs (Central Sector Scheme), implemented in Rajasthan via Urban Local Bodies / Housing Dept",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://pmay-urban.gov.in/about",
+  "source_url_secondary": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2043927",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "owns_pucca_house",
+        "op": "eq",
+        "value": false
+      }
+    ],
+    "any_of": [
+      {
+        "slot": "annual_income",
+        "op": "lte",
+        "value": 300000
+      },
+      {
+        "slot": "annual_income",
+        "op": "between",
+        "value": {
+          "min": 300001,
+          "max": 600000
+        }
+      },
+      {
+        "slot": "annual_income",
+        "op": "between",
+        "value": {
+          "min": 600001,
+          "max": 900000
+        }
+      }
+    ],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "mixed_subsidy_and_grant",
+    "amount_inr": null,
+    "amount_text_hi": "लाभार्थी-नेतृत्व निर्माण/किफायती आवास भागीदारी में ₹2.50 लाख प्रति इकाई सहायता (कुछ राज्यों में ₹1.50 लाख + राज्य अंश ₹1 लाख); ब्याज सहायता योजना में ₹8 लाख तक के ऋण पर 4% ब्याज सब्सिडी (12 वर्ष तक, अधिकतम ₹1.80 लाख); झुग्गी पुनर्विकास में ₹1 लाख प्रति घर — योजना EWS (₹3 लाख तक आय), LIG (₹3-6 लाख), MIG (₹6-9 लाख) तीन श्रेणियों में विभाजित है",
+    "rate_policy": "VARIES_BY_VERTICAL_AND_INCOME_CATEGORY_DO_NOT_COLLAPSE",
+    "note": "अगस्त 2024 में स्वीकृत PMAY-U 2.0 पुराने PMAY-U (2015) की जगह लेती है — 5 वर्ष में 1 करोड़ घर का लक्ष्य। दिव्यांगजन, SC/ST/OBC, अल्पसंख्यक, ट्रांसजेंडर व विधवा महिलाओं को प्राथमिकता। चार अलग वर्टिकल (BLC, AHP, ISSR/झुग्गी पुनर्विकास, किफायती किराया आवास) की अलग-अलग सहायता राशि है।"
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "AADHAAR",
+      "label_hi": "आधार कार्ड (परिवार के सभी सदस्यों का)",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+      "sample_image": "assets/docs/aadhaar.svg"
+    },
+    {
+      "doc_id": "INCOME_CERT",
+      "label_hi": "आय प्रमाण पत्र",
+      "icon": "certificate",
+      "where_to_get_hi": "तहसील / ई-मित्र",
+      "sample_image": "assets/docs/income_cert.svg"
+    },
+    {
+      "doc_id": "NO_PUCCA_HOUSE_AFFIDAVIT",
+      "label_hi": "पक्का मकान न होने का शपथ पत्र",
+      "icon": "document",
+      "where_to_get_hi": "नोटरी / ई-मित्र",
+      "sample_image": "assets/docs/no_pucca_house_affidavit.svg"
+    },
+    {
+      "doc_id": "BANK_PASSBOOK",
+      "label_hi": "बैंक खाते की पासबुक (आधार लिंक्ड)",
+      "icon": "bank",
+      "where_to_get_hi": "बैंक शाखा",
+      "sample_image": "assets/docs/bank_passbook.svg"
+    }
+  ],
+  "apply_via": [
+    "sso_portal",
+    "emitra"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग सकते हैं। {{benefit_text}}। pmaymis.gov.in पोर्टल या नगर निकाय कार्यालय पर पुष्टि करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "scheme_id": "RJ_GARGI_BALIKA_PROTSAHAN",
+  "name_hi": "गार्गी पुरस्कार एवं बालिका प्रोत्साहन पुरस्कार योजना",
+  "name_en": "Gargi Puraskar & Balika Protsahan Puraskar Yojana (Girl-Child Education Incentive)",
+  "keywords_hi": [
+    "गार्गी पुरस्कार",
+    "बालिका प्रोत्साहन",
+    "बेटी पढ़ाई इनाम",
+    "10वीं 12वीं बालिका पुरस्कार"
+  ],
+  "department": "Directorate of Secondary Education, Rajasthan (Bikaner) / Balika Shiksha Foundation / माध्यमिक शिक्षा निदेशालय",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://rajshaladarpan.rajasthan.gov.in/sd2/Home/BSF/Index.aspx",
+  "source_url_secondary": "https://rajshaladarpan.rajasthan.gov.in/SD3/Home/BSF/Index.aspx",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "gender",
+        "op": "eq",
+        "value": "female"
+      },
+      {
+        "slot": "marks_percent_board_exam",
+        "op": "gte",
+        "value": 75
+      }
+    ],
+    "any_of": [
+      {
+        "slot": "exam_passed",
+        "op": "eq",
+        "value": "class_10"
+      },
+      {
+        "slot": "exam_passed",
+        "op": "eq",
+        "value": "class_12"
+      }
+    ],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "staged_cash",
+    "amount_inr": null,
+    "amount_text_hi": "गार्गी पुरस्कार (कक्षा 10 में 75%+ अंक, कक्षा 11 में नियमित रहने पर) — पहली किश्त ₹3,000; कक्षा 12 में नियमित रहने पर दूसरी किश्त ₹3,000; बालिका प्रोत्साहन पुरस्कार (कक्षा 12 में 75%+ अंक) — ₹5,000। सभी राशि प्रमाण पत्र सहित DBT द्वारा बसंत पंचमी पर दी जाती है।",
+    "rate_policy": "STAGED_BY_CLASS_DO_NOT_COLLAPSE",
+    "note": "गार्गी पुरस्कार व बालिका प्रोत्साहन पुरस्कार तकनीकी रूप से दो जुड़ी हुई पर अलग योजनाएं हैं (एक कक्षा 10 उत्तीर्ण पर, दूसरी कक्षा 12 उत्तीर्ण पर) — दोनों एक ही आधिकारिक पोर्टल व विभाग द्वारा संचालित हैं इसलिए एक रिकॉर्ड में रखी गई हैं। स्वामी विवेकानंद मॉडल स्कूल के 8-10 CGPA वाले विद्यार्थी भी पात्र हैं।"
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "MARKSHEET",
+      "label_hi": "10वीं/12वीं की अंकतालिका (राजस्थान बोर्ड)",
+      "icon": "document",
+      "where_to_get_hi": "विद्यालय / बोर्ड",
+      "sample_image": "assets/docs/marksheet.svg"
+    },
+    {
+      "doc_id": "BANK_PASSBOOK",
+      "label_hi": "बैंक खाते की पासबुक (DBT हेतु)",
+      "icon": "bank",
+      "where_to_get_hi": "बैंक शाखा",
+      "sample_image": "assets/docs/bank_passbook.svg"
+    },
+    {
+      "doc_id": "SCHOOL_ENROLLMENT_CERT",
+      "label_hi": "अगली कक्षा में नियमित नामांकन प्रमाण पत्र",
+      "icon": "certificate",
+      "where_to_get_hi": "विद्यालय",
+      "sample_image": "assets/docs/school_enrollment_cert.svg"
+    }
+  ],
+  "apply_via": [
+    "school"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रही हैं। {{benefit_text}}। अपने विद्यालय के माध्यम से आवेदन करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। अपने विद्यालय से पूछें।"
+  }
+}

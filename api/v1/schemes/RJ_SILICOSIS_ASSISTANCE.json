@@ -1,0 +1,83 @@
+{
+  "scheme_id": "RJ_SILICOSIS_ASSISTANCE",
+  "name_hi": "राजस्थान सिलिकोसिस नीति - पीड़ित सहायता योजना",
+  "name_en": "Rajasthan Silicosis Policy - Victim Assistance Scheme",
+  "keywords_hi": [
+    "सिलिकोसिस",
+    "खनन श्रमिक बीमारी",
+    "पत्थर तोड़ने वाले श्रमिक सहायता"
+  ],
+  "department": "Joint implementation: Mining, Health, Labour, and Social Justice & Empowerment Departments, Rajasthan",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://silicosis.rajasthan.gov.in/AboutUs.aspx",
+  "source_url_secondary": "https://rajsilicosis.rajasthan.gov.in/",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "silicosis_certified",
+        "op": "eq",
+        "value": true
+      }
+    ],
+    "any_of": [
+      {
+        "slot": "occupation",
+        "op": "in",
+        "value": [
+          "mine_worker",
+          "stone_cutter",
+          "crusher_worker"
+        ]
+      },
+      {
+        "slot": "residence_distance_from_crusher_km",
+        "op": "lte",
+        "value": 2
+      }
+    ],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "mixed_cash_and_pension",
+    "amount_inr": null,
+    "amount_text_hi": "प्रमाणित जीवित सिलिकोसिस मरीज़ को ₹3 लाख तक की आर्थिक सहायता; मृत्यु होने पर आश्रितों को ₹2 लाख की सहायता एवं आजीवन पेंशन",
+    "rate_policy": "MULTIPLE_FIGURES_LIVING_VS_DECEASED_DO_NOT_COLLAPSE",
+    "note": "राशि दो समाचार स्रोतों (Down To Earth हिंदी, ETV Bharat) से एक समान रूप से मिली है, जो एक-दूसरे से स्वतंत्र होते हुए भी सहमत हैं; आधिकारिक silicosis.rajasthan.gov.in पोर्टल केवल सिस्टम व विभागों की पुष्टि करता है, राशि विस्तार से नहीं बताता — पेंशन की मासिक राशि आधिकारिक रूप से सत्यापित नहीं हो सकी।"
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार / भामाशाह कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "CHEST_XRAY_MEDICAL_CERT",
+      "label_hi": "मेडिकल बोर्ड द्वारा सिलिकोसिस प्रमाण पत्र (छाती का एक्स-रे सहित)",
+      "icon": "certificate",
+      "where_to_get_hi": "सामुदायिक स्वास्थ्य केंद्र / राजकीय चिकित्सालय",
+      "sample_image": "assets/docs/silicosis_cert.svg"
+    },
+    {
+      "doc_id": "WORK_EXPERIENCE_AFFIDAVIT",
+      "label_hi": "कार्य अनुभव का स्व-घोषणा शपथ पत्र",
+      "icon": "document",
+      "where_to_get_hi": "नोटरी / ई-मित्र",
+      "sample_image": "assets/docs/work_affidavit.svg"
+    }
+  ],
+  "apply_via": [
+    "sso_portal"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग सकते हैं। {{benefit_text}}। नज़दीकी सामुदायिक स्वास्थ्य केंद्र पर जाकर पंजीयन व चिकित्सा जांच करवाएं।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी सामुदायिक स्वास्थ्य केंद्र से पूछें।"
+  }
+}

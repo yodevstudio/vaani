@@ -1,0 +1,91 @@
+{
+  "scheme_id": "RJ_UJJWALA",
+  "name_hi": "प्रधानमंत्री उज्ज्वला योजना 2.0",
+  "name_en": "Pradhan Mantri Ujjwala Yojana 2.0 (PMUY)",
+  "keywords_hi": [
+    "उज्ज्वला योजना",
+    "मुफ्त गैस कनेक्शन",
+    "एलपीजी कनेक्शन गरीब महिला"
+  ],
+  "department": "Union Ministry of Petroleum & Natural Gas (Central Sector Scheme), delivered via Oil Marketing Companies (Indane, Bharat Gas, HP Gas) in Rajasthan",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://www.pmuy.gov.in/ujjwala2.html",
+  "source_url_secondary": "https://mopng.gov.in/en/page/46",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "gender",
+        "op": "eq",
+        "value": "female"
+      },
+      {
+        "slot": "age",
+        "op": "gte",
+        "value": 18
+      },
+      {
+        "slot": "household_poor_declaration",
+        "op": "eq",
+        "value": true
+      }
+    ],
+    "any_of": [],
+    "none_of": [
+      {
+        "slot": "household_has_lpg_connection",
+        "op": "eq",
+        "value": true
+      }
+    ]
+  },
+  "benefit": {
+    "type": "one_time_subsidy",
+    "amount_inr": 2200,
+    "amount_text_hi": "₹2,200 प्रति कनेक्शन की वित्तीय सहायता (शुरुआत में ₹1,600 थी, बाद में बढ़ाकर ₹2,200 की गई); नए PMUY लाभार्थियों को पहला रिफिल व चूल्हा (स्टोव) भी निःशुल्क",
+    "rate_policy": "STABLE_CURRENT_RATE",
+    "note": "प्रवासी आवेदकों के लिए विशेष स्व-घोषणा प्रपत्र (Annexure I) की सुविधा है, जिसमें स्थायी निवास प्रमाण की सामान्य शर्त में छूट मिलती है। परिवार में किसी भी तेल कंपनी से पहले से LPG कनेक्शन न होना अनिवार्य शर्त है।"
+  },
+  "documents": [
+    {
+      "doc_id": "AADHAAR",
+      "label_hi": "आधार कार्ड (आवेदक महिला व वयस्क परिवार सदस्यों का)",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+      "sample_image": "assets/docs/aadhaar.svg"
+    },
+    {
+      "doc_id": "RATION_CARD",
+      "label_hi": "राशन कार्ड या परिवार संरचना प्रमाणित करने वाला दस्तावेज़",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र / रसद विभाग",
+      "sample_image": "assets/docs/ration_card.svg"
+    },
+    {
+      "doc_id": "DEPRIVATION_DECLARATION",
+      "label_hi": "गरीब परिवार होने का स्व-घोषणा पत्र (Deprivation Declaration)",
+      "icon": "document",
+      "where_to_get_hi": "गैस एजेंसी / ई-मित्र",
+      "sample_image": "assets/docs/deprivation_declaration.svg"
+    },
+    {
+      "doc_id": "BANK_PASSBOOK",
+      "label_hi": "बैंक पासबुक / रद्द चेक",
+      "icon": "bank",
+      "where_to_get_hi": "बैंक शाखा",
+      "sample_image": "assets/docs/bank_passbook.svg"
+    }
+  ],
+  "apply_via": [
+    "gas_agency"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रही हैं। {{benefit_text}}। नज़दीकी गैस एजेंसी (इंडेन/भारत गैस/एचपी गैस) पर आवेदन करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी गैस एजेंसी से पूछें।"
+  }
+}

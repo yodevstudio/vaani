@@ -1,0 +1,89 @@
+{
+  "scheme_id": "RJ_BOCW_WELFARE",
+  "name_hi": "भवन एवं अन्य सन्निर्माण कर्मकार कल्याण मंडल - कल्याण योजनाएं",
+  "name_en": "Rajasthan Building & Other Construction Workers (BOCW) Welfare Board - Welfare Schemes",
+  "keywords_hi": [
+    "श्रमिक कार्ड",
+    "निर्माण श्रमिक",
+    "बीओसीडब्ल्यू",
+    "मजदूर कल्याण मंडल"
+  ],
+  "department": "Labour Department, Government of Rajasthan (BOCW Welfare Board) / श्रम विभाग",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://labour.rajasthan.gov.in/BOCWNotifications.aspx",
+  "source_url_secondary": "https://labour.rajasthan.gov.in/Home.aspx",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 60,
+  "next_review_due": "2026-10-13",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "occupation",
+        "op": "eq",
+        "value": "construction_worker"
+      },
+      {
+        "slot": "age",
+        "op": "between",
+        "value": {
+          "min": 18,
+          "max": 60
+        }
+      },
+      {
+        "slot": "construction_work_days_last_year",
+        "op": "gte",
+        "value": 90
+      }
+    ],
+    "any_of": [],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "basket_of_benefits",
+    "amount_inr": null,
+    "amount_text_hi": "पंजीकृत निर्माण श्रमिकों के लिए कई अलग-अलग कल्याण योजनाओं की टोकरी है, प्रत्येक की अपनी राशि है — शुभ शक्ति (पुत्री सहायता), सिलिकोसिस पीड़ित सहायता, टूलकिट/औज़ार सहायता, सुगम्य आवास योजना, छात्रवृत्ति योजना, प्रसूति सहायता, मृत्यु/दुर्घटना सहायता आदि। पंजीयन अंशदान ₹60 है जो अब 1 वर्ष के बजाय 5 वर्ष के लिए मान्य है (24/11/2015 की अधिसूचना)।",
+    "rate_policy": "BASKET_OF_SUBSCHEMES_SEE_INDIVIDUAL_RECORDS",
+    "note": "आयु (18-60) व 90 दिन कार्य की शर्त भवन एवं अन्य सन्निर्माण कर्मकार अधिनियम 1996 की मानक राष्ट्रीय शर्तें हैं — राजस्थान श्रम विभाग की वेबसाइट से सीधे इस सत्र में पुष्टि नहीं हो सकी (पेज केवल सूचनाओं की सूची दिखाता है, विस्तृत नियम PDF के रूप में हैं जो स्वचालित रूप से पढ़े नहीं जा सके), अतः मैन्युअली पुष्टि करें। शुभ शक्ति योजना (पुत्री सहायता) का विवरण अलग रिकॉर्ड RJ_SHUBH_SHAKTI में है।"
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "AADHAAR",
+      "label_hi": "आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+      "sample_image": "assets/docs/aadhaar.svg"
+    },
+    {
+      "doc_id": "WORK_CERT_90DAYS",
+      "label_hi": "90 दिन निर्माण कार्य प्रमाण पत्र (ठेकेदार/नियोक्ता द्वारा)",
+      "icon": "certificate",
+      "where_to_get_hi": "नियोक्ता / ठेकेदार / ग्राम पंचायत",
+      "sample_image": "assets/docs/work_cert.svg"
+    },
+    {
+      "doc_id": "PASSPORT_PHOTO",
+      "label_hi": "पासपोर्ट साइज़ फोटो",
+      "icon": "document",
+      "where_to_get_hi": "फोटो स्टूडियो",
+      "sample_image": "assets/docs/passport_photo.svg"
+    }
+  ],
+  "apply_via": [
+    "emitra"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। पंजीयन के बाद कई कल्याण योजनाओं का लाभ मिल सकता है — नज़दीकी ई-मित्र या श्रम विभाग कार्यालय पर जाकर पुष्टि करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "scheme_id": "RJ_FARM_POND",
+  "name_hi": "खेत तलाई अनुदान योजना",
+  "name_en": "Farm Pond (Khet Talai) Subsidy Scheme",
+  "keywords_hi": [
+    "खेत तलाई",
+    "फार्म पौंड",
+    "वर्षा जल संग्रहण खेत"
+  ],
+  "department": "Agriculture Department (Agriculture Extension Division), Rajasthan / कृषि विभाग (कृषि विस्तार शाखा)",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://rajkisan.rajasthan.gov.in/WebsiteNew/farmpound.html",
+  "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "occupation",
+        "op": "eq",
+        "value": "farmer"
+      },
+      {
+        "slot": "landholding_hectares",
+        "op": "gte",
+        "value": 0.3
+      }
+    ],
+    "any_of": [],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "subsidy",
+    "amount_inr": null,
+    "amount_text_hi": "निर्माण लागत का 60% अनुदान — सामान्य (मिट्टी) तलाई हेतु अधिकतम ₹63,000, प्लास्टिक लाइनिंग वाली तलाई हेतु अधिकतम ₹90,000 (जो भी कम हो), न्यूनतम क्षमता 400 घन मीटर आवश्यक — सभी श्रेणी के किसानों के लिए समान दर",
+    "rate_policy": "STAGED_BY_POND_TYPE_DO_NOT_COLLAPSE",
+    "note": "राशि तलाई के प्रकार (सामान्य/प्लास्टिक लाइनिंग) पर निर्भर है, इसलिए दोनों सीमाएँ amount_text_hi में स्पष्ट रखी हैं।"
+  },
+  "documents": [
+    {
+      "doc_id": "AADHAAR",
+      "label_hi": "आधार कार्ड / जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+      "sample_image": "assets/docs/aadhaar.svg"
+    },
+    {
+      "doc_id": "LAND_RECORD",
+      "label_hi": "जमाबंदी की नकल (छः माह से अधिक पुरानी नहीं)",
+      "icon": "document",
+      "where_to_get_hi": "तहसील (राजस्व विभाग)",
+      "sample_image": "assets/docs/land_record.svg"
+    }
+  ],
+  "apply_via": [
+    "emitra",
+    "sso_portal"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। नज़दीकी ई-मित्र पर जाकर पुष्टि करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+  }
+}

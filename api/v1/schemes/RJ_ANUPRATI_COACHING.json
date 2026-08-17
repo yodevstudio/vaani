@@ -1,0 +1,132 @@
+{
+  "scheme_id": "RJ_ANUPRATI_COACHING",
+  "name_hi": "मुख्यमंत्री अनुप्रति कोचिंग योजना",
+  "name_en": "Mukhyamantri Anuprati Coaching Yojana",
+  "keywords_hi": [
+    "अनुप्रति कोचिंग",
+    "निःशुल्क कोचिंग",
+    "प्रतियोगी परीक्षा कोचिंग"
+  ],
+  "department": "Social Justice & Empowerment Department, Rajasthan (in coordination with Tribal Area Development Dept for ST candidates) / सामाजिक न्याय एवं अधिकारिता विभाग",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://sje.rajasthan.gov.in/siteadmin/Uploads/202206141157335834.pdf",
+  "source_url_secondary": "https://sje.rajasthan.gov.in/schemes/Anuprati.html",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 60,
+  "next_review_due": "2026-10-13",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "marks_percent_10_or_12",
+        "op": "gte",
+        "value": 60
+      }
+    ],
+    "any_of": [
+      [
+        {
+          "slot": "category",
+          "op": "in",
+          "value": [
+            "sc",
+            "st",
+            "obc",
+            "mbc"
+          ]
+        },
+        {
+          "slot": "annual_income",
+          "op": "lte",
+          "value": 250000
+        }
+      ],
+      [
+        {
+          "slot": "category",
+          "op": "eq",
+          "value": "ews"
+        },
+        {
+          "slot": "annual_income",
+          "op": "lte",
+          "value": 800000
+        }
+      ],
+      [
+        {
+          "slot": "religion",
+          "op": "in",
+          "value": [
+            "muslim",
+            "sikh",
+            "christian",
+            "buddhist",
+            "jain",
+            "parsi"
+          ]
+        },
+        {
+          "slot": "annual_income",
+          "op": "lte",
+          "value": 800000
+        }
+      ]
+    ],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "free_coaching_plus_allowance",
+    "amount_inr": null,
+    "amount_text_hi": "चयनित सरकारी-सूचीबद्ध कोचिंग संस्थान में निःशुल्क कोचिंग; बाहरी शहर के छात्रों को आवास/भोजन भत्ता अधिकतम ₹40,000/वर्ष; परीक्षा में सफलता पर प्रोत्साहन राशि — UPSC/IIT/AIIMS/IIM/NIT/NLU जैसी उच्च स्तरीय परीक्षाओं में ₹40,000-₹50,000, RPSC परीक्षाओं में ₹50,000 तक, RPMT/RPET प्रवेश पर ₹1,000 — कुल सहायता ₹1,00,000 तक बताई गई है",
+    "rate_policy": "COACHING_PLUS_TIERED_INCENTIVE_UNOFFICIAL_FIGURES",
+    "note": "आधिकारिक sje.rajasthan.gov.in PDF (2022 का संशोधित शासनादेश) मिला परंतु वह स्कैन की हुई इमेज होने से स्वचालित रूप से नहीं पढ़ी जा सकी। राशि व आय सीमा के आँकड़े प्रतिष्ठित समाचार स्रोत (careers360) व एक सुसंगत गैर-सरकारी सारांश से लिए गए हैं, इसलिए null रखी गई है — शुरू होने से पहले हर वर्ष की सटीक राशि व सीटों की संख्या sje.rajasthan.gov.in या sso.rajasthan.gov.in से पुष्टि करें, क्योंकि यह योजना समय-समय पर विस्तारित होती रही है (10,000 → 15,000 → 30,000 सीटें)।"
+  },
+  "documents": [
+    {
+      "doc_id": "AADHAAR",
+      "label_hi": "आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र / आधार सेवा केंद्र",
+      "sample_image": "assets/docs/aadhaar.svg"
+    },
+    {
+      "doc_id": "INCOME_CERT",
+      "label_hi": "आय प्रमाण पत्र",
+      "icon": "certificate",
+      "where_to_get_hi": "तहसील / ई-मित्र",
+      "sample_image": "assets/docs/income_cert.svg"
+    },
+    {
+      "doc_id": "DOMICILE_CERT",
+      "label_hi": "मूल निवास प्रमाण पत्र",
+      "icon": "certificate",
+      "where_to_get_hi": "तहसील / ई-मित्र",
+      "sample_image": "assets/docs/domicile_cert.svg"
+    },
+    {
+      "doc_id": "CASTE_CERT",
+      "label_hi": "जाति प्रमाण पत्र (यदि लागू हो)",
+      "icon": "certificate",
+      "where_to_get_hi": "तहसील / ई-मित्र",
+      "sample_image": "assets/docs/caste_cert.svg"
+    },
+    {
+      "doc_id": "MARKSHEET",
+      "label_hi": "10वीं/12वीं की अंकतालिका",
+      "icon": "document",
+      "where_to_get_hi": "विद्यालय / बोर्ड",
+      "sample_image": "assets/docs/marksheet.svg"
+    }
+  ],
+  "apply_via": [
+    "sso_portal",
+    "emitra"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग सकते हैं। {{benefit_text}}। sso.rajasthan.gov.in पर आवेदन की तिथियाँ (सामान्यतः फरवरी-मार्च) देखें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+  }
+}

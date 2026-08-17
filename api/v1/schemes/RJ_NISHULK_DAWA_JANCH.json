@@ -1,0 +1,62 @@
+{
+  "scheme_id": "RJ_NISHULK_DAWA_JANCH",
+  "name_hi": "मुख्यमंत्री निःशुल्क दवा एवं जांच योजना",
+  "name_en": "Mukhyamantri Nishulk Dawa evam Janch Yojana (Free Medicine & Free Diagnostics - Chiranjeevi/Ayushman OPD add-on)",
+  "keywords_hi": [
+    "निःशुल्क दवा",
+    "मुफ्त जांच",
+    "फ्री मेडिसिन योजना",
+    "ओपीडी दवा मुफ्त"
+  ],
+  "department": "Medical, Health & Family Welfare Department, Rajasthan",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://rajswasthya.rajasthan.gov.in/schemes.php?id=1",
+  "source_url_secondary": "https://rajswasthya.rajasthan.gov.in/schemes.php",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [],
+    "any_of": [
+      {
+        "slot": "visited_government_health_facility",
+        "op": "eq",
+        "value": true
+      }
+    ],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "free_service",
+    "amount_inr": null,
+    "amount_text_hi": "राजकीय चिकित्सा संस्थानों में सभी मरीजों को 1,829 दवाओं, सर्जिकल सामग्री व टांकों की निःशुल्क उपलब्धता (कैंसर, हृदय, किडनी, हीमोफीलिया, मधुमेह की महंगी दवाएं भी शामिल, कुछ इंजेक्शन ₹1,29,665 तक मूल्य के); साथ ही निःशुल्क जांच योजना के तहत रक्त जांच, इमेजिंग, एक्स-रे व विशेष जांचें भी निःशुल्क",
+    "rate_policy": "UNIVERSAL_NO_INCOME_TEST",
+    "note": "यह योजना चिरंजीवी/मुख्यमंत्री आयुष्मान आरोग्य योजना (RJ_AYUSHMAN) की पूरक है — Ayushman/Chiranjeevi केवल भर्ती (IPD) प्रक्रियाओं को कवर करता है, जबकि यह योजना OPD स्तर पर दवा व जांच का मुफ्त लाभ देती है, बिना किसी आय/श्रेणी की शर्त के। दवा योजना अक्टूबर 2011 से व जांच योजना अप्रैल 2013 से चालू है।"
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड (पहचान हेतु)",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "OPD_SLIP",
+      "label_hi": "राजकीय अस्पताल की OPD पर्ची",
+      "icon": "document",
+      "where_to_get_hi": "राजकीय चिकित्सालय",
+      "sample_image": "assets/docs/opd_slip.svg"
+    }
+  ],
+  "apply_via": [
+    "hospital_direct"
+  ],
+  "response_templates_hi": {
+    "eligible": "यह योजना सभी के लिए निःशुल्क है — किसी भी राजकीय चिकित्सालय में दिखाने पर स्वतः लागू होती है। {{benefit_text}}",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी राजकीय चिकित्सालय से पूछें।"
+  }
+}

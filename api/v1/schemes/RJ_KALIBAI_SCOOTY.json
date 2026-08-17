@@ -1,0 +1,83 @@
+{
+  "scheme_id": "RJ_KALIBAI_SCOOTY",
+  "name_hi": "काली बाई भील मेधावी छात्रा स्कूटी योजना",
+  "name_en": "Kali Bai Bheel Medhavi Chhatra Scooty Yojana",
+  "keywords_hi": [
+    "स्कूटी योजना",
+    "काली बाई भील",
+    "मेधावी छात्रा",
+    "बारहवीं टॉपर"
+  ],
+  "department": "College Education Department / Higher Education Department, Rajasthan / कॉलेज शिक्षा विभाग",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://hte.rajasthan.gov.in/80575",
+  "source_url_secondary": "https://www.myscheme.gov.in/schemes/kbbmcss",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 30,
+  "next_review_due": "2026-09-13",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "gender",
+        "op": "eq",
+        "value": "female"
+      },
+      {
+        "slot": "exam_passed",
+        "op": "in",
+        "value": [
+          "class_10",
+          "class_12",
+          "ug_final_year"
+        ]
+      },
+      {
+        "slot": "annual_income",
+        "op": "lte",
+        "value": 250000
+      }
+    ],
+    "any_of": [],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "in_kind",
+    "amount_inr": null,
+    "amount_text_hi": "नकद राशि नहीं — मेधावी छात्रा को एक स्कूटी (गियरलेस), 5 वर्ष का थर्ड-पार्टी बीमा, 2 लीटर पेट्रोल और हेलमेट दिया जाता है। सभी वर्गों (सामान्य/OBC/SC/ST/EWS) की छात्राएं पात्र हैं, जिनका पारिवारिक वार्षिक आय ₹2.5 लाख से कम हो और RBSE बोर्ड में न्यूनतम 65% अथवा CBSE बोर्ड में न्यूनतम 75% अंक हों।",
+    "rate_policy": "IN_KIND_NOT_CASH_VERIFIED",
+    "note": "आय सीमा (₹2.5 लाख), अंक सीमा (RBSE 65% / CBSE 75%), लाभ का स्वरूप (भौतिक स्कूटी + बीमा + पेट्रोल + हेलमेट, नकद नहीं) और सभी वर्गों हेतु पात्रता की पुष्टि rajsuchna.com के एक विस्तृत लेख से हुई, जो hte.rajasthan.gov.in (आधिकारिक JS पोर्टल, स्वचालित रूप से अपठनीय) की सामग्री का द्वितीयक सारांश है। मूल आधिकारिक पेज (hte.rajasthan.gov.in/80575) व myscheme.gov.in/schemes/kbbmcss से प्रत्यक्ष रूप से मिलान अभी शेष है — शिपिंग से पहले एक बार कॉलेज/ई-मित्र से पुष्टि करने की सलाह दी जाती है।"
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "MARKSHEET",
+      "label_hi": "10वीं/12वीं की अंकतालिका",
+      "icon": "document",
+      "where_to_get_hi": "विद्यालय / बोर्ड",
+      "sample_image": "assets/docs/marksheet.svg"
+    },
+    {
+      "doc_id": "INCOME_CERT",
+      "label_hi": "आय प्रमाण पत्र",
+      "icon": "certificate",
+      "where_to_get_hi": "तहसील / ई-मित्र",
+      "sample_image": "assets/docs/income_cert.svg"
+    }
+  ],
+  "apply_via": [
+    "sso_portal"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग सकती हैं, लेकिन इस योजना की पूरी शर्तें अभी सत्यापित नहीं हैं — कृपया अपने कॉलेज या hte.rajasthan.gov.in पर पुष्टि करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी कॉलेज या ई-मित्र से पूछें।"
+  }
+}

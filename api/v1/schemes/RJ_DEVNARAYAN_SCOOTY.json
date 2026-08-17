@@ -1,0 +1,88 @@
+{
+  "scheme_id": "RJ_DEVNARAYAN_SCOOTY",
+  "name_hi": "देवनारायण छात्रा स्कूटी वितरण एवं प्रोत्साहन राशि योजना",
+  "name_en": "Devnarayan Chhatra Scooty Vitran evam Protsahan Rashi Yojana",
+  "keywords_hi": [
+    "देवनारायण स्कूटी",
+    "एमबीसी छात्रा स्कूटी",
+    "गुर्जर स्कूटी योजना",
+    "अति पिछड़ा वर्ग छात्रा स्कूटी"
+  ],
+  "department": "College Education Department, Rajasthan (Most Backward Classes / MBC welfare scheme) / कॉलेज शिक्षा विभाग",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://hte.rajasthan.gov.in/22279",
+  "source_url_secondary": "https://collegeeducation.rajasthan.gov.in/httpdocs/2011_12/acc_sbc_scooty1184_4nov2011.pdf",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 30,
+  "next_review_due": "2026-09-13",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "gender",
+        "op": "eq",
+        "value": "female"
+      },
+      {
+        "slot": "category",
+        "op": "eq",
+        "value": "mbc"
+      },
+      {
+        "slot": "exam_passed",
+        "op": "in",
+        "value": [
+          "class_10",
+          "class_12",
+          "ug_final_year"
+        ]
+      },
+      {
+        "slot": "annual_income",
+        "op": "lte",
+        "value": 250000
+      }
+    ],
+    "any_of": [],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "in_kind",
+    "amount_inr": null,
+    "amount_text_hi": "नकद राशि नहीं — MBC (अति पिछड़ा वर्ग: गुर्जर, रायका, बंजारा, गाड़िया लुहार, गडरिया आदि) वर्ग की छात्रा को स्कूटी दी जाती है, बशर्ते 12वीं में न्यूनतम 50% अंक हों, पारिवारिक वार्षिक आय ₹2.5 लाख से कम हो, और छात्रा को किसी अन्य सरकारी योजना के तहत पहले स्कूटी न मिली हो। स्नातक (BA/BSc/BCom/BTech/MBBS आदि) व डिप्लोमा पाठ्यक्रमों में अध्ययनरत छात्राएं पात्र हैं।",
+    "rate_policy": "IN_KIND_MBC_ONLY_VERIFIED",
+    "note": "राउंड-2 सत्यापन में पता चला कि यह योजना ST-विशिष्ट नहीं बल्कि MBC (अति पिछड़ा वर्ग) विशिष्ट है — मूल शोध में एक अलग 'जनजाति छात्राओं को निःशुल्क स्कूटी वितरण योजना' (TAD विभाग, ST-केंद्रित) से भ्रमित हो गया था। rajsuchna.com के एक विस्तृत लेख से category=MBC, 12वीं में 50% अंक, ₹2.5 लाख आय सीमा, और पूर्व-स्कूटी-लाभार्थी बहिष्करण नियम की पुष्टि हुई। मूल आधिकारिक hte.rajasthan.gov.in/22279 पेज (JS पोर्टल) और 2011 का स्कैन किया गया PDF अभी भी प्रत्यक्ष रूप से नहीं पढ़े जा सके — शिपिंग से पहले एक दूसरे स्वतंत्र स्रोत से क्रॉस-चेक की सलाह दी जाती है।"
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "CASTE_CERT",
+      "label_hi": "जाति प्रमाण पत्र (MBC)",
+      "icon": "certificate",
+      "where_to_get_hi": "तहसील / ई-मित्र",
+      "sample_image": "assets/docs/caste_cert.svg"
+    },
+    {
+      "doc_id": "MARKSHEET",
+      "label_hi": "10वीं/12वीं की अंकतालिका",
+      "icon": "document",
+      "where_to_get_hi": "विद्यालय / बोर्ड",
+      "sample_image": "assets/docs/marksheet.svg"
+    }
+  ],
+  "apply_via": [
+    "sso_portal"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग सकती हैं, लेकिन इस योजना की पूरी शर्तें अभी सत्यापित नहीं हैं — कृपया अपने कॉलेज या hte.rajasthan.gov.in पर पुष्टि करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी कॉलेज या ई-मित्र से पूछें।"
+  }
+}

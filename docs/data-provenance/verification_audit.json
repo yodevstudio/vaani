@@ -1,0 +1,220 @@
+{
+  "RJ_IGMPY": {
+    "sources_checked": [
+      "https://mahilawfh.rajasthan.gov.in/public/images/IGMPY%20Brief%20Note_Final.pdf (official Directorate of Women Empowerment brief note - detailed eligibility & benefit structure)",
+      "https://jankalyanfile.rajasthan.gov.in/Content/UploadFolder/DepartmentMaster/166/2023/May/30409/166f00fc0bd-7b0c-432e-94be-8e32e529ca94.pdf (official Rajasthan govt document - confirms scheme name & department)",
+      "https://www.tv9hindi.com/state/rajasthan/indira-gandhi-matritva-poshan-yojana-implement-in-whole-rajasthan-from-1st-april-1149667.html (news corroboration - confirms statewide expansion date 1 April 2022, used only to cross-check the district-expansion fact, not as a primary data source)"
+    ],
+    "confidence": "high - detailed official PDF + secondary official document corroboration + independent news confirmation of the statewide-expansion date",
+    "open_question_for_user": "Could not reach a live jansoochna.rajasthan.gov.in scheme-specific page (site is JS-rendered/dynamic and not fetchable by automated tools) or the WCD/Women Empowerment department's live scheme listing page (mahilawfh.rajasthan.gov.in homepage errored, wemis.rajasthan.gov.in DNS failed at fetch time) to get a second live-page corroboration. Recommend a human spot-check of jansoochna.rajasthan.gov.in for this scheme before shipping if that matters for your submission."
+  },
+  "RJ_KALIBAI_SCOOTY": {
+    "status": "REVISED_2026-08-14_ROUND2",
+    "sources_checked": [
+      "https://hte.rajasthan.gov.in/80575 (official College Education Dept page - exists, confirmed via Google indexing, but is a JS single-page app; automated fetch tools could not render its content — robots.txt itself failed to fetch on every attempt)",
+      "https://hte.rajasthan.gov.in/scholarship/0303202101.pdf (official PDF found via search, same fetch failure)",
+      "https://www.myscheme.gov.in/schemes/kbbmcss (Govt of India's official scheme-discovery portal, also a JS app that could not be rendered by fetch tools)",
+      "https://rajsuchna.com/kali-bai-bhil-scooty-yojana-rajasthan/ (round-2 fetch, secondary source used ONLY to fill the gap left by the two unreadable official portals above — used to add the income/marks/benefit-form details, not as a replacement for the official URLs)"
+    ],
+    "rejected_sources": "Multiple 'sarkari yojana' aggregator/blog sites appeared in search results with conflicting claims (one claiming the benefit changed from a physical scooty to a ₹70,000 bank transfer in 2026) - these were deliberately NOT used as they are not official government sources and cannot be trusted without corroboration.",
+    "confidence": "medium (upgraded from low) - scheme identity and official URL confirmed from round 1; income cutoff (₹2.5L), marks thresholds (RBSE 65%/CBSE 75%), in-kind benefit form (scooty+insurance+petrol+helmet, not cash), and all-category eligibility now sourced from a single secondary article, not yet cross-confirmed against a second independent source or the primary hte.rajasthan.gov.in page directly. Recommend a second corroborating source before treating the income/marks thresholds as final."
+  },
+  "RJ_DEVNARAYAN_SCOOTY": {
+    "status": "REVISED_2026-08-14_ROUND2_CATEGORY_CORRECTED",
+    "sources_checked": [
+      "https://hte.rajasthan.gov.in/22279 (official page, exists per Google indexing, JS portal - unfetchable)",
+      "https://collegeeducation.rajasthan.gov.in/httpdocs/2011_12/acc_sbc_scooty1184_4nov2011.pdf (official 2011 notification PDF found, but scanned/legacy-font text did not extract cleanly and is 15 years old — likely superseded; NOTE: filename 'acc_sbc_scooty' is consistent with SBC/MBC targeting, not ST — this was a clue the round-1 pass missed)",
+      "https://dipr.rajasthan.gov.in/scheme/detail/339 and https://nhm.rajasthan.gov.in/scheme/detail/339 (both official listings confirm scheme name exists, JS portals - unfetchable)",
+      "https://rajsuchna.com/devnarayan-scooty-yojana-rajasthan-last-date/ (round-2 fetch, secondary source used to correct the category error and add income/marks details)"
+    ],
+    "correction_log": "Round 1 incorrectly set category to [\"st\",\"sbc\"], apparently conflating this scheme with a separate TAD-department scheme for ST students seen during the same research pass. Round 2 independently re-verified via rajsuchna.com: this scheme targets MBC (Most Backward Classes — Gujjar, Raika, Banjara, Gadia Lohar, Gadariya etc.) specifically, not general ST. category corrected to \"mbc\" only; keywords_hi and department text updated to remove ST/TAD references.",
+    "confidence": "medium (upgraded from low) - scheme identity, department, and category now corrected and sourced from a secondary article; income/marks thresholds not yet cross-confirmed against a second independent source or the primary hte.rajasthan.gov.in page. Recommend a second corroborating source before shipping."
+  },
+  "RJ_WIDOW_REMARRIAGE_GIFT": {
+    "status": "REVISED_2026-08-14_ROUND2_AMOUNT_RESOLVED",
+    "sources_checked": [
+      "https://sje.rajasthan.gov.in/schemes/WidoMerig.html (official Social Justice & Empowerment Dept static page - fetched successfully, states ₹15,000 per 2007 rules — appears stale, not updated after a later revision)",
+      "https://sje.rajasthan.gov.in/Schemes/GuidelinesofSahyog&Uphar.pdf (official PDF found but not machine-readable/scanned)",
+      "patrika.com (round-2 fetch — mainstream Hindi newspaper, not an aggregator blog — confirms ₹51,000 and attributes it to SJE dept, matching the department on the official page)"
+    ],
+    "confidence": "medium-high - department and scheme identity confirmed from an official source; amount resolved to ₹51,000 based on a reputable mainstream news source corroborating multiple independent secondary sources, with a plausible explanation (stale official page) for why the official static page still shows the old ₹15,000 figure. Not yet confirmed by phone/e-Mitra directly against the department — recommend one more check before shipping given the official page still contradicts this."
+  },
+  "RJ_SHUBH_SHAKTI": {
+    "status": "REVIEWED_2026-08-14_ROUND2_AMOUNT_NOT_UPGRADED",
+    "sources_checked": [
+      "https://labour.rajasthan.gov.in/RuleBuildng.aspx (official Labour Dept page, successfully fetched - confirms scheme name and administering department via an official office-order reference)",
+      "https://labour.rajasthan.gov.in/SchemeReport.aspx (official page found but robots.txt fetch failed - could not access)",
+      "Round-2 targeted re-search for ₹55,000 turned up only aggregator/blog sites (pmmodiyojana.org, govtschemehindi.com, centralbharti.com, sujasbulletin.com, sarkariyojanaonlineform.com) — no mainstream news outlet (unlike the widow-remarriage-gift case, where patrika.com corroborated) or official detail page confirming the figure was found."
+    ],
+    "confidence": "medium - department & scheme existence confirmed officially; benefit amount (₹55,000) is consistently repeated but, even after a dedicated round-2 search, only by aggregator/blog sources of the kind this dataset otherwise excludes — deliberately NOT promoted to a confirmed amount_inr on that basis alone. Recommend a call to the Labour Dept helpline (0141-2222961 / 0141-2222861, from the same official page) or a manual visit to labour.rajasthan.gov.in before shipping the amount."
+  },
+  "RJ_PMKISAN": {
+    "sources_checked": [
+      "https://pmkisan.gov.in/ (official Govt of India PM-Kisan portal - fetched successfully, full eligibility/exclusion/amount details)",
+      "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2023/aug/doc2023822242401.pdf (official Press Information Bureau document - confirms ₹6,000/3-installment structure and Rajasthan disbursement figures: over 72 lakh farmers, ₹16,045 crore through FY2022-23)",
+      "https://rajkisan.rajasthan.gov.in/ (official Rajasthan Agriculture Dept portal - fetched, confirms department but did not surface the state top-up scheme details)"
+    ],
+    "confidence": "high for the central ₹6,000 PM-Kisan amount and eligibility/exclusions (two independent official .gov.in sources). Medium-low for the Rajasthan state top-up amount, which comes from mainstream news (Patrika, Zee Business) only - recommend confirming current top-up figure with Agriculture Department before using it in the app."
+  },
+  "RJ_PMFBY": {
+    "sources_checked": [
+      "https://pmfby.gov.in/compendium/General/1_2_3_merged.pdf (official Govt of India PMFBY compendium PDF - fetched successfully; premium rates and voluntary-enrollment fact confirmed)",
+      "https://pmfby.gov.in/ (official homepage - JS app, could not render, used only to confirm the scheme's official domain)"
+    ],
+    "confidence": "high for premium-rate structure and voluntary enrollment (official PDF). Did not independently confirm which specific insurance company is currently empanelled for Rajasthan clusters for the current season, or Rajasthan-specific cutoff dates - these change season to season and should be pulled from rajkisan.rajasthan.gov.in or the PMFBY portal at the time of each Kharif/Rabi enrollment window."
+  },
+  "RJ_DRIP_SPRINKLER": {
+    "sources_checked": [
+      "https://rajkisan.rajasthan.gov.in/WebsiteNew/dripirrigation.html (official Rajasthan Agriculture Dept page - fetched successfully, full eligibility/subsidy/document details; same domain pattern already used for RJ_TARBANDI in the existing dataset)",
+      "https://pmksy.gov.in/microirrigation/Archive/GuidelinesMIRevised250817.pdf (central PMKSY guideline PDF - 403 error, could not access as a second cross-check)"
+    ],
+    "confidence": "high - single strong official state-government source with full structural detail, consistent with the existing dataset's known-good domain (rajkisan.rajasthan.gov.in/WebsiteNew/). Recommend finding one more corroborating source (e.g. a current-year government order PDF) since the central PMKSY guideline cross-check could not be reached."
+  },
+  "RJ_FARM_POND": {
+    "sources_checked": [
+      "https://rajkisan.rajasthan.gov.in/WebsiteNew/farmpound.html (official Rajasthan Agriculture Dept page - fetched successfully, full eligibility/subsidy/document/process details)"
+    ],
+    "confidence": "high - detailed official state-government source, same trusted domain family as RJ_TARBANDI and RJ_DRIP_SPRINKLER. Only one source reached (could not find a second independent official corroboration in the time available) - low risk given how specific and internally consistent the figures are, but flagging per the 2-source policy."
+  },
+  "RJ_KCC": {
+    "sources_checked": [
+      "https://www.rbi.org.in/commonman/english/scripts/Notification.aspx?Id=2311 (official RBI Master Circular page - fetched successfully, full eligibility/loan-limit/documentation details)",
+      "https://www.newsonair.gov.in/10-lakh-crore-rupees-loan-given-under-kisan-credit-card-benefitting-7-72-crore-farmers (official All India Radio/Prasar Bharati news article - confirms interest subvention rates: 1.5% subvention, 7% concessional rate, 3% prompt-repayment incentive bringing effective rate to 4%)",
+      "https://rbidocs.rbi.org.in/rdocs/content/pdfs/CRB5100512AN.pdf (official RBI PDF - blocked by a CAPTCHA page, could not fetch)"
+    ],
+    "confidence": "high - two independent official .gov.in-family sources (RBI + Prasar Bharati/newsonair.gov.in) agree on interest rates and eligibility. This is a national credit instrument, not Rajasthan-specific, so amounts/rates apply uniformly; did not find a Rajasthan-specific KCC page since implementation is via individual banks rather than a state department portal."
+  },
+  "RJ_BOCW_WELFARE": {
+    "status": "PARTIALLY_VERIFIED - structural facts confirmed, some standard eligibility numbers not independently re-confirmed this session",
+    "sources_checked": [
+      "https://labour.rajasthan.gov.in/BOCWNotifications.aspx (official Labour Dept page - fetched successfully, confirms sub-scheme names: Shubh Shakti, Silicosis Victim Assistance, Toolkit Assistance, Accessible Housing, Scholarship, and the ₹60/5-year contribution rule)",
+      "https://labour.rajasthan.gov.in/Home.aspx (official Labour Dept homepage - fetched successfully, confirms department and additional schemes: Chiranjeevi health insurance link, PMSYM)",
+      "https://www.labour.gov.in (central Ministry of Labour - multiple PDF fetch attempts for the standard 18-60/90-day BOCW Act registration criteria did not return readable content)"
+    ],
+    "confidence": "medium - department, sub-scheme names, and contribution/validity rule are officially confirmed for Rajasthan specifically. The 18-60 age and 90-day work eligibility figures are the well-known national BOCW Act 1996 standard but were NOT independently re-confirmed from a fetched official document in this session - recommend a quick manual check against the current Rajasthan BOCW rules before shipping."
+  },
+  "RJ_SILICOSIS_ASSISTANCE": {
+    "sources_checked": [
+      "https://silicosis.rajasthan.gov.in/AboutUs.aspx (official dedicated Silicosis Grant Disbursement portal - fetched successfully, confirms system exists, covers 30 districts, integrates with Bhamashah/UIDAI, and lists the four coordinating departments)",
+      "https://hindi.downtoearth.org.in/pollution/rajasthan-govt-released-new-silicosis-policy-67085 (Down To Earth, a reputable environmental-journalism outlet - ₹3 lakh living / ₹2 lakh death + pension figures, expanded 2019 policy scope)",
+      "https://www.etvbharat.com/hindi/rajasthan/city/bharatpur/silicosis-patient-in-bharatpur-many-application-for-assistance-amount-cancelled-in-rajasthan/rj20220407175319875 (ETV Bharat, national news network - independently confirms the same ₹3 lakh / ₹2 lakh figures)"
+    ],
+    "confidence": "medium-high - system, departments, and district coverage confirmed directly from the official portal; the specific rupee figures come from two independent, editorially-reputable news sources that agree with each other rather than from an official document I could fetch directly (silicosis.rajasthan.gov.in's detail pages did not render full policy text). Recommend a final check against the actual 2019 Silicosis Niti PDF if you can access it manually."
+  },
+  "RJ_SHRAMIK_SAMBAL": {
+    "status": "PARTIALLY_VERIFIED - could not reach a live official detail page, relying on two convergent reputable secondary sources",
+    "sources_checked": [
+      "https://labour.rajasthan.gov.in/Home.aspx (official Labour Dept homepage - fetched, confirms department context but not this specific sub-scheme's detail page, which appears to sit behind the JS Jankalyan portal)",
+      "https://www.drishtiias.com/hindi/state-pcs-current-affairs/mukhymantri-chiranjeevi-shramik-sambal-yojana (Drishti IAS, a well-regarded current-affairs/exam-prep publisher that closely tracks official government announcements - full structural detail, launch date, eligibility)",
+      "govtschemes.in aggregator (independently arrived at the same ₹200/day, 7-day, ₹1,400 total figures - used only as a cross-check, not as the cited source)"
+    ],
+    "confidence": "medium - two independent sources agree closely on every figure (amount, duration, age band, trigger condition), which is reassuring, but neither is the primary government page itself. Recommend confirming against the original June 2023 Cabinet/GO announcement or a live jansoochna.rajasthan.gov.in listing if you can access it manually."
+  },
+  "RJ_POST_MATRIC_SCHOLARSHIP": {
+    "sources_checked": [
+      "https://sje.rajasthan.gov.in/Schemes/sc%20pms.pdf (official Rajasthan SJE PDF - fetched successfully, full SC PMS eligibility/amount/document detail, though appears to date to the 2013-14 income-limit revision cycle)",
+      "https://scholarships.gov.in/public/schemeGuidelines/EDUPostMatricScholarshipPMSforSTstudents.pdf (official National Scholarship Portal PDF - confirms ST PMS uses the identical structure to SC PMS)",
+      "https://scholarships.gov.in/public/schemeGuidelines/HP_state_scheme/Centrally%20Sponsored%20Scheme%20of%20Post%20Matric%20Scholarship%20Scheme%20for%20OBC_scheme.pdf (official National Scholarship Portal PDF - OBC PMS, different and more recent amount structure)",
+      "https://scholarships.gov.in/public/schemeGuidelines/MoMA_Post_Matric_2018-20.pdf (official National Scholarship Portal PDF - Minority PMS via Ministry of Minority Affairs, ₹2 lakh income limit, 6 notified minorities)",
+      "https://sje.rajasthan.gov.in/Schemes/PMS_OBC_RevisedGuidelines_E_2018.pdf (Rajasthan-specific OBC PDF found but was not machine-readable/scanned)"
+    ],
+    "confidence": "high - four separate official .gov.in PDF sources (National Scholarship Portal + Rajasthan SJE), internally consistent. The SC/ST maintenance-allowance figures are from an older (2013-14-era) guideline and may have been revised since; the OBC and Minority figures look more current. Recommend checking scholarships.gov.in's current-year guideline PDF for SC/ST before shipping the exact rupee amounts, though the income-limit and document requirements are stable long-standing facts."
+  },
+  "RJ_ANUPRATI_COACHING": {
+    "status": "PARTIALLY_VERIFIED - official PDF found but not machine-readable (scanned image)",
+    "sources_checked": [
+      "https://sje.rajasthan.gov.in/siteadmin/Uploads/202206141157335834.pdf (official 2022 revised scheme-operation government order - exists, could not extract text)",
+      "https://sje.rajasthan.gov.in/schemes/Anuprati.html (official SJE page - fetched successfully but describes the older cash-incentive 'Anuprati Yojana', a related but distinct predecessor/sister scheme from the free-coaching 'Anuprati Coaching Yojana')",
+      "https://hindinews.careers360.com/rajasthan-government-extended-the-chief-minister-anuprati-coaching-scheme-for-students/amp (careers360, a reputable education-news outlet - confirms scheme growth history and current government's commitment to continuing it, but not exact figures)",
+      "jansarkariyojana.com aggregator (used cautiously as the source for specific amounts/income limits since the official PDFs were unreadable - cross-check recommended)"
+    ],
+    "confidence": "medium - scheme identity, department, and purpose are officially confirmed. Specific rupee amounts and income-limit tiers are NOT independently confirmed from readable official text and should be treated as provisional until manually checked against the current-year sje.rajasthan.gov.in notification.",
+    "related_scheme_flagged": "sje.rajasthan.gov.in/schemes/Anuprati.html describes a separate but related cash-reward-on-passing 'Anuprati Yojana' (2005, revised 2012) - if your app wants that one too it is a distinct record from this free-coaching scheme; not added here since X1 specifically asked for 'Anuprati coaching'."
+  },
+  "RJ_GARGI_BALIKA_PROTSAHAN": {
+    "sources_checked": [
+      "https://rajshaladarpan.rajasthan.gov.in/sd2/Home/BSF/Index.aspx (official School Education Dept portal - fetched successfully, full detail on both Gargi Puraskar installments and Balika Protsahan Puraskar)",
+      "https://rajshaladarpan.rajasthan.gov.in/SD3/Home/BSF/Index.aspx (official mirror/related page on the same portal family, titled 'Balika Shiksha Foundation, Rajasthan' - corroborates the same department and scheme umbrella)"
+    ],
+    "confidence": "high - detailed, internally consistent official source with a working, non-JS-blocked domain (rajshaladarpan.rajasthan.gov.in), distinct from the problematic Jankalyan portal. Both eligibility (75% cutoff) and exact amounts (₹3,000 x2 + ₹5,000) came through cleanly."
+  },
+  "RJ_VRIDHJAN_KRISHAK_PENSION": {
+    "sources_checked": [
+      "https://www.amarujala.com/rajasthan/rajasthan-government-issued-rules-for-social-protection-old-age-farmer-honor-pension-scheme (Amar Ujala, a major mainstream Hindi newspaper - reports the official rule notification, effective date, department, and exact figures)",
+      "https://yojanainfo.in aggregator (independently arrived at identical figures - used as cross-check only)",
+      "https://ssp.rajasthan.gov.in/HtmlPages/Schemes/FlowDiagram.aspx (official RajSSP domain - fetch returned 'UnAuthorised Access', could not confirm directly; used ssp.rajasthan.gov.in root as source_url since that domain is the known-working one from the existing dataset's RJ_RAJSSP_OLD_AGE record)"
+    ],
+    "confidence": "medium-high - two independent sources agree exactly on every figure, and the department + effective date are specific enough to be credible, but I could not get a direct fetch from ssp.rajasthan.gov.in's own page for this specific scheme (dungarpur.rajasthan.gov.in/scheme/detail/115 exists per search but is on the unfetchable Jankalyan portal). Recommend a manual check against ssp.rajasthan.gov.in before shipping."
+  },
+  "RJ_DISABILITY_AIDS_ADIP": {
+    "sources_checked": [
+      "https://depwd.gov.in/en/adip/ (official Dept of Empowerment of Persons with Disabilities page - fetched, confirms scheme overview and ARJUN application portal)",
+      "https://cdnbbsr.s3waas.gov.in/s3d3fc6457f79901b0cc046568027bc827/uploads/2025/03/202503121607214745.pdf (official government-hosted PDF - fetched successfully, full income/disability/cost-ceiling tiers and age criteria)",
+      "https://sje.rajasthan.gov.in/schemes/Disabled%20Schemes.html (official Rajasthan SJE page - fetched successfully, confirms state-level Joint Assistance Grant and District Rehabilitation Centre programs as add-ons to the central scheme)"
+    ],
+    "confidence": "high - both the central and state layers came from directly-fetched official documents with specific, internally consistent figures."
+  },
+  "RJ_PMAY_GRAMIN": {
+    "sources_checked": [
+      "https://static.pib.gov.in/WriteReadData/specificdocs/documents/2024/nov/doc20241119437801.pdf (official Press Information Bureau document, Nov 2024 - fetched successfully, full unit-assistance/exclusion-criteria/convergence detail)",
+      "https://pmayg.nic.in/ (official scheme portal - DNS/fetch failure, could not access directly)"
+    ],
+    "confidence": "high for national figures (official PIB PDF, current as of the Cabinet's FY2024-25 to 2028-29 continuation approval). Did not find Rajasthan-specific beneficiary counts or any state top-up amount - PMAY-G is otherwise a uniform national scheme so this is likely not a gap."
+  },
+  "RJ_PMAY_URBAN": {
+    "sources_checked": [
+      "https://pmay-urban.gov.in/about (official PMAY-U portal - fetched successfully, full vertical/eligibility detail, though some of it describes the pre-2024 PMAY-U 1.0 structure)",
+      "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2043927 (official PIB press release - confirms PMAY-U 2.0 approval Aug 9 2024, current income slabs, and headline targets)"
+    ],
+    "confidence": "high - two official sources, though they describe overlapping old (1.0) and new (2.0) scheme structures since the portal page hasn't fully separated them; used the PIB 2.0 figures as primary where they conflicted with the older /about page. Recommend a human check of pmay-urban.gov.in closer to submission since this scheme was actively being restructured as of the source dates."
+  },
+  "RJ_UJJWALA": {
+    "sources_checked": [
+      "https://www.pmuy.gov.in/ujjwala2.html (official PMUY portal - fetched successfully, full eligibility and document list including the migrant self-declaration provision)",
+      "https://mopng.gov.in/en/page/46 (official Ministry of Petroleum & Natural Gas page - fetched successfully, confirms the ₹1,600 → ₹2,200 per-connection support figure and free first refill/stove)"
+    ],
+    "confidence": "high - two independent official .gov.in sources, consistent and complementary (one gave eligibility/documents, the other gave the benefit amount)."
+  },
+  "RJ_NFSA": {
+    "sources_checked": [
+      "https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=1897933&reg=48&lang=2 (official Press Information Bureau release - fetched successfully, AAY/PHH quantities and coverage percentages)",
+      "https://department.rajasthan.gov.in/scheme/detail/203 (official Rajasthan Jankalyan portal listing - JS app, could not render, used only to confirm the scheme is listed under the Rajasthan government's own scheme catalogue)",
+      "Business Standard, Deccan Herald, Tribune India (independently, consistently report the Cabinet's Nov 2023 decision extending free foodgrain under PMGKAY/NFSA for 5 years from 1 Jan 2024 to Dec 2029 - used only to confirm the 'free of cost' status is still current, not for eligibility figures)",
+      "https://food.raj.nic.in/searchrationcardold.aspx (official Rajasthan Food Dept domain - DNS/fetch failure, could not access)"
+    ],
+    "confidence": "high for the national quantity/eligibility structure (official PIB source) and for the free-of-cost status still being current in 2026 (multiple independent reputable news confirmations of the 5-year extension to Dec 2029). Noted but did not verify: a 'National Food Security Act 2026' amendment appears to be under discussion per recent current-affairs coverage - worth a manual check closer to shipping in case eligibility rules change."
+  },
+  "RJ_NISHULK_DAWA_JANCH": {
+    "status": "IDENTIFIED_AS_LIKELY_MATCH_FOR_X1_ITEM - please confirm this is what you meant by 'Chiranjeevi/MAA add-ons'",
+    "sources_checked": [
+      "https://rajswasthya.rajasthan.gov.in/schemes.php?id=1 (official Medical, Health & Family Welfare Dept page - fetched successfully, full detail on both the medicine and diagnostics schemes)",
+      "https://rajswasthya.rajasthan.gov.in/schemes.php?id=5 (official same-department page - confirmed Mukhyamantri Ayushman Arogya Yojana explicitly covers only IPD, which is what makes these two OPD-focused schemes a genuine 'add-on' rather than duplication)"
+    ],
+    "confidence": "high for the facts stated, but medium on whether this is the correct interpretation of the X1 list item. 'MAA' also independently stands for 'Mukhyamantri Ayushman Arogya' (i.e. is just another name for your existing RJ_AYUSHMAN record) - I could not find a scheme literally named 'Chiranjeevi/MAA add-on'. I judged the free-medicine + free-diagnostics schemes to be the best fit since they fill the OPD gap that Ayushman/Chiranjeevi explicitly does not cover, but please sanity-check this interpretation against what you had in mind."
+  },
+  "RJ_RGHS": {
+    "sources_checked": [
+      "https://rghs.rajasthan.gov.in/RGHS/home/homeintro (official RGHS portal - fetched successfully, full eligibility categories, benefit structure, empanelment process)",
+      "https://rghs.rajasthan.gov.in/RGHS/home/homedefinition (official RGHS portal definitions page - fetched successfully, confirms pensioner/employee/beneficiary definitions)"
+    ],
+    "confidence": "high - two pages from the same working official domain, internally consistent. Did not find a specific premium/contribution amount or annual coverage cap on the fetched pages - these may be in a separate rules document not reached in this session; worth a manual check if the app wants to state a cap."
+  },
+  "RJ_RURAL_EMPLOYMENT_GUARANTEE": {
+    "status": "TIME_SENSITIVE - very recent law change, cross-check close to ship date",
+    "sources_checked": [
+      "https://www.scconline.com/blog/post/2026/07/06/state-wise-wage-rates-revised-under-vb-g-ram-g-act/ (SCC Online, a well-established Indian legal-news publisher - reports the official 30 June 2026 wage notification with Rajasthan's exact ₹300/day rate and full state comparison table)",
+      "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2279660&reg=3&lang=1 (official Press Information Bureau release - confirms the Act, the 125-day guarantee, national average wage change, and the July 1 2026 effective date)",
+      "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2207351&reg=3&lang=1 (official PIB release - confirms presidential assent Dec 22 2025, replaces MGNREGA, funding-model and administrative changes)",
+      "https://nrega.dord.gov.in/ / https://nrega.nic.in/ (old MGNREGA portals - both now effectively superseded/redirecting, could not pull structured eligibility text)"
+    ],
+    "confidence": "high - this is genuinely new information from official PIB releases and a reputable legal-news site, all dated within the last ~6 weeks relative to today (14 Aug 2026). Flagging as TIME_SENSITIVE because a law this new may still be settling into implementation - recommend re-verifying against nrega.dord.gov.in or a Rajasthan Rural Development Dept notice shortly before your submission deadline, since implementation details (portal names, application forms) may still be catching up to the new Act."
+  },
+  "RJ_URBAN_EMPLOYMENT_GUARANTEE": {
+    "status": "NEEDS_MANUAL_VERIFICATION_ON_CURRENT_STATUS - could not find a dedicated official web portal for this scheme",
+    "sources_checked": [
+      "https://x.com/RajGovOfficial/status/1674040167953252353 (Government of Rajasthan's own official X/Twitter account - primary-source-adjacent, confirms 125-day guarantee and describes the enrolment mechanism via Mehangai Rahat camps)",
+      "https://www.patrika.com/jaipur-news/indira-gandhi-shahari-rojgar-gurantee-yojna-cm-ashok-gehlot-125-days-8063002 (Patrika, a major Hindi newspaper - corroborates 125-day figure and 2022 launch)"
+    ],
+    "confidence": "medium - scheme identity, launch date (9 Sept 2022) and days-guarantee figure (125) are corroborated by two sources including the state government's own social account, but I could not find a dedicated, currently-live official department webpage or the daily wage rate, and the 'Mehangai Rahat camp' enrollment channel referenced was specific to the 2023 government - worth checking whether enrollment channels changed under the current government before shipping this record."
+  }
+}

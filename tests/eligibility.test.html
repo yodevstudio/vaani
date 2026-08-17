@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<title>VAANI — पात्रता इंजन परीक्षण (Eligibility Engine Tests)</title>
+<style>
+  body { font-family: 'Segoe UI', sans-serif; margin: 2rem; background: #F6F2E9; color: #14181F; }
+  h1 { color: #1B3A6B; }
+  table { border-collapse: collapse; width: 100%; margin-top: 1rem; font-size: 14px; }
+  th, td { border: 1px solid #ccc; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #1B3A6B; color: #fff; position: sticky; top: 0; }
+  tr.pass { background: #e6f4ea; }
+  tr.fail { background: #fbe9e7; }
+  .pass-badge { color: #1B7F4B; font-weight: bold; }
+  .fail-badge { color: #B03A2E; font-weight: bold; }
+  #summary { font-size: 20px; font-weight: bold; margin-top: 1rem; }
+  code { font-size: 12px; }
+  .note { font-size: 13px; color: #444; max-width: 70ch; }
+</style>
+</head>
+<body>
+<h1>VAANI — पात्रता इंजन परीक्षण सूट (T04)</h1>
+<p class="note">
+  अधिकांश परीक्षण <code>data/schemes.json</code> के वास्तविक रिकॉर्ड पर चलते हैं।
+  दो सिंथेटिक फिक्स्चर स्कीमें ([सिंथेटिक] चिह्नित) केवल <code>between</code> ऑपरेटर और
+  <code>none_of</code> बहिष्करण तर्क का परीक्षण करने के लिए हैं, क्योंकि वर्तमान 34 सत्यापित
+  स्कीमों में इनका प्रयोग नहीं है — ये असली स्कीम डेटा नहीं हैं।
+</p>
+<p id="summary">चल रहा है...</p>
+<table>
+  <thead><tr><th>#</th><th>Scheme</th><th>विवरण</th><th>Slots</th><th>Expected</th><th>Actual</th><th>Status</th></tr></thead>
+  <tbody id="results-body"></tbody>
+</table>
+
+<h2>gaps परीक्षण (D1 — structured "why not" facts)</h2>
+<p class="note">
+  <code>evaluate()</code> अब <code>gaps</code> भी लौटाता है — हर असफल शर्त के लिए <code>{slot, op, required, actual, kind}</code>,
+  ताकि "क्यों नहीं" और "कितनी दूर" जैसे जवाब गढ़े नहीं बल्कि इंजन से सीधे मिलें। requirement leaf तब रोकती है जब वह false हो
+  (शर्त पूरी नहीं हुई); exclusion (none_of) leaf तब रोकती है जब वह true हो (बहिष्करण शर्त लागू हो गई) — <code>formatReason</code> जैसी ही ध्रुवता।
+</p>
+<p id="gaps-summary">चल रहा है...</p>
+<table>
+  <thead><tr><th>#</th><th>विवरण</th><th>Expected gap शामिल हो</th><th>Actual gaps</th><th>Status</th></tr></thead>
+  <tbody id="gaps-results-body"></tbody>
+</table>
+
+<h2>anti-hallucination guard परीक्षण (assertNoUnsourcedNumber)</h2>
+<p class="note">
+  यह गार्ड सुनिश्चित करता है कि सिस्टम कभी भी ऐसा अंक न बोले जो <code>benefit.amount_inr</code>,
+  <code>benefit.amount_text_hi</code>, या <code>name_hi</code> से सिद्ध न हो — <code>dataset_version</code>
+  या <code>last_verified</code> जैसे असंबंधित फ़ील्ड कभी अंक को वैध साबित नहीं कर सकते।
+</p>
+<p id="guard-summary">चल रहा है...</p>
+<table>
+  <thead><tr><th>#</th><th>विवरण</th><th>Expected</th><th>Actual</th><th>Status</th></tr></thead>
+  <tbody id="guard-results-body"></tbody>
+</table>
+
+<h2>explainGap / near-miss परीक्षण (D6)</h2>
+<p class="note">
+  <code>explainGap(gap, scheme)</code> हर gap के लिए एक छोटा हिंदी वाक्य लौटाता है, और लौटाने से पहले
+  <code>assertNoUnsourcedNumber</code> खुद चलाता है। <code>isNumericGap</code>/<code>gapDistance</code> यह तय करते हैं
+  कि कोई gap near-miss सूची में गिना जाए या नहीं, और उसे दूरी के अनुसार क्रमबद्ध करते हैं।
+</p>
+<p id="explaingap-summary">चल रहा है...</p>
+<table>
+  <thead><tr><th>#</th><th>विवरण</th><th>जांच</th><th>परिणाम</th><th>Status</th></tr></thead>
+  <tbody id="explaingap-results-body"></tbody>
+</table>
+
+<h2>amount_inr / rate_policy परीक्षण (P4)</h2>
+<p class="note">
+  यह वही जांच है जो <code>tools/build-registry.mjs</code> build पर चलाता है (दोनों
+  <code>js/amount-policy.js</code> से एक ही फ़ंक्शन आयात करते हैं): कोई भी स्कीम जिसका
+  <code>benefit.amount_text_hi</code> में रुपये का आँकड़ा (₹ या रु॰) है, पर
+  <code>benefit.amount_inr</code> <code>null</code> है और <code>benefit.rate_policy</code> गैरमौजूद है — यह
+  असंगति है, क्योंकि null यह नहीं बताता कि राशि जानबूझकर scalar नहीं रखी गई या शोध अधूरा है।
+</p>
+<p id="amountpolicy-summary">चल रहा है...</p>
+<table>
+  <thead><tr><th>#</th><th>Scheme</th><th>amount_text_hi</th><th>Status</th></tr></thead>
+  <tbody id="amountpolicy-results-body"></tbody>
+</table>
+
+<script type="module">
+import { evaluate } from '../js/eligibility.js';
+import { assertNoUnsourcedNumber, explainGap, isNumericGap, gapDistance } from '../js/assemble.js';
+import { findAmountPolicyViolations } from '../js/amount-policy.js';
+
+async function loadSchemes() {
+  const res = await fetch('../data/schemes.json');
+  return res.json();
+}
+
+function findScheme(schemes, id) {
+  const s = schemes.find((s) => s.scheme_id === id);
+  if (!s) throw new Error(`Scheme not found in data/schemes.json: ${id}`);
+  return s;
+}
+
+const FIXTURE_BETWEEN = {
+  scheme_id: 'FIXTURE_BETWEEN',
+  name_hi: '[सिंथेटिक] between परीक्षण',
+  eligibility: { all_of: [{ slot: 'age', op: 'between', value: [18, 60] }], any_of: [], none_of: [] }
+};
+const FIXTURE_NONE_OF = {
+  scheme_id: 'FIXTURE_NONE_OF',
+  name_hi: '[सिंथेटिक] none_of परीक्षण',
+  eligibility: {
+    all_of: [{ slot: 'occupation', op: 'eq', value: 'farmer' }],
+    any_of: [],
+    none_of: [{ slot: 'category', op: 'eq', value: 'government_employee' }]
+  }
+};
+
+// D2 — a single-condition fixture per {slot, op, value}, for testing
+// range-valued slots ({min, max}) against each operator in isolation.
+function rangeFixture(slot, op, value) {
+  return {
+    scheme_id: `FIXTURE_RANGE_${slot}_${op}`,
+    name_hi: `[सिंथेटिक] range ${slot}/${op} परीक्षण`,
+    eligibility: { all_of: [{ slot, op, value }], any_of: [], none_of: [] },
+  };
+}
+
+async function run() {
+  const schemes = await loadSchemes();
+
+  const cases = [
+    // RJ_PALANHAR — all_of only, operators lte/gte/in
+    { scheme: findScheme(schemes, 'RJ_PALANHAR'), desc: 'सभी शर्तें पूरी', slots: { child_age: 10, annual_income: 80000, residency_years: 5, child_status: 'orphan' }, expect: 'ELIGIBLE' },
+    { scheme: findScheme(schemes, 'RJ_PALANHAR'), desc: 'आय सीमा से अधिक', slots: { child_age: 10, annual_income: 200000, residency_years: 5, child_status: 'orphan' }, expect: 'NOT_ELIGIBLE' },
+    { scheme: findScheme(schemes, 'RJ_PALANHAR'), desc: 'child_status सूची में नहीं', slots: { child_age: 10, annual_income: 80000, residency_years: 5, child_status: 'both_parents_alive' }, expect: 'NOT_ELIGIBLE' },
+    { scheme: findScheme(schemes, 'RJ_PALANHAR'), desc: 'residency_years गुम', slots: { child_age: 10, annual_income: 80000, child_status: 'orphan' }, expect: 'NEED_MORE_INFO', expectMissing: ['residency_years'] },
+    { scheme: findScheme(schemes, 'RJ_PALANHAR'), desc: 'कोई भी slot नहीं दिया', slots: {}, expect: 'NEED_MORE_INFO' },
+
+    // RJ_RAJSSP_OLD_AGE — nested any_of arrays (gender-dependent age threshold)
+    { scheme: findScheme(schemes, 'RJ_RAJSSP_OLD_AGE'), desc: 'महिला 60 वर्ष — पात्र', slots: { gender: 'female', age: 60, annual_income: 30000 }, expect: 'ELIGIBLE' },
+    { scheme: findScheme(schemes, 'RJ_RAJSSP_OLD_AGE'), desc: 'पुरुष 58 वर्ष — पात्र', slots: { gender: 'male', age: 58, annual_income: 20000 }, expect: 'ELIGIBLE' },
+    { scheme: findScheme(schemes, 'RJ_RAJSSP_OLD_AGE'), desc: 'महिला 50 वर्ष — आयु कम', slots: { gender: 'female', age: 50, annual_income: 30000 }, expect: 'NOT_ELIGIBLE' },
+    { scheme: findScheme(schemes, 'RJ_RAJSSP_OLD_AGE'), desc: 'महिला, आयु गुम — केवल age मांगे (पुरुष शाखा पहले ही असफल)', slots: { gender: 'female', annual_income: 30000 }, expect: 'NEED_MORE_INFO', expectMissing: ['age'] },
+    { scheme: findScheme(schemes, 'RJ_RAJSSP_OLD_AGE'), desc: 'आयु/लिंग ठीक पर आय अधिक', slots: { gender: 'male', age: 60, annual_income: 60000 }, expect: 'NOT_ELIGIBLE' },
+
+    // RJ_WIDOW_PENSION
+    { scheme: findScheme(schemes, 'RJ_WIDOW_PENSION'), desc: 'सभी शर्तें पूरी', slots: { age: 40, gender: 'female', marital_status: 'widow', annual_income: 20000 }, expect: 'ELIGIBLE' },
+    { scheme: findScheme(schemes, 'RJ_WIDOW_PENSION'), desc: 'पुरुष — अपात्र', slots: { age: 40, gender: 'male', marital_status: 'widow', annual_income: 20000 }, expect: 'NOT_ELIGIBLE' },
+    { scheme: findScheme(schemes, 'RJ_WIDOW_PENSION'), desc: 'marital_status गुम', slots: { age: 40, gender: 'female', annual_income: 20000 }, expect: 'NEED_MORE_INFO', expectMissing: ['marital_status'] },
+
+    // RJ_DIVYANG_PENSION — flat (non-nested) any_of
+    { scheme: findScheme(schemes, 'RJ_DIVYANG_PENSION'), desc: 'disability_pct से पात्र', slots: { annual_income: 30000, disability_pct: 50 }, expect: 'ELIGIBLE' },
+    { scheme: findScheme(schemes, 'RJ_DIVYANG_PENSION'), desc: 'category से पात्र (disability_pct अनदिया, फिर भी न पूछे)', slots: { annual_income: 30000, category: 'transgender' }, expect: 'ELIGIBLE' },
+    { scheme: findScheme(schemes, 'RJ_DIVYANG_PENSION'), desc: 'दोनों शर्तें असफल', slots: { annual_income: 30000, disability_pct: 10, category: 'general' }, expect: 'NOT_ELIGIBLE' },
+    { scheme: findScheme(schemes, 'RJ_DIVYANG_PENSION'), desc: 'दोनों जानकारी गुम', slots: { annual_income: 30000 }, expect: 'NEED_MORE_INFO', expectMissing: ['disability_pct', 'category'] },
+
+    // RJ_RAJSHREE
+    { scheme: findScheme(schemes, 'RJ_RAJSHREE'), desc: 'सभी शर्तें पूरी', slots: { gender: 'female', birth_date: '2018-01-01', birth_facility_type: 'government', family_girls_count: 1 }, expect: 'ELIGIBLE' },
+    { scheme: findScheme(schemes, 'RJ_RAJSHREE'), desc: 'कट-ऑफ तिथि से पहले जन्म', slots: { gender: 'female', birth_date: '2015-01-01', birth_facility_type: 'government', family_girls_count: 1 }, expect: 'NOT_ELIGIBLE' },
+    { scheme: findScheme(schemes, 'RJ_RAJSHREE'), desc: 'तीसरी बालिका — सीमा से अधिक', slots: { gender: 'female', birth_date: '2018-01-01', birth_facility_type: 'government', family_girls_count: 3 }, expect: 'NOT_ELIGIBLE' },
+
+    // RJ_TARBANDI — any_of mixing a plain condition and a nested AND-group
+    { scheme: findScheme(schemes, 'RJ_TARBANDI'), desc: 'व्यक्तिगत भूमि से पात्र', slots: { occupation: 'farmer', landholding_hectares: 1 }, expect: 'ELIGIBLE' },
+    { scheme: findScheme(schemes, 'RJ_TARBANDI'), desc: 'समूह से पात्र', slots: { occupation: 'farmer', group_farmer_count: 4, group_landholding_hectares: 6 }, expect: 'ELIGIBLE' },
+    { scheme: findScheme(schemes, 'RJ_TARBANDI'), desc: 'कृषक नहीं — अपात्र', slots: { occupation: 'labourer', landholding_hectares: 1 }, expect: 'NOT_ELIGIBLE' },
+    { scheme: findScheme(schemes, 'RJ_TARBANDI'), desc: 'भूमि जानकारी गुम', slots: { occupation: 'farmer' }, expect: 'NEED_MORE_INFO' },
+
+    // RJ_BEROJGARI — 4-branch nested any_of
+    { scheme: findScheme(schemes, 'RJ_BEROJGARI'), desc: 'सामान्य श्रेणी, आयु 28 — पात्र', slots: { education_level: 'graduate', annual_income: 150000, employment_registered: true, category: 'general', age: 28 }, expect: 'ELIGIBLE' },
+    { scheme: findScheme(schemes, 'RJ_BEROJGARI'), desc: 'SC श्रेणी, आयु 33 — विस्तारित सीमा से पात्र', slots: { education_level: 'graduate', annual_income: 150000, employment_registered: true, category: 'sc', age: 33 }, expect: 'ELIGIBLE' },
+    { scheme: findScheme(schemes, 'RJ_BEROJGARI'), desc: 'सामान्य श्रेणी, आयु 36 — सभी शाखाएं असफल', slots: { education_level: 'graduate', annual_income: 150000, employment_registered: true, category: 'general', gender: 'male', age: 36, disability_pct: 0 }, expect: 'NOT_ELIGIBLE' },
+    { scheme: findScheme(schemes, 'RJ_BEROJGARI'), desc: 'आयु/लिंग/निशक्तता गुम — केवल इन्हें मांगे', slots: { education_level: 'graduate', annual_income: 150000, employment_registered: true, category: 'general' }, expect: 'NEED_MORE_INFO', expectMissing: ['age', 'gender', 'disability_pct'] },
+
+    // RJ_AYUSHMAN — X2: real branch (free category vs ₹850 premium), not a
+    // wildcard rubber-stamp. Coverage is near-universal either way, so
+    // every known health_cover_category value is ELIGIBLE — but the engine
+    // must now actually ask, rather than approving an empty slots object.
+    { scheme: findScheme(schemes, 'RJ_AYUSHMAN'), desc: 'श्रेणी गुम — अब कुछ भी पूछे बिना पात्र घोषित नहीं करे', slots: {}, expect: 'NEED_MORE_INFO', expectMissing: ['health_cover_category'] },
+    { scheme: findScheme(schemes, 'RJ_AYUSHMAN'), desc: 'निःशुल्क श्रेणी (NFSA) — पात्र', slots: { health_cover_category: 'nfsa' }, expect: 'ELIGIBLE' },
+    { scheme: findScheme(schemes, 'RJ_AYUSHMAN'), desc: 'प्रीमियम श्रेणी (other) — फिर भी पात्र (₹850 पर)', slots: { health_cover_category: 'other' }, expect: 'ELIGIBLE' },
+
+    // Synthetic fixture — `between` operator
+    { scheme: FIXTURE_BETWEEN, desc: '[सिंथेटिक] between — सीमा के भीतर', slots: { age: 30 }, expect: 'ELIGIBLE' },
+    { scheme: FIXTURE_BETWEEN, desc: '[सिंथेटिक] between — सीमा के बाहर', slots: { age: 70 }, expect: 'NOT_ELIGIBLE' },
+    { scheme: FIXTURE_BETWEEN, desc: '[सिंथेटिक] between — जानकारी गुम', slots: {}, expect: 'NEED_MORE_INFO', expectMissing: ['age'] },
+
+    // Synthetic fixture — `none_of` exclusion logic
+    { scheme: FIXTURE_NONE_OF, desc: '[सिंथेटिक] none_of — बहिष्करण लागू नहीं', slots: { occupation: 'farmer', category: 'private' }, expect: 'ELIGIBLE' },
+    { scheme: FIXTURE_NONE_OF, desc: '[सिंथेटिक] none_of — बहिष्करण लागू', slots: { occupation: 'farmer', category: 'government_employee' }, expect: 'NOT_ELIGIBLE' },
+    { scheme: FIXTURE_NONE_OF, desc: '[सिंथेटिक] none_of — जानकारी गुम', slots: { occupation: 'farmer' }, expect: 'NEED_MORE_INFO', expectMissing: ['category'] },
+
+    // D2 — range-valued slots ({min, max}), never guessed from a midpoint.
+    // lte: the required 3-outcome coverage from the D2 gate (below / above / straddling).
+    { scheme: rangeFixture('annual_income', 'lte', 200000), desc: '[सिंथेटिक] range lte — सीमा (50000–100000) पूरी तरह सीमा से नीचे', slots: { annual_income: { min: 50000, max: 100000 } }, expect: 'ELIGIBLE' },
+    { scheme: rangeFixture('annual_income', 'lte', 48000), desc: '[सिंथेटिक] range lte — सीमा (50000–100000) पूरी तरह सीमा से ऊपर', slots: { annual_income: { min: 50000, max: 100000 } }, expect: 'NOT_ELIGIBLE' },
+    { scheme: rangeFixture('annual_income', 'lte', 60000), desc: '[सिंथेटिक] range lte — सीमा (50000–100000) दहलीज़ 60000 को फांदती है', slots: { annual_income: { min: 50000, max: 100000 } }, expect: 'NEED_MORE_INFO', expectMissing: ['annual_income'] },
+    // gte / between — same three-valued logic, other operators.
+    { scheme: rangeFixture('age', 'gte', 55), desc: '[सिंथेटिक] range gte — सीमा (60–70) पूरी तरह दहलीज़ के ऊपर', slots: { age: { min: 60, max: 70 } }, expect: 'ELIGIBLE' },
+    { scheme: rangeFixture('age', 'between', [18, 60]), desc: '[सिंथेटिक] range between — सीमा (25–40) पूरी तरह भीतर', slots: { age: { min: 25, max: 40 } }, expect: 'ELIGIBLE' },
+    { scheme: rangeFixture('age', 'between', [18, 60]), desc: '[सिंथेटिक] range between — सीमा (55–65) ऊपरी दहलीज़ 60 को फांदती है', slots: { age: { min: 55, max: 65 } }, expect: 'NEED_MORE_INFO', expectMissing: ['age'] },
+    // eq/in — a range only ever resolves if it has collapsed to a single point.
+    { scheme: rangeFixture('gender_code', 'eq', 1), desc: '[सिंथेटिक] range eq — सीमा (1–1) एक बिंदु पर सिमट गई', slots: { gender_code: { min: 1, max: 1 } }, expect: 'ELIGIBLE' },
+    { scheme: rangeFixture('gender_code', 'eq', 1), desc: '[सिंथेटिक] range eq — सीमा (1–2) नहीं सिमटी, कभी अनुमान नहीं', slots: { gender_code: { min: 1, max: 2 } }, expect: 'NEED_MORE_INFO', expectMissing: ['gender_code'] }
+  ];
+
+  const tbody = document.getElementById('results-body');
+  let passCount = 0;
+
+  cases.forEach((c, i) => {
+    const actual = evaluate(c.slots, c.scheme);
+    let pass = actual.verdict === c.expect;
+    if (pass && c.expectMissing) {
+      const got = new Set(actual.missing_slots);
+      const want = new Set(c.expectMissing);
+      pass = got.size === want.size && [...want].every((s) => got.has(s));
+    }
+    if (pass) passCount++;
+
+    const row = document.createElement('tr');
+    row.className = pass ? 'pass' : 'fail';
+    row.innerHTML = `
+      <td>${i + 1}</td>
+      <td>${c.scheme.name_hi || c.scheme.scheme_id}<br><small>${c.scheme.scheme_id}</small></td>
+      <td>${c.desc}</td>
+      <td><code>${JSON.stringify(c.slots)}</code></td>
+      <td>${c.expect}${c.expectMissing ? '<br><small>missing: ' + c.expectMissing.join(', ') + '</small>' : ''}</td>
+      <td>${actual.verdict}<br><small>missing: ${actual.missing_slots.join(', ') || '—'}</small><br><small>${actual.reasons.length} reasons</small></td>
+      <td class="${pass ? 'pass-badge' : 'fail-badge'}">${pass ? '✓ PASS' : '✗ FAIL'}</td>
+    `;
+    tbody.appendChild(row);
+  });
+
+  const summary = document.getElementById('summary');
+  summary.textContent = `${passCount} / ${cases.length} पास हुए`;
+  summary.style.color = passCount === cases.length ? '#1B7F4B' : '#B03A2E';
+}
+
+function gapsContain(gaps, expected) {
+  return gaps.some((g) =>
+    g.slot === expected.slot &&
+    g.op === expected.op &&
+    JSON.stringify(g.required) === JSON.stringify(expected.required) &&
+    JSON.stringify(g.actual) === JSON.stringify(expected.actual) &&
+    g.kind === expected.kind
+  );
+}
+
+async function runGapsTests() {
+  const schemes = await loadSchemes();
+  const palanhar = findScheme(schemes, 'RJ_PALANHAR');
+  const oldAge = findScheme(schemes, 'RJ_RAJSSP_OLD_AGE');
+
+  const gapCases = [
+    {
+      desc: 'gte मिस — 53 वर्ष की महिला, वृद्धावस्था पेंशन (आयु 55 चाहिए)',
+      slots: { gender: 'female', age: 53, annual_income: 30000 },
+      scheme: oldAge,
+      expectGap: { slot: 'age', op: 'gte', required: 55, actual: 53, kind: 'requirement' },
+    },
+    {
+      desc: 'lte मिस — पालनहार, आय सीमा (₹1,20,000) से अधिक',
+      slots: { child_age: 10, annual_income: 200000, residency_years: 5, child_status: 'orphan' },
+      scheme: palanhar,
+      expectGap: { slot: 'annual_income', op: 'lte', required: 120000, actual: 200000, kind: 'requirement' },
+    },
+    {
+      desc: 'in-list मिस — पालनहार, child_status सूची में नहीं',
+      slots: { child_age: 10, annual_income: 80000, residency_years: 5, child_status: 'both_parents_alive' },
+      scheme: palanhar,
+      expectGap: {
+        slot: 'child_status', op: 'in',
+        required: ['orphan', 'single_parent_child', 'special_needs_or_ill_parent_child'],
+        actual: 'both_parents_alive', kind: 'requirement',
+      },
+    },
+    {
+      desc: 'between मिस — [सिंथेटिक] आयु 70, सीमा [18,60]',
+      slots: { age: 70 },
+      scheme: FIXTURE_BETWEEN,
+      expectGap: { slot: 'age', op: 'between', required: [18, 60], actual: 70, kind: 'requirement' },
+    },
+    {
+      desc: 'बहिष्करण लागू — [सिंथेटिक] सरकारी कर्मचारी none_of शर्त से टकराया',
+      slots: { occupation: 'farmer', category: 'government_employee' },
+      scheme: FIXTURE_NONE_OF,
+      expectGap: { slot: 'category', op: 'eq', required: 'government_employee', actual: 'government_employee', kind: 'exclusion' },
+    },
+    {
+      desc: 'ELIGIBLE — पालनहार सभी शर्तें पूरी, gaps खाली होने चाहिए',
+      slots: { child_age: 10, annual_income: 80000, residency_years: 5, child_status: 'orphan' },
+      scheme: palanhar,
+      expectEmpty: true,
+    },
+  ];
+
+  const tbody = document.getElementById('gaps-results-body');
+  let passCount = 0;
+
+  gapCases.forEach((c, i) => {
+    const actual = evaluate(c.slots, c.scheme);
+    const pass = c.expectEmpty ? actual.gaps.length === 0 : gapsContain(actual.gaps, c.expectGap);
+    if (pass) passCount++;
+
+    const row = document.createElement('tr');
+    row.className = pass ? 'pass' : 'fail';
+    row.innerHTML = `
+      <td>${i + 1}</td>
+      <td>${c.desc}</td>
+      <td><code>${c.expectEmpty ? 'gaps: []' : JSON.stringify(c.expectGap)}</code></td>
+      <td><code>${JSON.stringify(actual.gaps)}</code></td>
+      <td class="${pass ? 'pass-badge' : 'fail-badge'}">${pass ? '✓ PASS' : '✗ FAIL'}</td>
+    `;
+    tbody.appendChild(row);
+  });
+
+  const summary = document.getElementById('gaps-summary');
+  summary.textContent = `${passCount} / ${gapCases.length} पास हुए`;
+  summary.style.color = passCount === gapCases.length ? '#1B7F4B' : '#B03A2E';
+}
+
+async function runGuardTests() {
+  const schemes = await loadSchemes();
+  const realScheme = findScheme(schemes, 'RJ_BEROJGARI'); // amount_text_hi legitimately contains ₹4000/₹4500
+
+  // A scheme whose ONLY digits anywhere are on dataset_version/last_verified —
+  // never in a benefit field. This is the exact laundering path §3 flagged:
+  // before the fix, stringifying the whole scheme let a version-stamp digit
+  // vouch for a fabricated figure.
+  const versionOnlyScheme = {
+    scheme_id: 'FIXTURE_VERSION_LAUNDER',
+    name_hi: '[सिंथेटिक] संस्करण-केवल परीक्षण',
+    dataset_version: '2026.07.30-9',
+    last_verified: '2026-07-30',
+    benefit: { amount_inr: null, amount_text_hi: 'राशि आयु वर्ग के अनुसार तय होती है' },
+  };
+
+  // D6: a scheme whose only numbers anywhere live in eligibility (55, 48000)
+  // — nothing in benefit. Proves the guard's new eligibility allowlist
+  // entry actually covers explainGap's threshold figures.
+  const eligibilityOnlyScheme = {
+    scheme_id: 'FIXTURE_ELIGIBILITY_THRESHOLD',
+    name_hi: '[सिंथेटिक] पात्रता-सीमा परीक्षण',
+    benefit: { amount_inr: null, amount_text_hi: 'राशि तय नहीं' },
+    eligibility: {
+      all_of: [{ slot: 'annual_income', op: 'lte', value: 48000 }],
+      any_of: [{ slot: 'age', op: 'gte', value: 55 }],
+      none_of: [],
+    },
+  };
+
+  const guardCases = [
+    {
+      desc: 'गढ़ा हुआ अंक (₹99999) — असली स्कीम में यह राशि कहीं नहीं है',
+      run: () => assertNoUnsourcedNumber({ text_hi: 'आपको ₹99999 मिलेंगे', speech_hi: 'आपको ₹99999 मिलेंगे' }, realScheme),
+      expectThrow: true,
+    },
+    {
+      desc: 'देवनागरी अंकों में गढ़ा हुआ आँकड़ा (५००००) — Latin \\d+ इसे पकड़ नहीं पाता था',
+      run: () => assertNoUnsourcedNumber({ text_hi: 'आपको ₹५०००० मिलेंगे', speech_hi: '' }, realScheme),
+      expectThrow: true,
+    },
+    {
+      desc: 'dataset_version/last_verified का अंक (2026, 30, 9) — अब benefit फ़ील्ड न होने से पास नहीं होना चाहिए',
+      run: () => assertNoUnsourcedNumber({ text_hi: 'यह योजना 2026 में 9% अधिक लाभ देती है', speech_hi: '' }, versionOnlyScheme),
+      expectThrow: true,
+    },
+    {
+      desc: 'amount_text_hi में सत्यापित अंक (₹4000/₹4500) — यह अवरुद्ध नहीं होना चाहिए',
+      run: () => assertNoUnsourcedNumber(
+        { text_hi: `${realScheme.name_hi} — ${realScheme.benefit.amount_text_hi}`, speech_hi: '' },
+        realScheme
+      ),
+      expectThrow: false,
+    },
+    // D6: the allowlist now also covers scheme.eligibility (explainGap
+    // names threshold figures that live there, not in benefit). These two
+    // cases prove that extension both works AND stays scoped — a real
+    // threshold passes, but a number belonging to neither eligibility nor
+    // benefit still throws.
+    {
+      desc: 'D6: पात्रता सीमा (55, gte) — eligibility विस्तार के कारण अब अवरुद्ध नहीं होना चाहिए',
+      run: () => assertNoUnsourcedNumber(
+        { text_hi: '55 की उम्र पर आप पात्र हो जाएंगे।', speech_hi: '' },
+        eligibilityOnlyScheme
+      ),
+      expectThrow: false,
+    },
+    {
+      desc: 'D6: गढ़ा हुआ अंक (7777) — eligibility विस्तार के बावजूद अभी भी अवरुद्ध होना चाहिए',
+      run: () => assertNoUnsourcedNumber(
+        { text_hi: 'आपको ₹7777 मिलेंगे', speech_hi: '' },
+        eligibilityOnlyScheme
+      ),
+      expectThrow: true,
+    },
+  ];
+
+  const tbody = document.getElementById('guard-results-body');
+  let passCount = 0;
+
+  guardCases.forEach((c, i) => {
+    let threw = false;
+    let detail = '—';
+    try {
+      c.run();
+    } catch (err) {
+      threw = true;
+      detail = err.message;
+    }
+    const pass = threw === c.expectThrow;
+    if (pass) passCount++;
+
+    const row = document.createElement('tr');
+    row.className = pass ? 'pass' : 'fail';
+    row.innerHTML = `
+      <td>${i + 1}</td>
+      <td>${c.desc}</td>
+      <td>${c.expectThrow ? 'THROWS' : 'NO THROW'}</td>
+      <td>${threw ? 'THROWS' : 'NO THROW'}<br><small>${detail}</small></td>
+      <td class="${pass ? 'pass-badge' : 'fail-badge'}">${pass ? '✓ PASS' : '✗ FAIL'}</td>
+    `;
+    tbody.appendChild(row);
+  });
+
+  const summary = document.getElementById('guard-summary');
+  summary.textContent = `${passCount} / ${guardCases.length} पास हुए`;
+  summary.style.color = passCount === guardCases.length ? '#1B7F4B' : '#B03A2E';
+}
+
+async function runExplainGapTests() {
+  const schemes = await loadSchemes();
+  const oldAge = findScheme(schemes, 'RJ_RAJSSP_OLD_AGE');
+  const palanhar = findScheme(schemes, 'RJ_PALANHAR');
+
+  // The exact D6 gate scenario: a 53-year-old, low income, against the
+  // old-age pension — should read as a near-miss she'll age into.
+  const ageGap = evaluate({ gender: 'female', age: 53, annual_income: 30000 }, oldAge).gaps
+    .find((g) => g.slot === 'age' && g.op === 'gte');
+  const incomeGap = evaluate(
+    { child_age: 10, annual_income: 200000, residency_years: 5, child_status: 'orphan' }, palanhar
+  ).gaps.find((g) => g.slot === 'annual_income');
+  const childStatusGap = evaluate(
+    { child_age: 10, annual_income: 80000, residency_years: 5, child_status: 'both_parents_alive' }, palanhar
+  ).gaps.find((g) => g.slot === 'child_status');
+  const exclusionGap = evaluate(
+    { occupation: 'farmer', category: 'government_employee' }, FIXTURE_NONE_OF
+  ).gaps.find((g) => g.kind === 'exclusion');
+
+  const explainCases = [
+    {
+      desc: 'D6 gate: 53 वर्ष की महिला — वृद्धावस्था पेंशन near-miss वाक्य "55 की उम्र पर ... पात्र हो जाएंगे" कहे',
+      check: () => {
+        const sentence = explainGap(ageGap, oldAge);
+        return sentence.includes('55 की उम्र पर') && sentence.includes('पात्र हो जाएंगे');
+      },
+    },
+    {
+      desc: 'lte gap — पालनहार आय gap का वाक्य त्रुटि के बिना बने, दोनों अंक (120000, 200000) शामिल हों',
+      check: () => {
+        const sentence = explainGap(incomeGap, palanhar);
+        return sentence.includes('120000') && sentence.includes('200000');
+      },
+    },
+    {
+      desc: 'exclusion gap (none_of) — त्रुटि के बिना एक गैर-रिक्त वाक्य बने',
+      check: () => {
+        const sentence = explainGap(exclusionGap, FIXTURE_NONE_OF);
+        return typeof sentence === 'string' && sentence.length > 0;
+      },
+    },
+    {
+      desc: 'isNumericGap — age/gte gap सत्य होना चाहिए (near-miss योग्य)',
+      check: () => isNumericGap(ageGap) === true,
+    },
+    {
+      desc: 'isNumericGap — in-list gap (child_status) असत्य होना चाहिए (कोई सार्थक "कितनी दूर" नहीं)',
+      check: () => isNumericGap(childStatusGap) === false,
+    },
+    {
+      desc: 'gapDistance — 53 बनाम आवश्यक 55 की दूरी ठीक 2 होनी चाहिए',
+      check: () => gapDistance(ageGap) === 2,
+    },
+    {
+      desc: 'gapDistance — छोटी दूरी वाला gap near-miss रैंकिंग में पहले आए',
+      check: () => {
+        const closeGap = { slot: 'age', op: 'gte', required: 55, actual: 53, kind: 'requirement' };
+        const farGap = { slot: 'age', op: 'gte', required: 55, actual: 30, kind: 'requirement' };
+        return gapDistance(closeGap) < gapDistance(farGap);
+      },
+    },
+  ];
+
+  const tbody = document.getElementById('explaingap-results-body');
+  let passCount = 0;
+
+  explainCases.forEach((c, i) => {
+    let pass = false;
+    let detail = '—';
+    try {
+      pass = c.check();
+      detail = pass ? 'सही' : 'गलत';
+    } catch (err) {
+      detail = 'त्रुटि: ' + err.message;
+    }
+    if (pass) passCount++;
+
+    const row = document.createElement('tr');
+    row.className = pass ? 'pass' : 'fail';
+    row.innerHTML = `
+      <td>${i + 1}</td>
+      <td>${c.desc}</td>
+      <td>सही</td>
+      <td>${detail}</td>
+      <td class="${pass ? 'pass-badge' : 'fail-badge'}">${pass ? '✓ PASS' : '✗ FAIL'}</td>
+    `;
+    tbody.appendChild(row);
+  });
+
+  const summary = document.getElementById('explaingap-summary');
+  summary.textContent = `${passCount} / ${explainCases.length} पास हुए`;
+  summary.style.color = passCount === explainCases.length ? '#1B7F4B' : '#B03A2E';
+}
+
+async function runAmountPolicyTests() {
+  const schemes = await loadSchemes();
+  const violations = findAmountPolicyViolations(schemes);
+  const bySchemeId = new Map(schemes.map((s) => [s.scheme_id, s]));
+
+  const tbody = document.getElementById('amountpolicy-results-body');
+  const pass = violations.length === 0;
+
+  if (pass) {
+    const row = document.createElement('tr');
+    row.className = 'pass';
+    row.innerHTML = `<td>1</td><td colspan="2">सभी 34 स्कीमों में कोई उल्लंघन नहीं</td><td class="pass-badge">✓ PASS</td>`;
+    tbody.appendChild(row);
+  } else {
+    violations.forEach((id, i) => {
+      const scheme = bySchemeId.get(id);
+      const row = document.createElement('tr');
+      row.className = 'fail';
+      row.innerHTML = `
+        <td>${i + 1}</td>
+        <td>${scheme?.name_hi || id}<br><small>${id}</small></td>
+        <td>${scheme?.benefit?.amount_text_hi || '—'}</td>
+        <td class="fail-badge">✗ FAIL</td>
+      `;
+      tbody.appendChild(row);
+    });
+  }
+
+  const summary = document.getElementById('amountpolicy-summary');
+  summary.textContent = pass ? `0 उल्लंघन — 34 / 34 स्कीमें पास हुईं` : `${violations.length} उल्लंघन मिले`;
+  summary.style.color = pass ? '#1B7F4B' : '#B03A2E';
+}
+
+run().catch((err) => {
+  const summary = document.getElementById('summary');
+  summary.textContent = 'त्रुटि: ' + err.message;
+  summary.style.color = '#B03A2E';
+  console.error(err);
+});
+
+runGapsTests().catch((err) => {
+  const summary = document.getElementById('gaps-summary');
+  summary.textContent = 'त्रुटि: ' + err.message;
+  summary.style.color = '#B03A2E';
+  console.error(err);
+});
+
+runGuardTests().catch((err) => {
+  const summary = document.getElementById('guard-summary');
+  summary.textContent = 'त्रुटि: ' + err.message;
+  summary.style.color = '#B03A2E';
+  console.error(err);
+});
+
+runExplainGapTests().catch((err) => {
+  const summary = document.getElementById('explaingap-summary');
+  summary.textContent = 'त्रुटि: ' + err.message;
+  summary.style.color = '#B03A2E';
+  console.error(err);
+});
+
+runAmountPolicyTests().catch((err) => {
+  const summary = document.getElementById('amountpolicy-summary');
+  summary.textContent = 'त्रुटि: ' + err.message;
+  summary.style.color = '#B03A2E';
+  console.error(err);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="VAANI">
+  <!-- W2: app icon, maskable-safe — full-bleed indigo background (so a
+       circular/squircle OS mask leaves no gap), mic glyph kept inside the
+       ~80% safe-zone circle (radius ~205px centred at 256,256) so nothing
+       meaningful gets cropped by an aggressive mask. -->
+  <rect width="512" height="512" fill="#1B3A6B"/>
+  <rect x="216" y="120" width="80" height="160" rx="40" fill="#F6F2E9"/>
+  <path d="M166 240 a90 90 0 0 0 180 0" fill="none" stroke="#F6F2E9" stroke-width="18" stroke-linecap="round"/>
+  <line x1="256" y1="330" x2="256" y2="378" stroke="#F6F2E9" stroke-width="18" stroke-linecap="round"/>
+  <line x1="200" y1="378" x2="312" y2="378" stroke="#F6F2E9" stroke-width="18" stroke-linecap="round"/>
+</svg>

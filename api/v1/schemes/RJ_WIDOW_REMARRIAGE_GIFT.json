@@ -1,0 +1,83 @@
+{
+  "scheme_id": "RJ_WIDOW_REMARRIAGE_GIFT",
+  "name_hi": "विधवा विवाह उपहार योजना",
+  "name_en": "Scheme of Gift on Widow's Marriage (Widow Remarriage Incentive)",
+  "keywords_hi": [
+    "विधवा पुनर्विवाह",
+    "विधवा विवाह उपहार",
+    "पुनर्विवाह प्रोत्साहन"
+  ],
+  "department": "Social Justice & Empowerment Department, Rajasthan",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://sje.rajasthan.gov.in/schemes/WidoMerig.html",
+  "source_url_secondary": "https://jansoochna.rajasthan.gov.in/",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 60,
+  "next_review_due": "2026-10-13",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "gender",
+        "op": "eq",
+        "value": "female"
+      },
+      {
+        "slot": "marital_status",
+        "op": "eq",
+        "value": "widow"
+      },
+      {
+        "slot": "widow_pension_recipient_or_eligible",
+        "op": "eq",
+        "value": true
+      },
+      {
+        "slot": "remarriage_status",
+        "op": "eq",
+        "value": "remarried"
+      }
+    ],
+    "any_of": [],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "one_time_cash",
+    "amount_inr": 51000,
+    "amount_text_hi": "राज्य सरकार की ओर से पुनर्विवाह पर ₹51,000 की एकमुश्त उपहार राशि (Social Justice & Empowerment Dept)। आधिकारिक sje.rajasthan.gov.in पेज पर अब भी ₹15,000 (2007 के पुराने नियमों के अनुसार) दर्ज है, जो अपडेट न होने की वजह से पुरानी लगती है — पत्रिका (patrika.com, प्रमुख हिंदी समाचार माध्यम) ने विभाग के हवाले से ₹51,000 की पुष्टि की है।",
+    "rate_policy": "51000_PATRIKA_CORROBORATED_OFFICIAL_PAGE_STALE",
+    "note": "आधिकारिक पेज (sje.rajasthan.gov.in) 2007-08 के नियमों पर आधारित है और संभवतः वर्षों से अपडेट नहीं हुआ — round-2 सत्यापन में patrika.com ने SJE विभाग के हवाले से ₹51,000 की राशि की पुष्टि की, जो कई गैर-सरकारी वेबसाइटों पर भी बार-बार दोहराई गई थी। चूंकि patrika.com एक स्थापित मुख्यधारा समाचार स्रोत है (केवल aggregator ब्लॉग नहीं) और विभाग का नाम आधिकारिक पेज से मेल खाता है, ₹51,000 को वर्तमान राशि माना गया है। पुनर्विवाह के एक माह के भीतर संबंधित जिला मजिस्ट्रेट/सामाजिक न्याय अधिकारिता विभाग को निर्धारित प्रपत्र में आवेदन करना होता है। शिपिंग से पहले एक बार sje.rajasthan.gov.in से सीधे फोन पर पुष्टि की सलाह दी जाती है, क्योंकि आधिकारिक पेज अभी भी ₹15,000 दिखाता है।"
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "MARRIAGE_CERT",
+      "label_hi": "पुनर्विवाह प्रमाण पत्र",
+      "icon": "certificate",
+      "where_to_get_hi": "पंजीयन कार्यालय / न्यायालय",
+      "sample_image": "assets/docs/marriage_cert.svg"
+    },
+    {
+      "doc_id": "MARITAL_STATUS_PROOF",
+      "label_hi": "प्रथम पति का मृत्यु प्रमाण पत्र",
+      "icon": "certificate",
+      "where_to_get_hi": "नगर निगम / ग्राम पंचायत",
+      "sample_image": "assets/docs/marital_status_proof.svg"
+    }
+  ],
+  "apply_via": [
+    "district_sje_office"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रही हैं। {{benefit_text}}। सटीक राशि की पुष्टि जिला सामाजिक न्याय अधिकारिता कार्यालय से करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+  }
+}

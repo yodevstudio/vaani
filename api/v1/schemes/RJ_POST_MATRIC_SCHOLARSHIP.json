@@ -1,0 +1,132 @@
+{
+  "scheme_id": "RJ_POST_MATRIC_SCHOLARSHIP",
+  "name_hi": "उत्तर मैट्रिक (पोस्ट मैट्रिक) छात्रवृत्ति योजना",
+  "name_en": "Post-Matric Scholarship Scheme (SC / ST / OBC / Minority)",
+  "keywords_hi": [
+    "पोस्ट मैट्रिक छात्रवृत्ति",
+    "उत्तर मैट्रिक छात्रवृत्ति",
+    "कॉलेज छात्रवृत्ति SC ST OBC"
+  ],
+  "department": "Social Justice & Empowerment Dept (SC/ST/OBC) + Minority Affairs Dept, Rajasthan, under the Centrally-Sponsored Post-Matric Scholarship Scheme (Union Ministry of Social Justice & Empowerment / Ministry of Minority Affairs)",
+  "dataset_version": "2026.08.14-3",
+  "source_url": "https://scholarships.gov.in/public/schemeGuidelines/Postmatric_SC.pdf",
+  "source_url_secondary": "https://sje.rajasthan.gov.in/Scholarship_portal.aspx",
+  "last_verified": "2026-08-14",
+  "verification_interval_days": 90,
+  "next_review_due": "2026-11-12",
+  "verified_by": "manual",
+  "eligibility": {
+    "all_of": [
+      {
+        "slot": "exam_passed",
+        "op": "in",
+        "value": [
+          "class_10",
+          "class_12"
+        ]
+      }
+    ],
+    "any_of": [
+      [
+        {
+          "slot": "category",
+          "op": "in",
+          "value": [
+            "sc",
+            "st"
+          ]
+        },
+        {
+          "slot": "annual_income",
+          "op": "lte",
+          "value": 250000
+        }
+      ],
+      [
+        {
+          "slot": "category",
+          "op": "eq",
+          "value": "obc"
+        },
+        {
+          "slot": "annual_income",
+          "op": "lte",
+          "value": 250000
+        }
+      ],
+      [
+        {
+          "slot": "religion",
+          "op": "in",
+          "value": [
+            "muslim",
+            "sikh",
+            "christian",
+            "buddhist",
+            "jain",
+            "parsi"
+          ]
+        },
+        {
+          "slot": "annual_income",
+          "op": "lte",
+          "value": 200000
+        }
+      ]
+    ],
+    "none_of": []
+  },
+  "benefit": {
+    "type": "staged_cash",
+    "amount_inr": null,
+    "amount_text_hi": "श्रेणी व पाठ्यक्रम समूह (Group I-IV) के अनुसार भिन्न — SC/ST: रखरखाव भत्ता ₹380-₹1,200/माह (छात्रावासी) या ₹230-₹550/माह (डे-स्कॉलर) + अनिवार्य शुल्क प्रतिपूर्ति; OBC: वार्षिक शैक्षणिक भत्ता ₹5,000-₹10,000 + शिक्षण शुल्क ₹0-₹10,000 (कुल ₹5,000-₹20,000/वर्ष); अल्पसंख्यक: प्रवेश/शिक्षण शुल्क ₹3,000-₹10,000/वर्ष + रखरखाव भत्ता ₹230-₹1,200/माह — चारों श्रेणियों की राशि व आय सीमा अलग-अलग है",
+    "rate_policy": "VARIES_BY_CATEGORY_AND_COURSE_GROUP_DO_NOT_COLLAPSE",
+    "note": "यह चार अलग-अलग केंद्र प्रायोजित योजनाओं (SC, ST, OBC, अल्पसंख्यक) का सम्मिश्रण है, प्रत्येक की अपनी आय सीमा व राशि संरचना है — इसलिए एक बंधी राशि देना गलत होगा। SC/ST PMS की दरें 2013-14 की guideline PDF से हैं और तब से संशोधित हो सकती हैं — वर्तमान दर राष्ट्रीय छात्रवृत्ति पोर्टल (scholarships.gov.in) पर पुष्टि करें।"
+  },
+  "documents": [
+    {
+      "doc_id": "JAN_AADHAAR",
+      "label_hi": "जन आधार कार्ड",
+      "icon": "id-card",
+      "where_to_get_hi": "ई-मित्र",
+      "sample_image": "assets/docs/jan_aadhaar.svg"
+    },
+    {
+      "doc_id": "CASTE_CERT",
+      "label_hi": "जाति प्रमाण पत्र (तहसीलदार स्तर से नीचे नहीं)",
+      "icon": "certificate",
+      "where_to_get_hi": "तहसील / ई-मित्र",
+      "sample_image": "assets/docs/caste_cert.svg"
+    },
+    {
+      "doc_id": "INCOME_CERT",
+      "label_hi": "आय प्रमाण पत्र",
+      "icon": "certificate",
+      "where_to_get_hi": "तहसील / ई-मित्र",
+      "sample_image": "assets/docs/income_cert.svg"
+    },
+    {
+      "doc_id": "MARKSHEET",
+      "label_hi": "पिछली कक्षा की अंकतालिका",
+      "icon": "document",
+      "where_to_get_hi": "विद्यालय / बोर्ड",
+      "sample_image": "assets/docs/marksheet.svg"
+    },
+    {
+      "doc_id": "BANK_PASSBOOK",
+      "label_hi": "बैंक खाते की पासबुक (DBT हेतु)",
+      "icon": "bank",
+      "where_to_get_hi": "बैंक शाखा",
+      "sample_image": "assets/docs/bank_passbook.svg"
+    }
+  ],
+  "apply_via": [
+    "sso_portal"
+  ],
+  "response_templates_hi": {
+    "eligible": "आप {{scheme_name_hi}} के लिए पात्र लग रहे हैं। {{benefit_text}}। राष्ट्रीय छात्रवृत्ति पोर्टल (scholarships.gov.in) पर आवेदन करें।",
+    "need_info": "{{scheme_name_hi}} बताने के लिए मुझे {{missing}} जानना होगा।",
+    "not_eligible": "{{reason_hi}} के कारण इस योजना में आप शायद पात्र नहीं हैं।",
+    "unknown": "मेरे पास इसकी पक्की जानकारी नहीं है। नज़दीकी ई-मित्र से पूछें।"
+  }
+}

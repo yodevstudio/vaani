@@ -1,0 +1,19 @@
+<svg viewBox="0 0 160 190" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="बच्चे का आधार कार्ड — प्रतीकात्मक चित्र">
+  <rect x="6" y="6" width="148" height="130" rx="14" fill="#FFFFFF" stroke="#14181F" stroke-width="3"/>
+  <rect x="18" y="18" width="124" height="10" rx="5" fill="#1B3A6B"/>
+
+  <rect x="34" y="50" width="26" height="30" rx="3" fill="none" stroke="#1B3A6B" stroke-width="3"/>
+  <circle cx="47" cy="61" r="7" fill="#1B3A6B"/>
+  <path d="M39 76 q8 -10 16 0" fill="none" stroke="#1B3A6B" stroke-width="3" stroke-linecap="round"/>
+  
+  <line x1="68" y1="54" x2="122" y2="54" stroke="#1B3A6B" stroke-width="3" stroke-linecap="round"/>
+  <line x1="68" y1="64" x2="110" y2="64" stroke="#1B3A6B" stroke-width="3" stroke-linecap="round"/>
+  <line x1="68" y1="74" x2="118" y2="74" stroke="#1B3A6B" stroke-width="3" stroke-linecap="round"/>
+
+  
+
+  <rect x="18" y="112" width="124" height="14" rx="4" fill="none" stroke="#C8791A" stroke-width="3"/>
+  <line x1="26" y1="119" x2="80" y2="119" stroke="#C8791A" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="80" y="158" text-anchor="middle" font-family="'Noto Sans Devanagari', sans-serif" font-size="13" font-weight="600" fill="#14181F">प्रतीकात्मक चित्र</text>
+  <text x="80" y="174" text-anchor="middle" font-family="'Inter', sans-serif" font-size="9" fill="#14181F" opacity="0.75">representative illustration</text>
+</svg>
